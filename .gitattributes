@@ -1,0 +1,12 @@
+* text=auto eol=lf
+*.cmd text eol=crlf
+
+*.zip binary
+*.obj binary
+*.exe binary
+
+# C4 recovery evidence is raw captured bytes: never line-ending converted,
+# never re-encoded. The runner and recorder self-tests require `git check-attr
+# text` to report `unset` for .bin, .json, .md and .zip under both roots.
+docs/superpowers/reviews/evidence/c4-recovery-logs/** -text
+docs/superpowers/reviews/evidence/c4-recovery-native/** -text

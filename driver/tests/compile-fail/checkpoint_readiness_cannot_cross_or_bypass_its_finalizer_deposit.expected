@@ -1,0 +1,28 @@
+E0599
+no function or associated item named `new` found for struct `FinalizerDeposit`
+E0277
+the trait bound `FenceDeletionReadiness<Owners>: Clone` is not satisfied
+the trait bound `FenceDeletionReadiness<Owners>: Default` is not satisfied
+the trait bound `FinalizerDeposit<Owners>: Clone` is not satisfied
+the trait bound `FinalizerDeposit<Owners>: Default` is not satisfied
+the trait bound `FinalizerDeposit<Owners>: From<FenceDeletionReadiness<Owners>>` is not satisfied
+the trait bound `FinalizerDeposit<Owners>: From<(FenceDeletionReadiness<Owners>, DeleteSessionRight)>` is not satisfied
+the trait bound `R3FinalizerKick: From<SessionLocator>` is not satisfied
+the trait bound `R3FinalizerKick: From<FenceDeletionReadiness<Owners>>` is not satisfied
+the trait bound `R3FinalizerKick: From<FinalizerDeposit<Owners>>` is not satisfied
+no method named `clone` found for struct `R3FinalizerKick`
+no function or associated item named `default` found for struct `R3FinalizerKick`
+E0061
+destroy_shell_then_release_root
+no function or associated item named `begin` found for struct `FinalDeletePlan`
+finish_run_and_reset
+deactivate_after_delete_prepared
+E0624
+method `execute` is private
+method `completed_publication_completed` is private
+method `outcome_signalled` is private
+method `counted_arrivals_drained` is private
+method `joiners_drained` is private
+method `access_rundown_completed` is private
+method `reinitialized_for_reuse` is private
+method `retired_without_reinitialize` is private

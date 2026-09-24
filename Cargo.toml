@@ -1,0 +1,28 @@
+# FSRING workspace root.
+#
+# Center is the frozen `fsring-abi` no_std source-of-truth crate
+# (11-rust-implementation.md section 1). `fsring-user` and `mirrorfs` are the
+# std/OS daemon-side crates built on top of it.
+#
+# The kernel driver crates (fsring-fsd, and later fsring-sys / fsring-seh) live
+# in a SEPARATE workspace under `driver/`, excluded below, and NOT here. They
+# require panic="abort" in both dev and release, plus a release profile of
+# opt-level=3 / lto=true / overflow-checks=true (11-rust-implementation.md
+# sections 1 and 8), and a >=1.85 toolchain. Cargo honors [profile.*] only at a
+# workspace root, so hosting those crates here would impose that release profile
+# on fsring-abi's frozen `cargo +1.82.0 test --release --locked` battery
+# (changing its byte-for-byte build environment) and impose dev panic="abort" on
+# every host binary. (`panic` alone does NOT break the test battery -- cargo
+# ignores it for test units, verified on 1.82.0 -- but opt-level/lto/
+# overflow-checks do change the build.) The separate workspace keeps this root's
+# Cargo.lock and verification byte-for-byte intact. See
+# docs/superpowers/specs/2026-07-24-fsring-driver-toolchain-bringup-design.md.
+[workspace]
+resolver = "2"
+members = ["fsring-abi", "fsring-user", "mirrorfs"]
+exclude = ["driver"]
+
+# Matches fsring-abi's frozen [profile.release] so its --release verification
+# battery is byte-for-byte unaffected by workspace membership.
+[profile.release]
+debug = true

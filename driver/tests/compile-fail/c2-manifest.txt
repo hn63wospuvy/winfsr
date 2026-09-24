@@ -1,0 +1,8 @@
+clearance_cloned
+clearance_outlives_its_context
+clearance_reused
+completion_sink_call_without_clearance
+completion_sink_without_clearance
+completion_without_clearance
+forged_completion_clearance
+refusal_carrying_a_mapping

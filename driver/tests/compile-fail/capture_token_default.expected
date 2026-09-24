@@ -1,0 +1,6 @@
+E0277
+the trait bound `CaptureToken: Default` is not satisfied
+the trait bound `ApplicationCapture: Default` is not satisfied
+the trait bound `ControlCapture: Default` is not satisfied
+the trait bound `CapturedApplication: Default` is not satisfied
+the trait bound `CapturedControl: Default` is not satisfied

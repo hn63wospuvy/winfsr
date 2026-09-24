@@ -1,0 +1,10 @@
+E0451
+field `table_id` of struct `TerminalControl` is private
+field `slot_index` of struct `TerminalControl` is private
+field `lane` of struct `TerminalControl` is private
+field `birth_session_epoch` of struct `TerminalControl` is private
+field `birth_generation` of struct `TerminalControl` is private
+field `terminal_wire_session_epoch` of struct `TerminalControl` is private
+field `terminal_req_id` of struct `TerminalControl` is private
+field `terminal_kind` of struct `TerminalControl` is private
+field `continuation` of struct `TerminalControl` is private

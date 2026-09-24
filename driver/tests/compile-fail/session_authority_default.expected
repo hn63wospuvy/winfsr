@@ -1,0 +1,6 @@
+E0277
+the trait `Default` is not implemented for `RegistryLease`
+the trait `Default` is not implemented for `StrongSessionRef`
+the trait `Default` is not implemented for `TerminalSessionRef`
+the trait `Default` is not implemented for `DeleteSessionRight`
+the trait `Default` is not implemented for `PreparedDeleteCoreCommit`

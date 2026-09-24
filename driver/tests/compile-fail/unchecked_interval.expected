@@ -1,0 +1,5 @@
+E0451
+field `start` of struct `Interval` is private
+field `end` of struct `Interval` is private
+field `lowest_issue` of struct `Interval` is private
+field `status` of struct `Interval` is private

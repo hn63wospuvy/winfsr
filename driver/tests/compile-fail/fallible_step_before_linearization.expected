@@ -1,0 +1,2 @@
+E0599
+no method named `map_pages` found for struct `fsring_core::pagingledger::PagingWrite<fsring_core::pagingledger::Extracted>`

@@ -1,0 +1,10 @@
+# The windows-drivers-rs stack (wdk-build 0.5.1 MSRV 1.85.0; wdk-v0.4.x is
+# Rust 2024 edition) cannot build on Rust 1.82. This pin is local to the driver
+# workspace; fsring-abi stays on 1.82 (see repo root).
+#
+# Both kernel targets are pinned so a fresh checkout reproduces the three-image
+# matrix (driver/scripts/build_matrix.cmd) without a hand-run
+# `rustup target add`.
+[toolchain]
+channel = "1.85.0"
+targets = ["x86_64-pc-windows-msvc", "aarch64-pc-windows-msvc"]

@@ -1,0 +1,4 @@
+E0433
+use of undeclared type `IssueCounter`
+use of undeclared type `ActiveSet`
+use of undeclared type `Ledger`

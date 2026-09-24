@@ -1,0 +1,2 @@
+E0599
+no method named `clamp_vdl` found for struct `fsring_core::size::Truncation<fsring_core::size::TailPurged>`

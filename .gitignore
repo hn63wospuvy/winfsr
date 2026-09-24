@@ -1,0 +1,28 @@
+# Rust build output
+**/target/
+target-*/
+
+# Local development and review scratch
+.agents/
+.superpowers/
+.worktrees/
+
+# Generated release archives
+*.zip
+
+# Editor and OS metadata
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Python bytecode: round 5 found three .pyc files tracked, one a stale
+# compiled copy of a gate script.
+__pycache__/
+*.pyc
+
+# The broad *.zip ignore above stays. Exactly two attempt-local source
+# archives are stageable, named in full: no directory-wide exception, and
+# nothing under the native evidence root.
+!docs/superpowers/reviews/evidence/c4-recovery-logs/attempt-*/artifacts/archives/fsring-abi.zip
+!docs/superpowers/reviews/evidence/c4-recovery-logs/attempt-*/artifacts/archives/fsring-spec.zip

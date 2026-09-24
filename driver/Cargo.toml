@@ -1,0 +1,19 @@
+# FSRING kernel-driver workspace (separate from the repository root; see the
+# root Cargo.toml comment and
+# docs/superpowers/specs/2026-07-24-fsring-driver-toolchain-bringup-design.md).
+#
+# panic="abort" in both profiles is required by every driver artifact
+# (11-rust-implementation.md section 8) and by the windows-drivers-rs crates.
+# The release profile matches 11-rust-implementation.md section 1.
+[workspace]
+resolver = "2"
+members = ["fsring-fsd", "fsring-core", "fsring-sys"]
+
+[profile.dev]
+panic = "abort"
+
+[profile.release]
+panic = "abort"
+opt-level = 3
+lto = true
+overflow-checks = true

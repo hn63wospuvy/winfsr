@@ -1,0 +1,4 @@
+E0432
+unresolved import `fsring_core::adapter::fence::R4TeardownComplete`
+E0599
+no function or associated item named `new` found for struct `FenceObligationsDischarged`

@@ -1,0 +1,25 @@
+[package]
+name = "fsring-abi"
+version = "0.2.1"
+edition = "2021"
+# Rust 1.82 covers the read-only atomic-load guarantee used by the transport
+# and the `unsafe extern` syntax in the Windows protected-mapping test.
+rust-version = "1.82"
+description = "FSRING ABI v2: byte-exact shared-memory transport and control payloads for kernel and daemon."
+
+[features]
+default = ["std"]
+# `std` selects host-side test builds; the ABI and v2 transport remain core-only.
+std = []
+
+[dependencies]
+# none, on purpose: this crate must compile in kernel context.
+
+[target.'cfg(loom)'.dependencies]
+loom = "=0.7.2"
+
+[lints.rust]
+unexpected_cfgs = { level = "warn", check-cfg = ['cfg(loom)'] }
+
+[profile.release]
+debug = true

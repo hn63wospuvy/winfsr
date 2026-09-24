@@ -1,0 +1,94 @@
+{
+  "schema": "fsring-c4-production-attestation/v1",
+  "version": 1,
+  "profile": "r5-cutover",
+  "sourceIdentity": "8C9572BAFCFE96EB4D8601DA73DEB5EFEC97CA90ADE9DEFBDCD7AB8E125F7AF3",
+  "manifestSha256": "556C3765357330D391A1B0FCC560514017C4BD0FBA2E4E87BFE6168030DE3BB6",
+  "auditorSha256": "26C9577FF2E7B88E59BFA883E818F6D3D80178DC22E8F567DB52C3B71B8A3665",
+  "requiredGates": [
+    "task19_r4_cutover_has_exactly_one_pending_terminal_delete_path",
+    "task25_r5_cutover_has_exactly_one_all16_terminal_delete_path"
+  ],
+  "requiredProperties": [
+    "r5_task20_21_cq_and_protocol_staging",
+    "task25_r5_cutover_all16_terminal_delete"
+  ],
+  "rows": [
+    {
+      "kind": "gate",
+      "name": "task19_r4_cutover_has_exactly_one_pending_terminal_delete_path",
+      "argv": [
+        "python",
+        "driver/scripts/audit_c4_production_graph.py",
+        "--manifest",
+        "driver/audit/c4-production-graph.json",
+        "--gate",
+        "task19_r4_cutover_has_exactly_one_pending_terminal_delete_path",
+        "--source-root",
+        "driver/fsring-core/src",
+        "--source-root",
+        "driver/fsring-fsd/src"
+      ],
+      "exit": 0,
+      "testCount": 0,
+      "stdoutSha256": "B8C5D31F3A531C750C8C602DCA70A7A53849A63C511B1D9A2DAD0FD5DA7FD6CA"
+    },
+    {
+      "kind": "gate",
+      "name": "task25_r5_cutover_has_exactly_one_all16_terminal_delete_path",
+      "argv": [
+        "python",
+        "driver/scripts/audit_c4_production_graph.py",
+        "--manifest",
+        "driver/audit/c4-production-graph.json",
+        "--gate",
+        "task25_r5_cutover_has_exactly_one_all16_terminal_delete_path",
+        "--source-root",
+        "driver/fsring-core/src",
+        "--source-root",
+        "driver/fsring-fsd/src"
+      ],
+      "exit": 0,
+      "testCount": 0,
+      "stdoutSha256": "C5C09895612FF7F4135F02264BD7241879DF789F0791F6F7FDE922289ECF72A0"
+    },
+    {
+      "kind": "property",
+      "name": "r5_task20_21_cq_and_protocol_staging",
+      "argv": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "enter::tests",
+        "--locked",
+        "--offline"
+      ],
+      "exit": 0,
+      "testCount": 213,
+      "stdoutSha256": "AF800E3CA2F4800E3734E51245D137A6502DAA12BD5D6FC2915FF23B6F90DA72"
+    },
+    {
+      "kind": "property",
+      "name": "task25_r5_cutover_all16_terminal_delete",
+      "argv": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "task25_",
+        "--locked",
+        "--offline"
+      ],
+      "exit": 0,
+      "testCount": 7,
+      "stdoutSha256": "202FB4929748DEDE14A3B836ACCB483DB199751F5C850CCF70697811BF690358"
+    }
+  ]
+}

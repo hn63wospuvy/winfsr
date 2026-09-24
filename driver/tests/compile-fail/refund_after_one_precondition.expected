@@ -1,0 +1,2 @@
+E0599
+no method named `refund` found for struct `RefundGate<LastAccessDone>`

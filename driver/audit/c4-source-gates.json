@@ -1,0 +1,685 @@
+{
+  "schema": "fsring-c4-source-gates/v1",
+  "workingDirectory": ".",
+  "commands": [
+    {
+      "id": "source-runner-selftest",
+      "argv": [
+        "powershell.exe",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "driver/scripts/run_c4_recovery_gates.ps1",
+        "-SelfTest"
+      ],
+      "cwd": ".",
+      "toolchain": "windows-powershell-recorded",
+      "expectedExit": 0,
+      "timeoutSeconds": 1800,
+      "stdout": "commands/01-source-runner-selftest.stdout.bin",
+      "stderr": "commands/01-source-runner-selftest.stderr.bin",
+      "exit": "commands/01-source-runner-selftest.exit.json"
+    },
+    {
+      "id": "capture-helper-selftest",
+      "argv": [
+        "powershell.exe",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "driver/scripts/invoke_c4_evidence.ps1",
+        "-SelfTest"
+      ],
+      "cwd": ".",
+      "toolchain": "windows-powershell-recorded",
+      "expectedExit": 0,
+      "timeoutSeconds": 300,
+      "stdout": "commands/02-capture-helper-selftest.stdout.bin",
+      "stderr": "commands/02-capture-helper-selftest.stderr.bin",
+      "exit": "commands/02-capture-helper-selftest.exit.json"
+    },
+    {
+      "id": "root-fmt",
+      "argv": [
+        "cargo-fmt",
+        "--all",
+        "--",
+        "--check"
+      ],
+      "cwd": ".",
+      "toolchain": "rust-1.82.0",
+      "expectedExit": 0,
+      "timeoutSeconds": 300,
+      "stdout": "commands/03-root-fmt.stdout.bin",
+      "stderr": "commands/03-root-fmt.stderr.bin",
+      "exit": "commands/03-root-fmt.exit.json"
+    },
+    {
+      "id": "root-check",
+      "argv": [
+        "cargo",
+        "check",
+        "--workspace",
+        "--all-targets",
+        "--all-features",
+        "--locked",
+        "--offline"
+      ],
+      "cwd": ".",
+      "toolchain": "rust-1.82.0",
+      "expectedExit": 0,
+      "timeoutSeconds": 1800,
+      "stdout": "commands/04-root-check.stdout.bin",
+      "stderr": "commands/04-root-check.stderr.bin",
+      "exit": "commands/04-root-check.exit.json"
+    },
+    {
+      "id": "root-test",
+      "argv": [
+        "cargo",
+        "test",
+        "--workspace",
+        "--all-targets",
+        "--all-features",
+        "--locked",
+        "--offline"
+      ],
+      "cwd": ".",
+      "toolchain": "rust-1.82.0",
+      "expectedExit": 0,
+      "timeoutSeconds": 3600,
+      "stdout": "commands/05-root-test.stdout.bin",
+      "stderr": "commands/05-root-test.stderr.bin",
+      "exit": "commands/05-root-test.exit.json"
+    },
+    {
+      "id": "driver-fmt",
+      "argv": [
+        "cargo-fmt",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "--all",
+        "--",
+        "--check"
+      ],
+      "cwd": ".",
+      "toolchain": "rust-1.85.0",
+      "expectedExit": 0,
+      "timeoutSeconds": 300,
+      "stdout": "commands/06-driver-fmt.stdout.bin",
+      "stderr": "commands/06-driver-fmt.stderr.bin",
+      "exit": "commands/06-driver-fmt.exit.json"
+    },
+    {
+      "id": "driver-core-clippy",
+      "argv": [
+        "cargo-clippy",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "--all-targets",
+        "--locked",
+        "--offline",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "cwd": ".",
+      "toolchain": "rust-1.85.0",
+      "expectedExit": 0,
+      "timeoutSeconds": 1800,
+      "stdout": "commands/07-driver-core-clippy.stdout.bin",
+      "stderr": "commands/07-driver-core-clippy.stderr.bin",
+      "exit": "commands/07-driver-core-clippy.exit.json"
+    },
+    {
+      "id": "driver-core-test",
+      "argv": [
+        "cargo",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "--all-targets",
+        "--locked",
+        "--offline"
+      ],
+      "cwd": ".",
+      "toolchain": "rust-1.85.0",
+      "expectedExit": 0,
+      "timeoutSeconds": 3600,
+      "stdout": "commands/08-driver-core-test.stdout.bin",
+      "stderr": "commands/08-driver-core-test.stderr.bin",
+      "exit": "commands/08-driver-core-test.exit.json"
+    },
+    {
+      "id": "c2-boundary",
+      "argv": [
+        "powershell.exe",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "driver/scripts/verify_c2_clearance_boundary.ps1"
+      ],
+      "cwd": ".",
+      "toolchain": "windows-powershell-recorded",
+      "expectedExit": 0,
+      "timeoutSeconds": 300,
+      "stdout": "commands/09-c2-boundary.stdout.bin",
+      "stderr": "commands/09-c2-boundary.stderr.bin",
+      "exit": "commands/09-c2-boundary.exit.json"
+    },
+    {
+      "id": "b5-manifest",
+      "argv": [
+        "powershell.exe",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "driver/scripts/verify_b5_compile_fail_manifest.ps1"
+      ],
+      "cwd": ".",
+      "toolchain": "windows-powershell-recorded",
+      "expectedExit": 0,
+      "timeoutSeconds": 300,
+      "stdout": "commands/10-b5-manifest.stdout.bin",
+      "stderr": "commands/10-b5-manifest.stderr.bin",
+      "exit": "commands/10-b5-manifest.exit.json"
+    },
+    {
+      "id": "compile-fail",
+      "argv": [
+        "{git-bash}",
+        "driver/scripts/compile_fail.sh"
+      ],
+      "cwd": ".",
+      "toolchain": "git-bash+rust-1.85.0",
+      "expectedExit": 0,
+      "timeoutSeconds": 3600,
+      "stdout": "commands/11-compile-fail.stdout.bin",
+      "stderr": "commands/11-compile-fail.stderr.bin",
+      "exit": "commands/11-compile-fail.exit.json"
+    },
+    {
+      "id": "mutation-default",
+      "argv": [
+        "python",
+        "driver/scripts/mutation_sweep.py",
+        "--no-resume"
+      ],
+      "cwd": ".",
+      "toolchain": "python3-recorded",
+      "expectedExit": 0,
+      "timeoutSeconds": 14400,
+      "stdout": "commands/12-mutation-default.stdout.bin",
+      "stderr": "commands/12-mutation-default.stderr.bin",
+      "exit": "commands/12-mutation-default.exit.json"
+    },
+    {
+      "id": "mutation-c4-list",
+      "argv": [
+        "python",
+        "driver/scripts/mutation_sweep.py",
+        "--suite",
+        "c4",
+        "--list",
+        "--json",
+        "{attempt}/mutation-c4-list.json"
+      ],
+      "cwd": ".",
+      "toolchain": "python3-recorded",
+      "expectedExit": 0,
+      "timeoutSeconds": 300,
+      "stdout": "commands/13-mutation-c4-list.stdout.bin",
+      "stderr": "commands/13-mutation-c4-list.stderr.bin",
+      "exit": "commands/13-mutation-c4-list.exit.json"
+    },
+    {
+      "id": "mutation-c4",
+      "argv": [
+        "python",
+        "driver/scripts/mutation_sweep.py",
+        "--suite",
+        "c4",
+        "--no-resume"
+      ],
+      "cwd": ".",
+      "toolchain": "python3-recorded",
+      "expectedExit": 0,
+      "timeoutSeconds": 14400,
+      "stdout": "commands/14-mutation-c4.stdout.bin",
+      "stderr": "commands/14-mutation-c4.stderr.bin",
+      "exit": "commands/14-mutation-c4.exit.json"
+    },
+    {
+      "id": "lifetime-selftest",
+      "argv": [
+        "python",
+        "driver/scripts/audit_c4_lifetime.py",
+        "--self-test"
+      ],
+      "cwd": ".",
+      "toolchain": "python3-recorded",
+      "expectedExit": 0,
+      "timeoutSeconds": 3600,
+      "stdout": "commands/15-lifetime-selftest.stdout.bin",
+      "stderr": "commands/15-lifetime-selftest.stderr.bin",
+      "exit": "commands/15-lifetime-selftest.exit.json"
+    },
+    {
+      "id": "lifetime-source",
+      "argv": [
+        "python",
+        "driver/scripts/audit_c4_lifetime.py",
+        "--source-root",
+        "driver/fsring-fsd/src",
+        "--source-root",
+        "driver/fsring-core/src"
+      ],
+      "cwd": ".",
+      "toolchain": "python3-recorded",
+      "expectedExit": 0,
+      "timeoutSeconds": 300,
+      "stdout": "commands/16-lifetime-source.stdout.bin",
+      "stderr": "commands/16-lifetime-source.stderr.bin",
+      "exit": "commands/16-lifetime-source.exit.json"
+    },
+    {
+      "id": "imports-selftest",
+      "argv": [
+        "python",
+        "driver/scripts/audit_c4_imports.py",
+        "--self-test"
+      ],
+      "cwd": ".",
+      "toolchain": "python3-recorded",
+      "expectedExit": 0,
+      "timeoutSeconds": 300,
+      "stdout": "commands/17-imports-selftest.stdout.bin",
+      "stderr": "commands/17-imports-selftest.stderr.bin",
+      "exit": "commands/17-imports-selftest.exit.json"
+    },
+    {
+      "id": "stack-selftest",
+      "argv": [
+        "python",
+        "driver/scripts/audit_c4_stack.py",
+        "--self-test"
+      ],
+      "cwd": ".",
+      "toolchain": "python3-recorded",
+      "expectedExit": 0,
+      "timeoutSeconds": 300,
+      "stdout": "commands/18-stack-selftest.stdout.bin",
+      "stderr": "commands/18-stack-selftest.stderr.bin",
+      "exit": "commands/18-stack-selftest.exit.json"
+    },
+    {
+      "id": "matrix-selftest",
+      "argv": [
+        "cmd.exe",
+        "/d",
+        "/c",
+        "call",
+        "driver/scripts/build_matrix.cmd",
+        "--self-test"
+      ],
+      "cwd": ".",
+      "toolchain": "cmd+wdk-10.0.26100",
+      "expectedExit": 0,
+      "timeoutSeconds": 3600,
+      "stdout": "commands/19-matrix-selftest.stdout.bin",
+      "stderr": "commands/19-matrix-selftest.stderr.bin",
+      "exit": "commands/19-matrix-selftest.exit.json"
+    },
+    {
+      "id": "matrix-three-profile",
+      "argv": [
+        "cmd.exe",
+        "/d",
+        "/c",
+        "call",
+        "driver/scripts/build_matrix.cmd"
+      ],
+      "cwd": ".",
+      "toolchain": "cmd+wdk-10.0.26100",
+      "expectedExit": 0,
+      "timeoutSeconds": 14400,
+      "stdout": "commands/20-matrix-three-profile.stdout.bin",
+      "stderr": "commands/20-matrix-three-profile.stderr.bin",
+      "exit": "commands/20-matrix-three-profile.exit.json"
+    },
+    {
+      "id": "package-win10-x64",
+      "argv": [
+        "powershell.exe",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "driver/scripts/package_c4_candidate.ps1",
+        "-OutputDirectory",
+        "{attempt}/artifacts/win10-x64-release/package",
+        "-ExpectedSourceCommit",
+        "{S}",
+        "-ExpectedSourceTree",
+        "{T}",
+        "-Profile",
+        "win10-x64-release",
+        "-InfVerifPath",
+        "{infverif}",
+        "-SignToolPath",
+        "{signtool}"
+      ],
+      "cwd": ".",
+      "toolchain": "windows-powershell+wdk-10.0.26100",
+      "expectedExit": 0,
+      "timeoutSeconds": 3600,
+      "stdout": "commands/21-package-win10-x64.stdout.bin",
+      "stderr": "commands/21-package-win10-x64.stderr.bin",
+      "exit": "commands/21-package-win10-x64.exit.json"
+    },
+    {
+      "id": "package-selftest",
+      "argv": [
+        "powershell.exe",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "driver/scripts/package_c4_candidate.ps1",
+        "-SelfTest"
+      ],
+      "cwd": ".",
+      "toolchain": "windows-powershell-recorded",
+      "expectedExit": 0,
+      "timeoutSeconds": 300,
+      "stdout": "commands/22-package-selftest.stdout.bin",
+      "stderr": "commands/22-package-selftest.stderr.bin",
+      "exit": "commands/22-package-selftest.exit.json"
+    },
+    {
+      "id": "smoke-selftest",
+      "argv": [
+        "powershell.exe",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "driver/scripts/smoke_driver.ps1",
+        "-SelfTest"
+      ],
+      "cwd": ".",
+      "toolchain": "windows-powershell-recorded",
+      "expectedExit": 0,
+      "timeoutSeconds": 1800,
+      "stdout": "commands/23-smoke-selftest.stdout.bin",
+      "stderr": "commands/23-smoke-selftest.stderr.bin",
+      "exit": "commands/23-smoke-selftest.exit.json"
+    },
+    {
+      "id": "native-session-test",
+      "argv": [
+        "cargo",
+        "test",
+        "-p",
+        "fsring-user",
+        "--test",
+        "native_session",
+        "--locked",
+        "--offline"
+      ],
+      "cwd": ".",
+      "toolchain": "rust-1.82.0",
+      "expectedExit": 0,
+      "timeoutSeconds": 1800,
+      "stdout": "commands/24-native-session-test.stdout.bin",
+      "stderr": "commands/24-native-session-test.stderr.bin",
+      "exit": "commands/24-native-session-test.exit.json"
+    },
+    {
+      "id": "smoke-v2-test",
+      "argv": [
+        "cargo",
+        "test",
+        "-p",
+        "fsring-user",
+        "--test",
+        "smoke_v2",
+        "--locked",
+        "--offline"
+      ],
+      "cwd": ".",
+      "toolchain": "rust-1.82.0",
+      "expectedExit": 0,
+      "timeoutSeconds": 1800,
+      "stdout": "commands/25-smoke-v2-test.stdout.bin",
+      "stderr": "commands/25-smoke-v2-test.stderr.bin",
+      "exit": "commands/25-smoke-v2-test.exit.json"
+    },
+    {
+      "id": "smoke-live-test",
+      "argv": [
+        "cargo",
+        "test",
+        "-p",
+        "fsring-user",
+        "--test",
+        "smoke_live",
+        "--locked",
+        "--offline"
+      ],
+      "cwd": ".",
+      "toolchain": "rust-1.82.0",
+      "expectedExit": 0,
+      "timeoutSeconds": 1800,
+      "stdout": "commands/26-smoke-live-test.stdout.bin",
+      "stderr": "commands/26-smoke-live-test.stderr.bin",
+      "exit": "commands/26-smoke-live-test.exit.json"
+    },
+    {
+      "id": "harness-win10-x64-release",
+      "argv": [
+        "cargo",
+        "build",
+        "-p",
+        "fsring-user",
+        "--bin",
+        "fsring-control-smoke",
+        "--target",
+        "x86_64-pc-windows-msvc",
+        "--release",
+        "--target-dir",
+        "{scratch}/harness",
+        "--locked",
+        "--offline"
+      ],
+      "cwd": ".",
+      "toolchain": "rust-1.82.0",
+      "expectedExit": 0,
+      "timeoutSeconds": 1800,
+      "stdout": "commands/27-harness-win10-x64-release.stdout.bin",
+      "stderr": "commands/27-harness-win10-x64-release.stderr.bin",
+      "exit": "commands/27-harness-win10-x64-release.exit.json"
+    },
+    {
+      "id": "verify-spec",
+      "argv": [
+        "python",
+        "scripts/verify_spec.py"
+      ],
+      "cwd": ".",
+      "toolchain": "python3-recorded",
+      "expectedExit": 0,
+      "timeoutSeconds": 300,
+      "stdout": "commands/28-verify-spec.stdout.bin",
+      "stderr": "commands/28-verify-spec.stderr.bin",
+      "exit": "commands/28-verify-spec.exit.json"
+    },
+    {
+      "id": "verify-registry",
+      "argv": [
+        "python",
+        "scripts/verify_v21_registry.py"
+      ],
+      "cwd": ".",
+      "toolchain": "python3-recorded",
+      "expectedExit": 0,
+      "timeoutSeconds": 300,
+      "stdout": "commands/29-verify-registry.stdout.bin",
+      "stderr": "commands/29-verify-registry.stderr.bin",
+      "exit": "commands/29-verify-registry.exit.json"
+    },
+    {
+      "id": "archives-generate",
+      "argv": [
+        "python",
+        "scripts/package_artifacts.py",
+        "--output-directory",
+        "{attempt}/artifacts/archives"
+      ],
+      "cwd": ".",
+      "toolchain": "python3-recorded",
+      "expectedExit": 0,
+      "timeoutSeconds": 300,
+      "stdout": "commands/30-archives-generate.stdout.bin",
+      "stderr": "commands/30-archives-generate.stderr.bin",
+      "exit": "commands/30-archives-generate.exit.json"
+    },
+    {
+      "id": "archives-selftest",
+      "argv": [
+        "python",
+        "scripts/package_artifacts.py",
+        "--self-test"
+      ],
+      "cwd": ".",
+      "toolchain": "python3-recorded",
+      "expectedExit": 0,
+      "timeoutSeconds": 300,
+      "stdout": "commands/31-archives-selftest.stdout.bin",
+      "stderr": "commands/31-archives-selftest.stderr.bin",
+      "exit": "commands/31-archives-selftest.exit.json"
+    },
+    {
+      "id": "archives-verify",
+      "argv": [
+        "python",
+        "scripts/package_artifacts.py",
+        "--verify-existing",
+        "--output-directory",
+        "{attempt}/artifacts/archives"
+      ],
+      "cwd": ".",
+      "toolchain": "python3-recorded",
+      "expectedExit": 0,
+      "timeoutSeconds": 300,
+      "stdout": "commands/32-archives-verify.stdout.bin",
+      "stderr": "commands/32-archives-verify.stderr.bin",
+      "exit": "commands/32-archives-verify.exit.json"
+    },
+    {
+      "id": "production-graph-selftest",
+      "argv": [
+        "python",
+        "driver/scripts/audit_c4_production_graph.py",
+        "--self-test",
+        "--manifest",
+        "driver/audit/c4-production-graph.json"
+      ],
+      "cwd": ".",
+      "toolchain": "python3-recorded",
+      "expectedExit": 0,
+      "timeoutSeconds": 300,
+      "stdout": "commands/33-production-graph-selftest.stdout.bin",
+      "stderr": "commands/33-production-graph-selftest.stderr.bin",
+      "exit": "commands/33-production-graph-selftest.exit.json"
+    },
+    {
+      "id": "production-graph-final",
+      "argv": [
+        "python",
+        "driver/scripts/audit_c4_production_graph.py",
+        "--manifest",
+        "driver/audit/c4-production-graph.json",
+        "--verify-current-attestation",
+        "--profile",
+        "r5-cutover"
+      ],
+      "cwd": ".",
+      "toolchain": "python3-recorded",
+      "expectedExit": 0,
+      "timeoutSeconds": 300,
+      "stdout": "commands/34-production-graph-final.stdout.bin",
+      "stderr": "commands/34-production-graph-final.stderr.bin",
+      "exit": "commands/34-production-graph-final.exit.json"
+    },
+    {
+      "id": "diff-check",
+      "argv": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "cwd": ".",
+      "toolchain": "git-for-windows-recorded",
+      "expectedExit": 0,
+      "timeoutSeconds": 300,
+      "stdout": "commands/35-diff-check.stdout.bin",
+      "stderr": "commands/35-diff-check.stderr.bin",
+      "exit": "commands/35-diff-check.exit.json"
+    },
+    {
+      "id": "clean-close",
+      "argv": [
+        "git",
+        "status",
+        "--porcelain=v1",
+        "--untracked-files=all"
+      ],
+      "cwd": ".",
+      "toolchain": "git-for-windows-recorded",
+      "expectedExit": 0,
+      "timeoutSeconds": 60,
+      "stdout": "commands/36-clean-close.stdout.bin",
+      "stderr": "commands/36-clean-close.stderr.bin",
+      "exit": "commands/36-clean-close.exit.json"
+    },
+    {
+      "id": "head-close",
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": ".",
+      "toolchain": "git-for-windows-recorded",
+      "expectedExit": 0,
+      "timeoutSeconds": 60,
+      "stdout": "commands/37-head-close.stdout.bin",
+      "stderr": "commands/37-head-close.stderr.bin",
+      "exit": "commands/37-head-close.exit.json"
+    },
+    {
+      "id": "tree-close",
+      "argv": [
+        "git",
+        "rev-parse",
+        "HEAD^{tree}"
+      ],
+      "cwd": ".",
+      "toolchain": "git-for-windows-recorded",
+      "expectedExit": 0,
+      "timeoutSeconds": 60,
+      "stdout": "commands/38-tree-close.stdout.bin",
+      "stderr": "commands/38-tree-close.stderr.bin",
+      "exit": "commands/38-tree-close.exit.json"
+    }
+  ]
+}

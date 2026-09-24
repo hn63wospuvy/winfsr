@@ -1,0 +1,136 @@
+# libFuzzer harness for fsring-user decoders. Standalone package (own
+# [workspace]) so it is not part of the main workspace and does not affect the
+# ordinary `cargo build`/`cargo test`. Run with a nightly toolchain:
+#   cargo +nightly fuzz run section_decode
+#   cargo +nightly fuzz run control_decode
+[package]
+name = "fsring-user-fuzz"
+version = "0.0.0"
+publish = false
+edition = "2021"
+
+[package.metadata]
+cargo-fuzz = true
+
+[dependencies]
+libfuzzer-sys = "0.4"
+# `testkit` gives grant_resolve the kernel-role Harness (section + arena + grant
+# issuance); it adds only that module and leaves the decoders unchanged.
+fsring-user = { path = "..", features = ["testkit"] }
+# The completion_encode target builds wire bodies (SqeBody) and calls the ABI
+# completion-registry validator directly, as fsring-user's own tests do.
+fsring-abi = { path = "../../fsring-abi" }
+
+[[bin]]
+name = "section_decode"
+path = "fuzz_targets/section_decode.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "control_decode"
+path = "fuzz_targets/control_decode.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "completion_encode"
+path = "fuzz_targets/completion_encode.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "name_match"
+path = "fuzz_targets/name_match.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "grant_resolve"
+path = "fuzz_targets/grant_resolve.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "open_body"
+path = "fuzz_targets/open_body.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "lifecycle"
+path = "fuzz_targets/lifecycle.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "query_dir_decode"
+path = "fuzz_targets/query_dir_decode.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "dir_enumerate"
+path = "fuzz_targets/dir_enumerate.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "mutation_decode"
+path = "fuzz_targets/mutation_decode.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "mutation_result"
+path = "fuzz_targets/mutation_result.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "query_security_decode"
+path = "fuzz_targets/query_security_decode.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "write_body"
+path = "fuzz_targets/write_body.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "daemon_pump"
+path = "fuzz_targets/daemon_pump.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "provider_status"
+path = "fuzz_targets/provider_status.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "mutation_context"
+path = "fuzz_targets/mutation_context.rs"
+test = false
+doc = false
+bench = false
+
+[workspace]

@@ -1,0 +1,12 @@
+# Driver-workspace-scoped cargo config. Discovery walks UP from the CWD only,
+# so this applies to every cargo invocation inside driver/ and NEVER to the
+# repository root (fsring-abi/fsring-user/mirrorfs are siblings, not children).
+#
+# crt-static keeps the driver image from importing the dynamic C runtime,
+# supporting the no-CRT link posture of 11-rust-implementation.md section 8.
+# This mirrors the config cargo-wdk's `new` template emits for WDM/KMDF drivers.
+[build]
+rustflags = [
+  "-C",
+  "target-feature=+crt-static",
+]

@@ -1,0 +1,32 @@
+[package]
+name = "fsring-core"
+version = "0.1.0"
+edition = "2024"
+publish = false
+description = "FSRING driver pure core: WDK-free state machines, closed tables, and total functions."
+license = "MIT OR Apache-2.0"
+
+[lib]
+crate-type = ["rlib"]
+
+[dependencies]
+# The ONLY dependency. This crate is WDK-free by construction: it holds the
+# driver's decidable logic so it can be compiled for the host and unit tested on
+# a machine that cannot load a driver. tests/dependency_closure.rs makes that a
+# checked property rather than a convention.
+fsring-abi = { path = "../../fsring-abi", default-features = false }
+
+# The core stays profile-PARAMETERIZED, not profile-COMPILED: a
+# profile-dependent decision takes PlatformProfile as a value, so one host build
+# exercises all three platform profiles exhaustively. Compile-time platform
+# selection lives in fsring-fsd, per 11-rust-implementation.md section 2.
+#
+# The one feature below is not a platform profile and not a public knob.
+[features]
+# Private, production-only. `fsring-fsd`'s dependency turns it on; nothing else
+# may. With it on, build.rs refuses to build unless the tracked production-graph
+# attestation still names this exact source identity, and only then generates
+# the sealed witness this crate embeds. Standalone `cargo test -p fsring-core`
+# leaves it off — which is what stops the attestation's own property rows from
+# recursing into the build script that verifies them.
+production-attested = []

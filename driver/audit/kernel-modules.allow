@@ -1,0 +1,18 @@
+# Import MODULES any FSRING driver image may reference.
+# One module name per line, case-insensitive; '#' starts a comment.
+# Growth is deliberate: a slice that needs a new module adds it here in the
+# same commit, so review sees it. Slice C3 measured all three release images at
+# 44 symbol pairs across exactly these two modules. Wdmsec.lib contributes
+# static code and downstream ntoskrnl.exe imports; there is no wdmsec.sys
+# runtime import.
+ntoskrnl.exe
+
+# ksecdd.sys - BCryptGenRandom, the ONLY randomness source
+# 11-rust-implementation.md section 4 permits ("Time, counters, PIDs,
+# RtlRandom*, and daemon-supplied bytes are never entropy... There is no weaker
+# fallback"). The compliant source is not in the WDM base header set, so
+# fsring-sys hand-declares it and links km/x64/ksecdd.lib.
+#
+# Added by slice A3. This is the FIRST module beyond ntoskrnl.exe, and the
+# widening is deliberate: the alternative is a forbidden entropy source.
+ksecdd.sys

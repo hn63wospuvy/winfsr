@@ -1,0 +1,6 @@
+E0451
+field `owner` of struct `fsring_core::pagingledger::ActiveTerminalReceipt` is private
+field `issue` of struct `fsring_core::pagingledger::ActiveTerminalReceipt` is private
+field `prefix` of struct `fsring_core::pagingledger::ActiveTerminalReceipt` is private
+field `outcome` of struct `fsring_core::pagingledger::ActiveTerminalReceipt` is private
+field `terminal_kind` of struct `fsring_core::pagingledger::ActiveTerminalReceipt` is private

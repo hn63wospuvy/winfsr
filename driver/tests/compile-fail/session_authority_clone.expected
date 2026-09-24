@@ -1,0 +1,6 @@
+E0277
+the trait `Clone` is not implemented for `RegistryLease`
+the trait `Clone` is not implemented for `StrongSessionRef`
+the trait `Clone` is not implemented for `TerminalSessionRef`
+the trait `Clone` is not implemented for `DeleteSessionRight`
+the trait `Clone` is not implemented for `PreparedDeleteCoreCommit`

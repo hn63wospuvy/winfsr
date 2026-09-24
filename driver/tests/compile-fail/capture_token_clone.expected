@@ -1,0 +1,6 @@
+E0277
+the trait bound `CaptureToken: Clone` is not satisfied
+the trait bound `ApplicationCapture: Clone` is not satisfied
+the trait bound `ControlCapture: Clone` is not satisfied
+the trait bound `CapturedApplication: Clone` is not satisfied
+the trait bound `CapturedControl: Clone` is not satisfied

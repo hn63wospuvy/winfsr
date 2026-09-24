@@ -1,0 +1,58 @@
+[package]
+name = "fsring-fsd"
+version = "0.1.0"
+edition = "2024"
+publish = false
+description = "FSRING WDM filesystem driver (toolchain bring-up skeleton)."
+license = "MIT OR Apache-2.0"
+
+[package.metadata.wdk.driver-model]
+driver-type = "WDM"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+wdk = "0.4.1"
+wdk-sys = "0.5.1"
+
+# No wdk-alloc: this driver installs no global allocator (see src/lib.rs).
+# No wdk-panic: its handler is a bare loop{}; src/lib.rs installs a
+# #[panic_handler] calling KeBugCheckEx instead, per doc 11 section 5.
+
+# The frozen no_std wire ABI is the driver's single numeric authority
+# (11-rust-implementation.md section 1). `default-features = false` selects the
+# crate's no_std configuration; the default "std" feature would drop #![no_std].
+# fsring-abi lives in the repository-root workspace, which excludes driver/;
+# a path dependency across that boundary is what keeps the root Cargo.lock
+# byte-identical.
+fsring-abi = { path = "../../fsring-abi", default-features = false }
+
+# The WDK-free pure core. Referenced from DriverEntry (not merely declared), so
+# a core that fails to compile for a kernel target fails the image build.
+#
+# `production-attested` is enabled HERE and nowhere else. It makes the core's
+# build script re-verify the tracked production-graph attestation against this
+# exact source identity before the driver image may embed its witness, so a
+# graph PASS cannot outlive the tree it was computed for. Standalone
+# `cargo test -p fsring-core` does not enable it and therefore runs no auditor.
+fsring-core = { path = "../fsring-core", features = ["production-attested"] }
+
+# The hand-declared kernel bindings. All extern blocks live there.
+fsring-sys = { path = "../fsring-sys" }
+
+[build-dependencies]
+cc = "1.4.0"
+wdk-build = "0.5.1"
+
+[features]
+# 11-rust-implementation.md section 2: exactly one platform profile is selected
+# at compile time; platform-win10 is the default modern profile and
+# platform-win7 the nondefault legacy one. The mutual-exclusion, neither-
+# selected, and ARM64-legacy guards live in src/platform.rs.
+default = ["platform-win10"]
+platform-win10 = []
+platform-win7 = []
+# Nightly build-mode passthrough (canonical windows-drivers-rs shape). NOT a
+# platform feature.
+nightly = ["wdk/nightly", "wdk-sys/nightly"]

@@ -1,0 +1,7445 @@
+{
+  "schema": "fsring-c4-mutations/v1",
+  "mutants": [
+    {
+      "target": "fsring-abi/src/features.rs",
+      "id": "implementation-mask-omitted",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.82.0",
+        "test",
+        "-p",
+        "fsring-abi",
+        "--test",
+        "control_v21",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/bootctx.rs",
+      "id": "mount-id-reused",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "bootctx::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/grant.rs",
+      "id": "credit-generation-reused",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "grant::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/grant.rs",
+      "id": "claim-before-preflight",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "grant::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/stackexpand.rs",
+      "id": "cleanup-expansion-refusal-surrenders",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::stackexpand::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/stackexpand.rs",
+      "id": "cleanup-expansion-budget-never-exhausts",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::stackexpand::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/stackexpand.rs",
+      "id": "cleanup-expansion-retries-a-permanent-refusal",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::stackexpand::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/stackexpand.rs",
+      "id": "cleanup-expansion-reruns-a-contradicted-callout",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::stackexpand::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/setup.rs",
+      "id": "close-refuses-an-uninstalled-lease",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::setup::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/setup.rs",
+      "id": "ring-scratch-aliased",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::setup::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/setup.rs",
+      "id": "publish-before-output-validation",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::setup::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/session.rs",
+      "id": "wait-before-enter-signal",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "session::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/session.rs",
+      "id": "drain-before-producer-revoke",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "session::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/session.rs",
+      "id": "views-freed-before-role-drain",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "session::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "fsring-user/src/native.rs",
+      "id": "executable-mapping-accepted",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.82.0",
+        "test",
+        "-p",
+        "fsring-user",
+        "--test",
+        "native_session",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/scripts/smoke_driver.ps1",
+      "id": "worker-continuity-drift-accepted",
+      "anchorCount": 1,
+      "owningCommand": [
+        "powershell.exe",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "driver/scripts/smoke_driver.ps1",
+        "-SelfTest"
+      ]
+    },
+    {
+      "target": "driver/scripts/smoke_driver.ps1",
+      "id": "dos-remove-before-containment",
+      "anchorCount": 1,
+      "owningCommand": [
+        "powershell.exe",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "driver/scripts/smoke_driver.ps1",
+        "-SelfTest"
+      ]
+    },
+    {
+      "target": "driver/scripts/smoke_driver.ps1",
+      "id": "dos-remove-not-exact",
+      "anchorCount": 1,
+      "owningCommand": [
+        "powershell.exe",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "driver/scripts/smoke_driver.ps1",
+        "-SelfTest"
+      ]
+    },
+    {
+      "target": "driver/scripts/smoke_driver.ps1",
+      "id": "scm-cleanup-failure-ignored",
+      "anchorCount": 1,
+      "owningCommand": [
+        "powershell.exe",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "driver/scripts/smoke_driver.ps1",
+        "-SelfTest"
+      ]
+    },
+    {
+      "target": "driver/scripts/smoke_driver.ps1",
+      "id": "aggregate-pass-with-reason",
+      "anchorCount": 1,
+      "owningCommand": [
+        "powershell.exe",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "driver/scripts/smoke_driver.ps1",
+        "-SelfTest"
+      ]
+    },
+    {
+      "target": "driver/scripts/smoke_driver.ps1",
+      "id": "post-staged-not-run-accepted",
+      "anchorCount": 1,
+      "owningCommand": [
+        "powershell.exe",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "driver/scripts/smoke_driver.ps1",
+        "-SelfTest"
+      ]
+    },
+    {
+      "target": "driver/scripts/smoke_driver.ps1",
+      "id": "unload-fragment-omitted",
+      "anchorCount": 1,
+      "owningCommand": [
+        "powershell.exe",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "driver/scripts/smoke_driver.ps1",
+        "-SelfTest"
+      ]
+    },
+    {
+      "target": "driver/scripts/smoke_driver.ps1",
+      "id": "worker-reason-limit-raised",
+      "anchorCount": 1,
+      "owningCommand": [
+        "powershell.exe",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "driver/scripts/smoke_driver.ps1",
+        "-SelfTest"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/enter.rs",
+      "id": "brand-adoption-accepts-an-already-branded-state",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "enter::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/enter.rs",
+      "id": "worker-pass-refuses-the-queued-schedule-it-was-given",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "enter::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/enter.rs",
+      "id": "post-clear-recheck-omitted",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "enter::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/enter.rs",
+      "id": "unlink-control-pending-drops-the-right-instead-of-taking-it",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "enter::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/enter.rs",
+      "id": "csq-cancel-completion-refuses-the-removed-irp",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "enter::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/enter.rs",
+      "id": "pending-abandoned-pass-leaves-the-ring-queued",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "enter::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/setup.rs",
+      "id": "setup-commit-boundary-inclusive",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::setup::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/enter.rs",
+      "id": "wait-sentinel-may-time-out",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "enter::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/volume.rs",
+      "id": "mount-revalidation-partial",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "volume::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "fsring-abi/src/features.rs",
+      "id": "profile-base-security-not-forced",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.82.0",
+        "test",
+        "-p",
+        "fsring-abi",
+        "--test",
+        "control_v21",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "fsring-abi/src/features.rs",
+      "id": "mapped-io-kept-without-mdl-guarantees",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.82.0",
+        "test",
+        "-p",
+        "fsring-abi",
+        "--test",
+        "control_v21",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "fsring-abi/src/features.rs",
+      "id": "restart-pair-matched-by-either",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.82.0",
+        "test",
+        "-p",
+        "fsring-abi",
+        "--test",
+        "control_v21",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "fsring-abi/src/features.rs",
+      "id": "hot-restart-kept-without-service-sid",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.82.0",
+        "test",
+        "-p",
+        "fsring-abi",
+        "--test",
+        "control_v21",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "fsring-abi/src/section_layout.rs",
+      "id": "align-up-rounds-down",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.82.0",
+        "test",
+        "-p",
+        "fsring-abi",
+        "--test",
+        "section_layout_v21",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "fsring-abi/src/section_layout.rs",
+      "id": "view-span-not-view-aligned",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.82.0",
+        "test",
+        "-p",
+        "fsring-abi",
+        "--test",
+        "section_layout_v21",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "fsring-abi/src/section_layout.rs",
+      "id": "page-size-power-of-two-unchecked",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.82.0",
+        "test",
+        "-p",
+        "fsring-abi",
+        "--test",
+        "section_layout_v21",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "fsring-abi/src/section_layout.rs",
+      "id": "advance-uses-length-not-span",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.82.0",
+        "test",
+        "-p",
+        "fsring-abi",
+        "--test",
+        "section_layout_v21",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "fsring-abi/src/section_layout.rs",
+      "id": "output-must-be-zero-dropped",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.82.0",
+        "test",
+        "-p",
+        "fsring-abi",
+        "--test",
+        "section_layout_v21",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "fsring-abi/src/section_layout.rs",
+      "id": "construct-buffer-bound-halved",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.82.0",
+        "test",
+        "-p",
+        "fsring-abi",
+        "--test",
+        "section_layout_v21",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "fsring-abi/src/section_layout.rs",
+      "id": "header-identity-ignores-section-size",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.82.0",
+        "test",
+        "-p",
+        "fsring-abi",
+        "--test",
+        "section_layout_v21",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "fsring-abi/src/section_layout.rs",
+      "id": "header-regions-ignore-notify-names",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.82.0",
+        "test",
+        "-p",
+        "fsring-abi",
+        "--test",
+        "section_layout_v21",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "fsring-abi/src/section_layout.rs",
+      "id": "ring-index-bound-off-by-one",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.82.0",
+        "test",
+        "-p",
+        "fsring-abi",
+        "--test",
+        "section_layout_v21",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/load.rs",
+      "id": "open-not-found-is-not-create",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::load::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/load.rs",
+      "id": "create-collision-is-not-reopen",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::load::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/load.rs",
+      "id": "reopen-accepts-any-status",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::load::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/load.rs",
+      "id": "absolute-descriptor-accepted",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::load::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/load.rs",
+      "id": "sd-revision-unchecked",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::load::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/load.rs",
+      "id": "acl-may-leave-the-image",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::load::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/volume.rs",
+      "id": "mount-accepts-a-verify-observation",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "volume::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/volume.rs",
+      "id": "verify-decision-ignores-identity",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "volume::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/volume.rs",
+      "id": "clear-accepts-a-revalidated-mount",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "volume::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/volume.rs",
+      "id": "mount-evidence-accepts-any-outcome",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "volume::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/volume.rs",
+      "id": "dismount-step-accepts-any-outcome",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "volume::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/bootctx.rs",
+      "id": "slot-array-length-not-exact",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "bootctx::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/bootctx.rs",
+      "id": "occupied-slot-not-noticed",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "bootctx::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/bootctx.rs",
+      "id": "duplicate-mount-sequence-allowed",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "bootctx::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/bootctx.rs",
+      "id": "active-permanent-slot-not-refused",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "bootctx::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/volume.rs",
+      "id": "verify-identity-precedence-lost",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "volume::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/volume.rs",
+      "id": "staging-and-active-verify-successfully",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "volume::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/volume.rs",
+      "id": "provider-control-not-failed-closed",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "volume::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/volume.rs",
+      "id": "create-ignores-root-open",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "volume::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/grant.rs",
+      "id": "backing-need-not-be-free",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "grant::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/grant.rs",
+      "id": "credit-output-bound-halved",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "grant::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/session.rs",
+      "id": "publish-into-a-closed-registry",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "session::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/session.rs",
+      "id": "binding-need-not-be-staging",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "session::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/session.rs",
+      "id": "publication-identity-not-cross-checked",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "session::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/session.rs",
+      "id": "rollback-identity-not-cross-checked",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "session::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/setup.rs",
+      "id": "setup-entry-ignores-prior-completion",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::setup::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/enter.rs",
+      "id": "unknown-enter-flags-accepted",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "enter::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/enter.rs",
+      "id": "drain-and-wait-requested-together",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "enter::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/enter.rs",
+      "id": "enter-ring-index-not-this-ring",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "enter::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/enter.rs",
+      "id": "enter-session-epoch-unchecked",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "enter::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/enter.rs",
+      "id": "drain-budget-bounds-dropped",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "enter::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/enter.rs",
+      "id": "timeout-on-a-non-waiting-role",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "enter::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/enter.rs",
+      "id": "fenced-session-still-enters",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "enter::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/enter.rs",
+      "id": "poll-is-treated-as-a-wait",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "enter::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/enter.rs",
+      "id": "infinite-wait-encoding-inverted",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "enter::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/grant.rs",
+      "id": "table-identity-exhaustion-ignored",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "grant::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/grant.rs",
+      "id": "zero-session-epoch-accepted",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "grant::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/enter.rs",
+      "id": "drain-budget-and-timeout-unchecked",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "enter::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/enter.rs",
+      "id": "poll-may-carry-a-budget-or-timeout",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "enter::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/enter.rs",
+      "id": "finite-wait-accepts-the-sentinels",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "enter::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/enter.rs",
+      "id": "infinite-wait-accepts-any-timeout",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "enter::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/enter.rs",
+      "id": "enter-output-capacity-unchecked",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "enter::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/setup.rs",
+      "id": "layout-not-recomputed",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::setup::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/setup.rs",
+      "id": "setup-output-capacity-unchecked",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::setup::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/setup.rs",
+      "id": "views-effect-takes-a-plain-completion",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::setup::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/setup.rs",
+      "id": "receipt-accepted-outside-its-effect",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::setup::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "fsring-user/src/smoke.rs",
+      "id": "nonce-length-unchecked",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.82.0",
+        "test",
+        "-p",
+        "fsring-user",
+        "--test",
+        "smoke_v2",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "fsring-user/src/smoke.rs",
+      "id": "reason-length-bound-dropped",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.82.0",
+        "test",
+        "-p",
+        "fsring-user",
+        "--test",
+        "smoke_v2",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "fsring-user/src/smoke.rs",
+      "id": "reason-control-bytes-allowed",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.82.0",
+        "test",
+        "-p",
+        "fsring-user",
+        "--test",
+        "smoke_v2",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "fsring-user/src/smoke.rs",
+      "id": "worker-may-claim-the-runner-prefix",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.82.0",
+        "test",
+        "-p",
+        "fsring-user",
+        "--test",
+        "smoke_v2",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "fsring-user/src/native.rs",
+      "id": "mapping-gap-allowed",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.82.0",
+        "test",
+        "-p",
+        "fsring-user",
+        "--test",
+        "native_session",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "fsring-user/src/native.rs",
+      "id": "uncommitted-region-accepted",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.82.0",
+        "test",
+        "-p",
+        "fsring-user",
+        "--test",
+        "native_session",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "fsring-user/src/native.rs",
+      "id": "private-mapping-accepted",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.82.0",
+        "test",
+        "-p",
+        "fsring-user",
+        "--test",
+        "native_session",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "fsring-user/src/native.rs",
+      "id": "executable-view-accepted",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.82.0",
+        "test",
+        "-p",
+        "fsring-user",
+        "--test",
+        "native_session",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "fsring-user/src/native.rs",
+      "id": "forbidden-protection-modifiers-accepted",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.82.0",
+        "test",
+        "-p",
+        "fsring-user",
+        "--test",
+        "native_session",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "fsring-user/src/native.rs",
+      "id": "short-write-accepted",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.82.0",
+        "test",
+        "-p",
+        "fsring-user",
+        "--test",
+        "native_session",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/setup.rs",
+      "id": "receipt-layout-not-cross-checked",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::setup::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/setup.rs",
+      "id": "receipt-identity-not-checked",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::setup::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/setup.rs",
+      "id": "suffix-core-live-before-mount-active",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::setup::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/setup.rs",
+      "id": "suffix-mount-activation-unrecorded",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::setup::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/setup.rs",
+      "id": "suffix-mount-order-proof-vacuous",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::setup::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/setup.rs",
+      "id": "suffix-vdo-order-proof-vacuous",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::setup::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/setup.rs",
+      "id": "suffix-vdo-flag-cleared-before-locator",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::setup::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/setup.rs",
+      "id": "suffix-locator-order-proof-vacuous",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::setup::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/setup.rs",
+      "id": "close-admission-released-before-free",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::setup::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/setup.rs",
+      "id": "close-free-observation-positional",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::setup::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/setup.rs",
+      "id": "close-free-before-release-proof-vacuous",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::setup::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/setup.rs",
+      "id": "shell-owner-fabricated",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::setup::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/setup.rs",
+      "id": "shell-destroyed-without-allocation",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::setup::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/setup.rs",
+      "id": "shell-freed-while-cell-owned",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::setup::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/setup.rs",
+      "id": "root-released-without-acquisition",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::setup::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/setup.rs",
+      "id": "root-released-while-cell-owned",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::setup::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/setup.rs",
+      "id": "vdo-written-after-initializing-clear",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::setup::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/lifecycle.rs",
+      "id": "resolve-projects-before-rundown",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::lifecycle::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/lifecycle.rs",
+      "id": "resolve-projection-unrecorded",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::lifecycle::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/driver.rs",
+      "id": "provider-endpoint-published-before-its-root-field",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/driver.rs",
+      "id": "process-callback-refused-entry-touches-cell",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/lifecycle.rs",
+      "id": "process-loss-completed-stops-before-later-cell",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::lifecycle::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/lifecycle.rs",
+      "id": "process-loss-blocked-stops-before-later-cell",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::lifecycle::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/lifecycle.rs",
+      "id": "process-callback-releases-guard-before-restart",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::lifecycle::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/lifecycle.rs",
+      "id": "resolve-refusal-keeps-the-rundown",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::lifecycle::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/lifecycle.rs",
+      "id": "resolve-refusal-releases-an-unacquired-rundown",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::lifecycle::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/lifecycle.rs",
+      "id": "resolve-order-proof-vacuous",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::lifecycle::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/lifecycle.rs",
+      "id": "resolve-validation-proof-vacuous",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::lifecycle::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/lifecycle.rs",
+      "id": "scan-claims-a-staging-cell",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::lifecycle::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/lifecycle.rs",
+      "id": "process-cell-observation-accepts-the-wrong-process",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::lifecycle::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/lifecycle.rs",
+      "id": "native-owner-missing-root-is-accepted",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::lifecycle::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/lifecycle.rs",
+      "id": "ring-lock-initialization-walk-is-skipped",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::lifecycle::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/lifecycle.rs",
+      "id": "ring-release-discards-the-saved-irql",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::lifecycle::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/volume.rs",
+      "id": "mount-access-guard-drops-before-the-suffix",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "volume::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/session.rs",
+      "id": "validate-live-accepts-a-removing-slot",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "session::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/session.rs",
+      "id": "validate-live-ignores-closed-admission",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "session::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/lifecycle.rs",
+      "id": "cleanup-drops-the-close-right-on-its-refusal-edge",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/lifecycle.rs",
+      "id": "native-resolver-projects-before-rundown",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/lifecycle.rs",
+      "id": "native-resolver-refusal-skips-rundown-release",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/lifecycle.rs",
+      "id": "native-resolver-refusal-skips-lock-unwind",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/lifecycle.rs",
+      "id": "native-resolver-refusal-skips-rundown-unwind",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/lifecycle.rs",
+      "id": "native-resolver-skips-core-live",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/lifecycle.rs",
+      "id": "native-resolver-skips-cell-live",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/lifecycle.rs",
+      "id": "native-cell-crate-visible-live-getter-restored",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/lifecycle.rs",
+      "id": "native-terminal-legacy-owner-split-restored",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/fence.rs",
+      "id": "r4-release-discards-the-consumer-prefix",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/fence.rs",
+      "id": "r4-drain-asks-whether-its-own-consumer-is-free",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/fence.rs",
+      "id": "retry-complete-drops-the-control-reference",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/fence.rs",
+      "id": "retry-complete-discards-the-finish-disposition",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/fence.rs",
+      "id": "native-fence-retains-cell-after-unlock",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/fence.rs",
+      "id": "native-fence-uses-cell-after-unlock",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/fence.rs",
+      "id": "native-fence-aliases-cell-across-unlock",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/fence.rs",
+      "id": "native-fence-wraps-cell-across-unlock",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/fence.rs",
+      "id": "native-terminal-destroys-shell-before-checkpoint",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/fence.rs",
+      "id": "native-checkpoint-spends-shell-vdo-before-roster",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/lifecycle.rs",
+      "id": "native-resolver-skips-owner-slots",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/lifecycle.rs",
+      "id": "native-process-scan-projects-shell",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/lifecycle.rs",
+      "id": "native-process-observation-ignores-requested-process",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/lifecycle.rs",
+      "id": "native-resolver-injects-finalizer-side-effect",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/lifecycle.rs",
+      "id": "native-resolver-destroys-rundown-bookkeeping",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/lifecycle.rs",
+      "id": "native-resolver-inverts-rundown-result",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/lifecycle.rs",
+      "id": "native-resolver-export-attribute-restored",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/driver.rs",
+      "id": "native-driver-hidden-access-wait-restored",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/lifecycle.rs",
+      "id": "native-process-scan-mutates-callback-admission",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/lifecycle.rs",
+      "id": "native-access-view-borrow-restored",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/lifecycle.rs",
+      "id": "native-access-guard-free-projection-restored",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/lifecycle.rs",
+      "id": "native-ring-guard-raw-session-method-restored",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/lifecycle.rs",
+      "id": "native-ring-consuming-helper-forgets-guard",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/lifecycle.rs",
+      "id": "native-ring-drop-omits-saved-irql-release",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/lifecycle.rs",
+      "id": "native-cell-session-pointer-alias-restored",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/lifecycle.rs",
+      "id": "native-access-guard-drop-skips-rundown-release",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/lifecycle.rs",
+      "id": "native-access-guard-drop-condition-never-releases",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/lifecycle.rs",
+      "id": "native-process-scan-skips-registry-unlock",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/lifecycle.rs",
+      "id": "native-session-owner-clone-restored",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/lifecycle.rs",
+      "id": "native-session-owner-raw-constructor-restored",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/lifecycle.rs",
+      "id": "native-qualified-access-guard-impl-restored",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/lifecycle.rs",
+      "id": "native-access-guard-macro-method-restored",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/lifecycle.rs",
+      "id": "native-access-projection-static-restored",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/session.rs",
+      "id": "credit-backing-left-unadopted-across-a-fallible-step",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/session.rs",
+      "id": "setup-unwind-leaks-the-pending-runtime",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/session.rs",
+      "id": "setup-unwind-releases-the-runtime-too-late",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/session.rs",
+      "id": "setup-leaves-the-shell-ring-unbranded",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/session.rs",
+      "id": "native-enter-access-hidden-wait-restored",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/lifecycle.rs",
+      "id": "native-ring-discards-saved-irql",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/session.rs",
+      "id": "native-ring-lock-initialization-skipped",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/session.rs",
+      "id": "native-ring-initialization-proof-discarded",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/session.rs",
+      "id": "native-ring-acquire-ddi-bypassed",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/session.rs",
+      "id": "native-ring-release-ddi-bypassed",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/session.rs",
+      "id": "native-fence-ring-lock-bypassed",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/session.rs",
+      "id": "native-ring-slot-extra-method-restored",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/session.rs",
+      "id": "native-ring-unshared-hidden-caller-restored",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/session.rs",
+      "id": "native-session-free-api-marker-restored",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/session.rs",
+      "id": "native-session-import-aliased-mapped-pointer-restored",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/session.rs",
+      "id": "native-session-newtype-mapped-pointer-restored",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/session.rs",
+      "id": "native-session-enum-mapped-pointer-restored",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/session.rs",
+      "id": "native-session-qualified-alias-mapped-pointer-restored",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/session.rs",
+      "id": "native-session-union-mapped-pointer-restored",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/session.rs",
+      "id": "native-session-option-mapped-pointer-restored",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/session.rs",
+      "id": "native-session-raw-section-getter-restored",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/session.rs",
+      "id": "native-session-view-borrow-restored",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/session.rs",
+      "id": "native-session-root-backpointer-reexposed",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/session.rs",
+      "id": "native-session-free-mapped-pointer-restored",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/session.rs",
+      "id": "native-ring-free-state-pointer-restored",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/session.rs",
+      "id": "native-attach-scratch-shared-static-restored",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/session.rs",
+      "id": "native-attach-scratch-shared-item-reintroduced",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/session.rs",
+      "id": "parked-store-refusal-discarded",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/session.rs",
+      "id": "native-master-residency-is-profile-conditional",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/session.rs",
+      "id": "fence-unmap-ignores-the-alias-mechanism",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/volume.rs",
+      "id": "native-vdo-read-before-ready",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/volume.rs",
+      "id": "native-vdo-readiness-check-bypassed",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/volume.rs",
+      "id": "native-vdo-owner-state-check-bypassed",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/volume.rs",
+      "id": "native-vdo-publication-release-weakened",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/volume.rs",
+      "id": "native-vdo-ready-predicate-inverted",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/volume.rs",
+      "id": "native-volume-free-session-projection-restored",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/volume.rs",
+      "id": "native-volume-method-session-projection-restored",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/volume.rs",
+      "id": "native-mount-device-kind-bypassed",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/volume.rs",
+      "id": "native-mount-identity-bypassed",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/volume.rs",
+      "id": "native-volume-raw-session-projection-restored",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/volume.rs",
+      "id": "native-mounted-volume-raw-session-projection-restored",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/volume.rs",
+      "id": "native-mount-retained-run-bypassed",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/volume.rs",
+      "id": "native-mount-access-hidden-wait-restored",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/volume.rs",
+      "id": "native-mount-retained-run-made-conditional",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_lifetime.py",
+      "id": "audit-lifetime-unparsed-lock-site-passes",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_lifetime.py",
+        "--self-test",
+        "--fail-fast",
+        "--skip-task12-wave"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_lifetime.py",
+      "id": "audit-lifetime-missing-ring-drop-passes",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_lifetime.py",
+        "--self-test",
+        "--fail-fast",
+        "--skip-task12-wave"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_lifetime.py",
+      "id": "audit-lifetime-ring-scope-call-roster-open",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_lifetime.py",
+        "--self-test",
+        "--fail-fast",
+        "--skip-task12-wave"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_lifetime.py",
+      "id": "audit-lifetime-nested-drop-accepted",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_lifetime.py",
+        "--self-test",
+        "--fail-fast",
+        "--skip-task12-wave"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_lifetime.py",
+      "id": "audit-lifetime-shadowable-drop-accepted",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_lifetime.py",
+        "--self-test",
+        "--fail-fast",
+        "--skip-task12-wave"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_lifetime.py",
+      "id": "audit-lifetime-consuming-helper-body-open",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_lifetime.py",
+        "--self-test",
+        "--fail-fast",
+        "--skip-task12-wave"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_lifetime.py",
+      "id": "audit-lifetime-ring-drop-body-open",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_lifetime.py",
+        "--self-test",
+        "--fail-fast",
+        "--skip-task12-wave"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_lifetime.py",
+      "id": "audit-lifetime-missing-carriers-not-findings",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_lifetime.py",
+        "--self-test",
+        "--fail-fast",
+        "--skip-task12-wave"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_lifetime.py",
+      "id": "audit-lifetime-native-contract-roster-open",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_lifetime.py",
+        "--self-test",
+        "--fail-fast",
+        "--skip-task12-wave"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_lifetime.py",
+      "id": "audit-lifetime-production-summary-omitted",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_lifetime.py",
+        "--self-test",
+        "--fail-fast",
+        "--skip-task12-wave"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_lifetime.py",
+      "id": "audit-lifetime-missing-native-owner-not-finding",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_lifetime.py",
+        "--self-test",
+        "--fail-fast",
+        "--skip-task12-wave"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_lifetime.py",
+      "id": "audit-lifetime-native-contract-attribute-rejection-open",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_lifetime.py",
+        "--self-test",
+        "--fail-fast",
+        "--skip-task12-wave"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_lifetime.py",
+      "id": "audit-lifetime-carrier-attribute-rejection-open",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_lifetime.py",
+        "--self-test",
+        "--fail-fast",
+        "--skip-task12-wave"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_lifetime.py",
+      "id": "audit-lifetime-access-guard-signature-roster-open",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_lifetime.py",
+        "--self-test",
+        "--fail-fast",
+        "--skip-task12-wave"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_lifetime.py",
+      "id": "audit-lifetime-ring-slot-signature-roster-open",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_lifetime.py",
+        "--self-test",
+        "--fail-fast",
+        "--skip-task12-wave"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_lifetime.py",
+      "id": "audit-lifetime-ring-private-census-open",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_lifetime.py",
+        "--self-test",
+        "--fail-fast",
+        "--skip-task12-wave"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_lifetime.py",
+      "id": "audit-lifetime-ring-guard-signature-roster-open",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_lifetime.py",
+        "--self-test",
+        "--fail-fast",
+        "--skip-task12-wave"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_lifetime.py",
+      "id": "audit-lifetime-free-api-signature-roster-open",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_lifetime.py",
+        "--self-test",
+        "--fail-fast",
+        "--skip-task12-wave"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_lifetime.py",
+      "id": "audit-lifetime-address-alias-resolution-open",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_lifetime.py",
+        "--self-test",
+        "--fail-fast",
+        "--skip-task12-wave"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_lifetime.py",
+      "id": "audit-lifetime-imported-pointer-alias-resolution-open",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_lifetime.py",
+        "--self-test",
+        "--fail-fast",
+        "--skip-task12-wave"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_lifetime.py",
+      "id": "audit-lifetime-pointer-newtype-resolution-open",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_lifetime.py",
+        "--self-test",
+        "--fail-fast",
+        "--skip-task12-wave"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_lifetime.py",
+      "id": "audit-lifetime-pointer-enum-resolution-open",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_lifetime.py",
+        "--self-test",
+        "--fail-fast",
+        "--skip-task12-wave"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_lifetime.py",
+      "id": "audit-lifetime-qualified-return-resolution-open",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_lifetime.py",
+        "--self-test",
+        "--fail-fast",
+        "--skip-task12-wave"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_lifetime.py",
+      "id": "audit-lifetime-volume-method-roster-open",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_lifetime.py",
+        "--self-test",
+        "--fail-fast",
+        "--skip-task12-wave"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_lifetime.py",
+      "id": "audit-lifetime-volume-free-owner-scan-open",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_lifetime.py",
+        "--self-test",
+        "--fail-fast",
+        "--skip-task12-wave"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_lifetime.py",
+      "id": "audit-lifetime-carrier-field-grammar-open",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_lifetime.py",
+        "--self-test",
+        "--fail-fast",
+        "--skip-task12-wave"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_lifetime.py",
+      "id": "audit-lifetime-resolver-body-roster-open",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_lifetime.py",
+        "--self-test",
+        "--fail-fast",
+        "--skip-task12-wave"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_lifetime.py",
+      "id": "audit-lifetime-process-scan-body-roster-open",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_lifetime.py",
+        "--self-test",
+        "--fail-fast",
+        "--skip-task12-wave"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_lifetime.py",
+      "id": "audit-lifetime-resolver-acquire-predicate-open",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_lifetime.py",
+        "--self-test",
+        "--fail-fast",
+        "--skip-task12-wave"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_lifetime.py",
+      "id": "audit-lifetime-vdo-reader-predicate-open",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_lifetime.py",
+        "--self-test",
+        "--fail-fast",
+        "--skip-task12-wave"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_lifetime.py",
+      "id": "audit-lifetime-attribute-association-open",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_lifetime.py",
+        "--self-test",
+        "--fail-fast",
+        "--skip-task12-wave"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_lifetime.py",
+      "id": "audit-lifetime-free-projection-roster-open",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_lifetime.py",
+        "--self-test",
+        "--fail-fast",
+        "--skip-task12-wave"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_lifetime.py",
+      "id": "audit-lifetime-native-item-namespace-open",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_lifetime.py",
+        "--self-test",
+        "--fail-fast",
+        "--skip-task12-wave"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_lifetime.py",
+      "id": "audit-lifetime-protected-impl-roster-open",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_lifetime.py",
+        "--self-test",
+        "--fail-fast",
+        "--skip-task12-wave"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_lifetime.py",
+      "id": "audit-lifetime-affine-owner-method-roster-open",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_lifetime.py",
+        "--self-test",
+        "--fail-fast",
+        "--skip-task12-wave"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_lifetime.py",
+      "id": "audit-lifetime-protected-macro-roster-open",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_lifetime.py",
+        "--self-test",
+        "--fail-fast",
+        "--skip-task12-wave"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_lifetime.py",
+      "id": "audit-lifetime-access-live-scope-roster-open",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_lifetime.py",
+        "--self-test",
+        "--fail-fast",
+        "--skip-task12-wave"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_lifetime.py",
+      "id": "audit-lifetime-nested-return-pointer-shape-open",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_lifetime.py",
+        "--self-test",
+        "--fail-fast",
+        "--skip-task12-wave"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_lifetime.py",
+      "id": "audit-lifetime-global-resolve-census-open",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_lifetime.py",
+        "--self-test",
+        "--fail-fast",
+        "--skip-task12-wave"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_lifetime.py",
+      "id": "audit-lifetime-native-capability-census-open",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_lifetime.py",
+        "--self-test",
+        "--fail-fast",
+        "--skip-task12-wave"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_lifetime.py",
+      "id": "audit-lifetime-registry-projection-census-open",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_lifetime.py",
+        "--self-test",
+        "--fail-fast",
+        "--skip-task12-wave"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_lifetime.py",
+      "id": "audit-lifetime-registry-projection-body-open",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_lifetime.py",
+        "--self-test",
+        "--fail-fast",
+        "--skip-task12-wave"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_lifetime.py",
+      "id": "audit-lifetime-terminal-winner-body-open",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_lifetime.py",
+        "--self-test",
+        "--fail-fast",
+        "--skip-task12-wave"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_lifetime.py",
+      "id": "audit-lifetime-checkpoint-owner-body-open",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_lifetime.py",
+        "--self-test",
+        "--fail-fast",
+        "--skip-task12-wave"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_lifetime.py",
+      "id": "audit-lifetime-terminal-owner-split-census-open",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_lifetime.py",
+        "--self-test",
+        "--fail-fast",
+        "--skip-task12-wave"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_lifetime.py",
+      "id": "audit-lifetime-resolve-census-raw-root-gating-restored",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_lifetime.py",
+        "--self-test",
+        "--fail-fast",
+        "--skip-task12-wave"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_lifetime.py",
+      "id": "audit-lifetime-production-root-set-open",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_lifetime.py",
+        "--self-test",
+        "--fail-fast",
+        "--skip-task12-wave"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_lifetime.py",
+      "id": "audit-lifetime-task12-wave-cleared-without-grading",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_lifetime.py",
+        "--self-test",
+        "--fail-fast",
+        "--skip-task12-wave"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_lifetime.py",
+      "id": "audit-lifetime-attach-scratch-roster-neutered",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_lifetime.py",
+        "--self-test",
+        "--fail-fast",
+        "--skip-task12-wave"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_native_mutant.py",
+      "id": "native-mutant-helper-refresh-failure-credited",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_native_mutant.py",
+      "id": "native-mutant-helper-manifest-credit-drops-its-baseline-guard",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_native_mutant.py",
+      "id": "native-mutant-helper-gate-refusal-not-credited",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_native_mutant.py",
+      "id": "native-mutant-helper-compile-failure-credited",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_native_mutant.py",
+      "id": "native-mutant-helper-missing-evidence-credited",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_native_mutant.py",
+      "id": "native-mutant-helper-audit-failure-survives",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_native_mutant.py",
+      "id": "native-mutant-helper-nocompile-summary-short",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_stack.py",
+      "id": "audit-frame-bound-never-fires",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_stack.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_stack.py",
+      "id": "audit-root-absence-not-reported",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_stack.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_imports.py",
+      "id": "audit-imports-missing-rows-never-raise",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_imports.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_imports.py",
+      "id": "audit-imports-extra-rows-never-raise",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_imports.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_imports.py",
+      "id": "audit-imports-duplicate-never-raises",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_imports.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_imports.py",
+      "id": "audit-imports-root-absence-skipped",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_imports.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_imports.py",
+      "id": "audit-imports-ambiguous-root-skipped",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_imports.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_imports.py",
+      "id": "audit-imports-root-member-unchecked",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_imports.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_imports.py",
+      "id": "audit-imports-reachable-members-vacuous",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_imports.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_imports.py",
+      "id": "audit-imports-edge-ids-unchecked",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_imports.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_imports.py",
+      "id": "audit-imports-downstream-presence-unchecked",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_imports.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_imports.py",
+      "id": "audit-identity-machine-unchecked",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_imports.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_imports.py",
+      "id": "audit-identity-map-timestamp-unchecked",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_imports.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_imports.py",
+      "id": "audit-identity-map-base-unchecked",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_imports.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_imports.py",
+      "id": "audit-identity-pdb-name-unchecked",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_imports.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_imports.py",
+      "id": "audit-identity-pdb-age-unchecked",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_imports.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_imports.py",
+      "id": "audit-identity-guid-search-deleted",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_imports.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_stack.py",
+      "id": "audit-alias-absent-canonical-skipped",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_stack.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_stack.py",
+      "id": "audit-alias-canonical-member-unchecked",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_stack.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_stack.py",
+      "id": "audit-alias-absent-alias-skipped",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_stack.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_stack.py",
+      "id": "audit-alias-address-and-member-unchecked",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_stack.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_stack.py",
+      "id": "audit-fold-grouping-vacuous",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_stack.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_stack.py",
+      "id": "audit-edge-absent-symbol-skipped",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_stack.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_stack.py",
+      "id": "audit-edge-closed-target-unchecked",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_stack.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_stack.py",
+      "id": "audit-edge-storage-may-be-a-root",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_stack.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_stack.py",
+      "id": "audit-edge-never-charged-to-chain",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_stack.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_stack.py",
+      "id": "audit-map-machine-unbound",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_stack.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_stack.py",
+      "id": "audit-map-timestamp-unbound",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_stack.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_stack.py",
+      "id": "audit-map-base-unbound",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_stack.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_imports.py",
+      "id": "audit-imports-profile-unbound",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_imports.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_stack.py",
+      "id": "audit-chain-bound-never-fires",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_stack.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_stack.py",
+      "id": "audit-root-two-addresses-unchecked",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_stack.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_stack.py",
+      "id": "audit-root-may-be-an-alias",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_stack.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_stack.py",
+      "id": "audit-prologue-drops-its-pushes",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_stack.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_stack.py",
+      "id": "audit-chkstk-probe-not-charged",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_stack.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_stack.py",
+      "id": "audit-unwind-alloclarge-read-as-bytes",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_stack.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_stack.py",
+      "id": "audit-unwind-arm-preindex-not-charged",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_stack.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_stack.py",
+      "id": "audit-unwind-coverage-floor-never-fires",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_stack.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_stack.py",
+      "id": "audit-prologue-coverage-floor-never-fires",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_stack.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_stack.py",
+      "id": "audit-frame-source-declined-uncounted",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_stack.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_stack.py",
+      "id": "audit-frame-source-truncated-uncounted",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_stack.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_stack.py",
+      "id": "audit-over-counting-direction-allowed",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_stack.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_stack.py",
+      "id": "audit-packed-unwind-frame-size-ignored",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_stack.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/stackexpand.rs",
+      "id": "stackexpand-unwritten-slot-accepted",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::stackexpand::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/stackexpand.rs",
+      "id": "stackexpand-refusal-trusts-the-slot",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::stackexpand::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_stack.py",
+      "id": "audit-expansion-frame-bound-global",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_stack.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_stack.py",
+      "id": "audit-expansion-direct-call-allowed",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_stack.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_stack.py",
+      "id": "audit-expansion-ddi-ceiling-ignored",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_stack.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_stack.py",
+      "id": "audit-expansion-bound-may-exceed-request",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_stack.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_stack.py",
+      "id": "audit-expansion-root-need-not-be-declared",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_stack.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_stack.py",
+      "id": "audit-expansion-source-constant-unread",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_stack.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_stack.py",
+      "id": "audit-expansion-ddi-undeclared-import",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_stack.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_stack.py",
+      "id": "audit-expansion-callout-argument-unchecked",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_stack.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_stack.py",
+      "id": "audit-expansion-unparsable-argument-passes",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_stack.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_stack.py",
+      "id": "audit-expansion-callsite-absence-ignored",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_stack.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_stack.py",
+      "id": "audit-expansion-caller-edge-unchecked",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_stack.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_stack.py",
+      "id": "audit-expansion-undeclared-caller-unchecked",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_stack.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_stack.py",
+      "id": "audit-expansion-declared-caller-unverified",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_stack.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_stack.py",
+      "id": "audit-expansion-ddi-without-declared-root-unchecked",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_stack.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_stack.py",
+      "id": "audit-expansion-root-key-set-unchecked",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_stack.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_stack.py",
+      "id": "audit-imports-missing-direct-key-unchecked",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_stack.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/scripts/audit_c4_stack.py",
+      "id": "stack-frame-pointer-excuses-every-over-count",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_stack.py",
+        "--self-test"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/session.rs",
+      "id": "terminal-claim-admits-a-second-live-claimant",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "session::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/session.rs",
+      "id": "terminal-claim-leaves-the-core-slot-live",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "session::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/session.rs",
+      "id": "terminal-claim-leaves-the-binding-active",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "session::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/session.rs",
+      "id": "prepared-claim-misreports-a-join-as-a-winner",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "session::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/lifecycle.rs",
+      "id": "terminal-winner-runs-before-releasing-its-outer-rundown",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::lifecycle::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/lifecycle.rs",
+      "id": "terminal-joiner-waits-before-releasing-its-outer-rundown",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::lifecycle::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/lifecycle.rs",
+      "id": "process-scan-keeps-its-index-after-a-claim",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::lifecycle::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/lifecycle.rs",
+      "id": "terminal-wait-admits-one-released-short-guard",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::lifecycle::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/lifecycle.rs",
+      "id": "unload-returns-from-a-blocked-generation",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::lifecycle::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/lifecycle.rs",
+      "id": "late-cleanup-claims-instead-of-joining",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::lifecycle::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "fence-dispatch-answers-an-effect-with-another-method",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "fence-dispatch-swallows-a-refusal",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "fence-dispatch-retries-a-native-effect",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "fence-dispatch-performs-two-operations-for-one-effect",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "fence-dispatch-grows-a-default-success-arm",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "consumer-prefix-admits-a-skipped-ring",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "consumer-prefix-admits-a-duplicate-ring",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "consumer-drain-prepares-from-an-incomplete-set",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "consumer-release-proof-minted-with-tokens-live",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "consumer-pop-declares-the-release-over",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "consumer-restore-refuses-the-last-ring",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "consumer-park-abandons-a-token-in-flight",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "consumer-release-runs-in-acquisition-order",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "drain-proof-minted-on-a-refusal",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "partial-acquisition-cannot-release-what-it-holds",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "consumer-resume-forgets-what-it-still-holds",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "retry-backoff-never-saturates",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "retry-progress-does-not-reset-the-backoff",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "retry-due-time-is-absolute-not-relative",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "invariant-refusal-is-classified-transient",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "retry-lifecycle-accepts-a-foreign-binding",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "retry-lifecycle-accepts-a-foreign-delay-right",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "retry-identity-exhaustion-reuses-an-identity",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "retry-completion-never-reaches-idle",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "initial-completion-mutates-the-lifecycle",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "residual-accepts-a-foreign-branded-prefix",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/lifecycle.rs",
+      "id": "join-route-projects-the-control-context",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::lifecycle::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "checkpoint-roster-runs-out-of-dependency-order",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "checkpoint-refusal-does-not-record-the-failing-effect",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "authority-absence-accepts-a-foreign-generation",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "authenticated-result-accepts-a-relabelled-reason",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "delete-preflight-reports-the-last-failing-check",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "delete-preparation-tolerates-a-shrinking-join-count",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "final-delete-signals-before-it-publishes-the-outcome",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/session.rs",
+      "id": "blocked-class-collapses-a-delete-fail-stop-into-a-checkpoint",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "session::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/session.rs",
+      "id": "embedded-witness-ignores-the-required-profile",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "session::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/volume.rs",
+      "id": "mount-takes-the-registry-reference-under-the-vpb-lock",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "volume::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/volume.rs",
+      "id": "mount-unwind-releases-the-registry-under-the-vpb-lock",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "volume::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "bind-ignores-the-mount-generation",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "bind-accepts-a-completion-of-the-wrong-kind",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/lifecycle.rs",
+      "id": "absence-cursor-reuses-the-maximum-mount-generation",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::lifecycle::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "preparation-refusal-reports-a-roster-cursor",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/session.rs",
+      "id": "closing-complete-published-without-its-record",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "session::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/lifecycle.rs",
+      "id": "live-cell-scan-skips-instead-of-claiming",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::lifecycle::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/lifecycle.rs",
+      "id": "copied-completion-restarts-the-scan",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::lifecycle::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "exhausted-mount-absence-refuses-deletion",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "final-delete-resets-the-cell-before-freeing-the-shell",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "mount-bind-ignores-the-completion-locator",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/session.rs",
+      "id": "drained-signal-minted-before-the-last-release",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "session::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/lifecycle.rs",
+      "id": "blocked-release-always-reports-drained",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::lifecycle::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "re-observation-tolerates-a-shrinking-joiner-count",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "delete-preflight-skips-the-sole-authority-check",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/volume.rs",
+      "id": "mount-takes-the-session-reference-under-the-initial-vpb-lock",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "volume::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "roster-walk-continues-past-a-refusal",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "roster-walk-treats-success-as-refusal",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "native-fence-close-admission-noop",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "native-fence-signal-pending-enter-noop",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "native-fence-wait-control-rundown-noop",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "native-fence-remove-producer-mappings-noop",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "native-fence-wait-producer-mapping-rundown-noop",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "native-fence-acquire-consumers-noop",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "native-fence-drain-stable-prefixes-noop",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "native-fence-retire-credits-noop",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "native-fence-release-consumers-noop",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "native-fence-queue-installed-work-noop",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "native-fence-wait-pending-owners-noop",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "native-fence-release-readonly-mappings-noop",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "native-fence-release-mdls-system-view-noop",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "native-fence-release-captured-process-noop",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "native-fence-dismount-delete-devices-noop",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "native-fence-release-transient-backing-noop",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/lifecycle.rs",
+      "id": "native-access-rundown-acquire-noop",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/lifecycle.rs",
+      "id": "native-access-generation-recheck-noop",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/lifecycle.rs",
+      "id": "native-access-rundown-release-noop",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/fence.rs",
+      "id": "native-access-rundown-wait-noop",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/fence.rs",
+      "id": "access-rundown-wait-omitted",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/lifecycle.rs",
+      "id": "native-join-close-admission-noop",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/enter.rs",
+      "id": "cq-execution-domain-check-omitted",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "enter::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "fsring-user/src/smoke/live.rs",
+      "id": "smoke-staged-probes-unobserved",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.82.0",
+        "test",
+        "-p",
+        "fsring-user",
+        "--test",
+        "smoke_live",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "fsring-user/src/smoke/live.rs",
+      "id": "smoke-live-probes-unobserved",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.82.0",
+        "test",
+        "-p",
+        "fsring-user",
+        "--test",
+        "smoke_live",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "fsring-user/src/smoke/live.rs",
+      "id": "smoke-post-probes-unobserved",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.82.0",
+        "test",
+        "-p",
+        "fsring-user",
+        "--test",
+        "smoke_live",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "fsring-user/src/bin/fsring-control-smoke.rs",
+      "id": "smoke-live-route-uses-v1",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.82.0",
+        "test",
+        "-p",
+        "fsring-user",
+        "--test",
+        "smoke_live",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/scripts/smoke_driver.ps1",
+      "id": "smoke-v2-parser-bypassed",
+      "anchorCount": 1,
+      "owningCommand": [
+        "powershell.exe",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "driver/scripts/smoke_driver.ps1",
+        "-SelfTest"
+      ]
+    },
+    {
+      "target": "driver/scripts/package_c4_candidate.ps1",
+      "id": "package-launch-counts-restate-the-oracle",
+      "anchorCount": 1,
+      "owningCommand": [
+        "powershell.exe",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "driver/scripts/package_c4_candidate.ps1",
+        "-SelfTest"
+      ]
+    },
+    {
+      "target": "driver/scripts/package_c4_candidate.ps1",
+      "id": "package-launch-coverage-guard-neutered",
+      "anchorCount": 1,
+      "owningCommand": [
+        "powershell.exe",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "driver/scripts/package_c4_candidate.ps1",
+        "-SelfTest"
+      ]
+    },
+    {
+      "target": "driver/scripts/package_c4_candidate.ps1",
+      "id": "package-journal-written-into-the-attempt",
+      "anchorCount": 1,
+      "owningCommand": [
+        "powershell.exe",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "driver/scripts/package_c4_candidate.ps1",
+        "-SelfTest"
+      ]
+    },
+    {
+      "target": "fsring-user/src/smoke/live.rs",
+      "id": "smoke-after-mutation-not-run",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.82.0",
+        "test",
+        "-p",
+        "fsring-user",
+        "--test",
+        "smoke_live",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/setup.rs",
+      "id": "control-cleanup-frees-context",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::setup::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/setup.rs",
+      "id": "control-close-free-twice",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::setup::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/fence.rs",
+      "id": "native-finalizer-preflight-step-noop",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/lifecycle.rs",
+      "id": "native-terminal-event-signal-noop",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/lifecycle.rs",
+      "id": "native-terminal-event-clear-noop",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/fence.rs",
+      "id": "native-terminal-event-wait-noop",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/lifecycle.rs",
+      "id": "native-joiners-drained-signal-noop",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/lifecycle.rs",
+      "id": "native-joiners-drained-wait-noop",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/fence.rs",
+      "id": "native-finalizer-queue-noop",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/lifecycle.rs",
+      "id": "native-finalizer-rundown-completed-noop",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/lifecycle.rs",
+      "id": "native-finalizer-rundown-reinitialize-noop",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/lifecycle.rs",
+      "id": "native-finalizer-free-shell-noop",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/session.rs",
+      "id": "finalizer-finish-prepared-delete-noop",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "session::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/lifecycle.rs",
+      "id": "native-finalizer-root-release-noop",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/session.rs",
+      "id": "joiner-drained-signal-omitted",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "session::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/pending_enter.rs",
+      "id": "unload-observation-bugchecks-under-the-slot-lock",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/pending_enter.rs",
+      "id": "completion-declared-without-authorities-stays-completing",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/pending_enter.rs",
+      "id": "pending-mark-after-csq",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/pending_enter.rs",
+      "id": "pending-dpc-exit-signal-omitted",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/pending_enter.rs",
+      "id": "pending-thunk-completes",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/enter.rs",
+      "id": "cq-kind-after-request-lookup",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "enter::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/grant.rs",
+      "id": "notify-head-before-claim",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "grant::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/setup.rs",
+      "id": "control-terminal-frees-context",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::setup::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/setup.rs",
+      "id": "control-post-close-touches-context",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::setup::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/setup.rs",
+      "id": "win7-roster-skips-the-master-locks",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::setup::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/setup.rs",
+      "id": "win7-masters-are-not-unwound",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::setup::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/setup.rs",
+      "id": "spine-master-spans-the-whole-section",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::setup::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/setup.rs",
+      "id": "spine-maps-through-a-partial-mdl",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::setup::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/terminal.rs",
+      "id": "terminal-winner-cas-omitted",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "session::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/volume.rs",
+      "id": "vpb-clear-after-delete",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/enter.rs",
+      "id": "pending-handoff-before-guard-release",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "enter::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/enter.rs",
+      "id": "pending-worker-idle-before-owner-release",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "enter::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/enter.rs",
+      "id": "pending-reschedule-publishes-queued-owing-nothing",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "enter::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/enter.rs",
+      "id": "pending-worker-state-without-owner",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "enter::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/pending_enter.rs",
+      "id": "pending-publication-fail-stop-variant-omitted",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/pending_enter.rs",
+      "id": "pending-publication-fail-stop-unload-predicate-omitted",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/grant.rs",
+      "id": "notify-refresh-before-head",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "grant::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/enter.rs",
+      "id": "protocol-abort-not-committed",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "enter::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/enter.rs",
+      "id": "completion-accepted",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "enter::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/enter.rs",
+      "id": "cancel-after-commit-wins",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "enter::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/volume.rs",
+      "id": "mount-reset-before-waiters-drained",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/volume.rs",
+      "id": "mount-reset-proof-bypassed",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/volume.rs",
+      "id": "mount-root-ref-substituted",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/volume.rs",
+      "id": "mounted-delete-duplicated",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/volume.rs",
+      "id": "vdo-read-after-delete",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/volume.rs",
+      "id": "mount-ownership-compares-the-target-with-itself",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/volume.rs",
+      "id": "mount-projects-extension-before-ownership",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/fence.rs",
+      "id": "session-root-release-before-finalizer",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/fence.rs",
+      "id": "fence-retry-fail-stop-stores-nothing",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/lifecycle.rs",
+      "id": "finalizer-queue-duplicated",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/lifecycle.rs",
+      "id": "rundown-reinit-before-join-drain",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/lifecycle.rs",
+      "id": "terminal-clear-before-join-drain",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "terminal-retry-report-merge-noop",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "fence-discharge-proof-with-residual",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/fence.rs",
+      "id": "terminal-finalize-before-residual-empty",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::fence::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/enter.rs",
+      "id": "pending-contend-before-dequeue",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "enter::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/pending_enter.rs",
+      "id": "pending-exit-wait-ignores-a-nonquiesced-timer",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/pending_enter.rs",
+      "id": "pending-teardown-latch-cleared-on-arm",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/pending_enter.rs",
+      "id": "pending-handoff-obligation-left-undischarged",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/enter.rs",
+      "id": "pending-exit-wait-precedes-the-cancel-that-bounds-it",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "enter::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/pending_enter.rs",
+      "id": "pending-dpc-exit-wait-skips-the-stale-clear",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/pending_enter.rs",
+      "id": "pending-teardown-skips-the-exit-signal-wait",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/pending_enter.rs",
+      "id": "pending-teardown-waits-the-wrong-cancel-arm",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/pending_enter.rs",
+      "id": "pending-fence-wake-sweep-abandons-higher-rings",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/pending_enter.rs",
+      "id": "pending-closing-wake-counts-as-a-refusal",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/pending_enter.rs",
+      "id": "pending-release-install-keeps-the-parked-plan",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/pending_enter.rs",
+      "id": "pending-timer-armed-after-its-lock",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/enter.rs",
+      "id": "pending-handoff-published-twice",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "enter::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/enter.rs",
+      "id": "pending-owner-released-before-handoff",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "enter::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/enter.rs",
+      "id": "pending-worker-queued-before-installer-release",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "enter::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/pending_enter.rs",
+      "id": "pending-fabricated-dequeue-receipt",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/pending_enter.rs",
+      "id": "pending-dpc-exit-signal-before-owner-release",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/enter.rs",
+      "id": "pending-work-clear-recheck-omitted",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "enter::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/pending_enter.rs",
+      "id": "pending-epoch-wraps",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/pending_enter.rs",
+      "id": "pending-early-cancel-returns-complete",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/pending_enter.rs",
+      "id": "pending-publication-fail-stop-packet-cleared",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/pending_enter.rs",
+      "id": "pending-publication-fail-stop-treated-drained",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/pending_enter.rs",
+      "id": "pending-publication-fail-stop-delete-predicate-omitted",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/pending_enter.rs",
+      "id": "pending-final-publication-lock-packet-exposed",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/pending_enter.rs",
+      "id": "pending-completion-classifies-a-constant-axis",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/pending_enter.rs",
+      "id": "pending-worker-dequeues-before-authority",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/pending_enter.rs",
+      "id": "pending-refused-pass-stays-completing",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/pending_enter.rs",
+      "id": "abandoned-completion-drops-the-adopted-cancel",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/pending_enter.rs",
+      "id": "pass-admission-ignores-the-missing-plan",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/pending_enter.rs",
+      "id": "store-owed-pass-is-never-queued",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/pending_enter.rs",
+      "id": "abandon-drops-the-pass-it-owes",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/kernel.rs",
+      "id": "sddl-mint-accepts-an-unterminated-buffer",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/volume.rs",
+      "id": "volume-sddl-uses-the-counted-name-convention",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/control.rs",
+      "id": "control-sddl-uses-the-counted-name-convention",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/fscontrol.rs",
+      "id": "fscontrol-sddl-uses-the-counted-name-convention",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/kernel.rs",
+      "id": "sz-mint-maximum-equals-its-length",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/pending_enter.rs",
+      "id": "admission-guard-tests-without-refusing",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/pending_enter.rs",
+      "id": "begin-pass-refuses-outside-the-admission",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/pending_enter.rs",
+      "id": "begin-pass-gated-at-its-call-site",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/pending_enter.rs",
+      "id": "completion-refusal-skips-the-abandon",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/enter.rs",
+      "id": "blocked-notify-consumed",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "enter::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/enter.rs",
+      "id": "csq-worker-dequeue-completes-a-still-queued-slot",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "enter::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/enter.rs",
+      "id": "worker-token-survives-an-idle-finish",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "enter::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/enter.rs",
+      "id": "stored-wake-after-the-plan-store-is-never-queued",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "enter::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/lifecycle.rs",
+      "id": "cleanup-never-reclaims-after-its-terminal",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::lifecycle::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-core/src/adapter/setup.rs",
+      "id": "close-frees-an-unacknowledged-record",
+      "anchorCount": 1,
+      "owningCommand": [
+        "cargo",
+        "+1.85.0",
+        "test",
+        "--manifest-path",
+        "driver/Cargo.toml",
+        "-p",
+        "fsring-core",
+        "adapter::setup::tests",
+        "--locked",
+        "--offline"
+      ]
+    },
+    {
+      "target": "driver/fsring-fsd/src/lifecycle.rs",
+      "id": "completion-keeps-the-recorded-context",
+      "anchorCount": 1,
+      "owningCommand": [
+        "python",
+        "driver/scripts/audit_c4_native_mutant.py",
+        "--root",
+        "."
+      ]
+    }
+  ]
+}

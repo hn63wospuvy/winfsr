@@ -1,0 +1,21 @@
+E0277
+the trait bound `NativeSessionOwner<Shell>: From<*mut Shell>` is not satisfied
+the trait bound `SessionRootReleaseRight<RootRelease>: From<*mut RootRelease>` is not satisfied
+the trait bound `NativeSessionOwner<Shell>: From<SessionLocator>` is not satisfied
+the trait bound `SessionRootReleaseRight<RootRelease>: From<SessionLocator>` is not satisfied
+the trait bound `NativeSessionOwner<Shell>: Clone` is not satisfied
+the trait bound `NativeSessionOwner<Shell>: Default` is not satisfied
+the trait bound `SessionRootReleaseRight<RootRelease>: Clone` is not satisfied
+the trait bound `SessionRootReleaseRight<RootRelease>: Default` is not satisfied
+E0616
+field `payload` of struct `NativeSessionOwner` is private
+field `payload` of struct `SessionRootReleaseRight` is private
+E0599
+no method named `into_inner` found for struct `NativeSessionOwner`
+no method named `into_storage` found for struct `NativeSessionOwner`
+no method named `into_inner` found for struct `SessionRootReleaseRight`
+no method named `into_storage` found for struct `SessionRootReleaseRight`
+E0624
+method `take_native_owner_bind_rights` is private
+method `into_parts` is private
+method `bind` is private

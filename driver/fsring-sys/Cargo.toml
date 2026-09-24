@@ -1,0 +1,16 @@
+[package]
+name = "fsring-sys"
+version = "0.1.0"
+edition = "2024"
+publish = false
+description = "FSRING pinned kernel bindings: the only crate with hand-written extern blocks."
+license = "MIT OR Apache-2.0"
+
+[lib]
+crate-type = ["rlib"]
+
+[dependencies]
+wdk-sys = "0.5.1"
+
+[build-dependencies]
+wdk-build = "0.5.1"

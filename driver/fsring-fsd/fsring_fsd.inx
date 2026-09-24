@@ -1,0 +1,45 @@
+; fsring_fsd.inx — non-PnP primitive file-system driver package.
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = "System"
+ClassGuid   = {4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider    = %ProviderString%
+PnpLockdown = 1
+CatalogFile = fsring_fsd.cat
+
+[DestinationDirs]
+Drivers_Dir = 13
+
+[SourceDisksNames]
+1 = %DiskName%
+
+[SourceDisksFiles]
+fsring_fsd.sys = 1
+
+[DefaultInstall.NT$ARCH$]
+CopyFiles = Drivers_Dir
+
+[Drivers_Dir]
+fsring_fsd.sys
+
+[DefaultInstall.NT$ARCH$.Services]
+AddService = fsring_fsd,,fsring_fsd_Service_Inst
+
+[DefaultUninstall.NT$ARCH$]
+LegacyUninstall = 1
+
+[DefaultUninstall.NT$ARCH$.Services]
+DelService = fsring_fsd,0x200
+
+[fsring_fsd_Service_Inst]
+DisplayName   = %ServiceDesc%
+ServiceType   = 2
+StartType     = 3
+ErrorControl  = 1
+LoadOrderGroup = "File System"
+ServiceBinary = %13%\fsring_fsd.sys
+
+[Strings]
+ProviderString = "FSRING"
+DiskName       = "FSRING Driver Installation Disk"
+ServiceDesc    = "FSRING Filesystem Driver Service"

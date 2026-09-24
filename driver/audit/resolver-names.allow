@@ -1,0 +1,13 @@
+# Optional DDIs resolved at runtime through MmGetSystemRoutineAddress.
+#
+# 11-rust-implementation.md section 8: every modern optional symbol must appear
+# ONLY in the resolver-name table, NEVER in the static import directory.
+# audit_sys.sh --resolver-table enforces exactly that, and a fsring-core test
+# asserts this file equals fsring_core::resolver::RESOLVER_TABLE so the two
+# cannot drift.
+#
+# ExAllocatePool2 - Windows 10 2004 (NTDDI_WIN10_VB), newer than the modern
+# profile's Windows 10 1507 floor. Static-importing it would fail the kernel
+# loader on 1507-1909 x64 and 1709-1903 ARM64, which 00-INDEX.md section 5
+# forbids and no gate on this machine could detect.
+ExAllocatePool2

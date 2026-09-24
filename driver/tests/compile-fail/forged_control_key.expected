@@ -1,0 +1,6 @@
+E0451
+field `table_id` of struct `ControlKey` is private
+field `slot_index` of struct `ControlKey` is private
+field `lane` of struct `ControlKey` is private
+field `birth_session_epoch` of struct `ControlKey` is private
+field `birth_generation` of struct `ControlKey` is private

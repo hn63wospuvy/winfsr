@@ -1,0 +1,394 @@
+{
+  "schema": "fsring-c4-stack-roots/v2",
+  "maxFrameBytes": 2048,
+  "maxChainBytes": 8192,
+  "frameSources": {
+    "Win10X64": {
+      "minPrologueFunctions": 211,
+      "minUnwindFunctions": 132,
+      "maxDeclinedDisagreements": 8,
+      "maxTruncatedDisagreements": 0,
+      "maxFramePointerDisagreements": 0
+    },
+    "Win10Arm64": {
+      "minPrologueFunctions": 223,
+      "minUnwindFunctions": 133,
+      "maxDeclinedDisagreements": 31,
+      "maxTruncatedDisagreements": 5,
+      "maxFramePointerDisagreements": 1
+    },
+    "Win7X64": {
+      "minPrologueFunctions": 211,
+      "minUnwindFunctions": 133,
+      "maxDeclinedDisagreements": 8,
+      "maxTruncatedDisagreements": 0,
+      "maxFramePointerDisagreements": 0
+    }
+  },
+  "roots": [
+    "DriverEntry",
+    "fsring_driver_unload",
+    "fsring_dispatch_create",
+    "fsring_dispatch_cleanup",
+    "fsring_cleanup_callout",
+    "fsring_dispatch_close",
+    "fsring_dispatch_device_control",
+    "fsring_dispatch_file_system_control",
+    "fsring_dispatch_provider",
+    "fsring_dispatch_fscontrol",
+    "fsring_dispatch_vdo",
+    "fsring_dispatch_volume",
+    "fsring_dispatch_setup",
+    "fsring_setup_callout",
+    "fsring_dispatch_enter",
+    "fsring_dispatch_mount",
+    "fsring_dispatch_verify",
+    "fsring_dispatch_vdo_ioctl",
+    "fsring_process_loss",
+    "fsring_session_fence"
+  ],
+  "expansionRoots": [
+    {
+      "root": "fsring_setup_callout",
+      "caller": "fsring_dispatch_setup",
+      "ddi": "KeExpandKernelStackAndCallout",
+      "expansionBytes": 40960,
+      "maxFrameBytes": 8192,
+      "maxChainBytes": 30720,
+      "sourceFile": "driver/fsring-fsd/src/session.rs",
+      "sourceConstant": "SETUP_STACK_EXPANSION_BYTES"
+    },
+    {
+      "root": "fsring_cleanup_callout",
+      "caller": "fsring_dispatch_cleanup",
+      "ddi": "KeExpandKernelStackAndCallout",
+      "expansionBytes": 40960,
+      "maxFrameBytes": 8192,
+      "maxChainBytes": 30720,
+      "sourceFile": "driver/fsring-fsd/src/control.rs",
+      "sourceConstant": "CLEANUP_STACK_EXPANSION_BYTES"
+    }
+  ],
+  "sourceGuard": {
+    "sourceRoots": [
+      "driver/fsring-fsd/src",
+      "driver/fsring-fsd/native",
+      "driver/fsring-core/src",
+      "fsring-abi/src"
+    ],
+    "topologyLengthSeeds": [
+      "MAX_RING_COUNT",
+      "MAX_SQ_CAPACITY",
+      "MAX_CQ_CAPACITY",
+      "MAX_INFLIGHT",
+      "MAX_SLOT_COUNT",
+      "MAX_NOTIFICATION_CREDIT_SIZE",
+      "MAX_NOTIFICATION_CREDITS_PER_RING",
+      "MAX_NOTIFICATION_CREDITS_PER_SESSION",
+      "MAX_NOTIFICATION_CREDIT_BYTES"
+    ],
+    "topologyNameFragments": [
+      "ring",
+      "credit",
+      "slot",
+      "sq",
+      "cq"
+    ],
+    "requiredPoolOwners": [
+      "fsring_allocate_drain_scratch",
+      "fsring_allocate_fence_scratch"
+    ]
+  },
+  "indirectEdges": [
+    {
+      "id": "pool2-resolver",
+      "profiles": [
+        "Win10X64",
+        "Win10Arm64"
+      ],
+      "caller": "fsring_call_ex_allocate_pool2",
+      "storage": "fsring_resolved_ex_allocate_pool2",
+      "kind": "resolved-external",
+      "resolver": "MmGetSystemRoutineAddress",
+      "resolverName": "ExAllocatePool2",
+      "target": "ntoskrnl.exe!ExAllocatePool2"
+    },
+    {
+      "id": "wdmsec-create-device-secure",
+      "profiles": [
+        "Win10X64",
+        "Win10Arm64",
+        "Win7X64"
+      ],
+      "caller": "WdmlibIoCreateDeviceSecure",
+      "storage": "PfnIoCreateDeviceSecure",
+      "kind": "closed-target-set",
+      "targets": [
+        {
+          "kind": "resolved-external",
+          "resolver": "MmGetSystemRoutineAddress",
+          "resolverName": "IoCreateDeviceSecure",
+          "target": "ntoskrnl.exe!IoCreateDeviceSecure"
+        },
+        {
+          "kind": "internal",
+          "symbol": "IoDevObjCreateDeviceSecure",
+          "mapMember": "wdmsec:iodevobj.obj"
+        }
+      ]
+    }
+  ],
+  "aliases": [
+    {
+      "canonical": "memcpy",
+      "aliases": [
+        "memmove"
+      ],
+      "profiles": [
+        "Win10X64",
+        "Win10Arm64",
+        "Win7X64"
+      ],
+      "mapMember": "ntoskrnl:memcpy.obj"
+    },
+    {
+      "canonical": "memcpy",
+      "aliases": [
+        "__memcpy_default"
+      ],
+      "profiles": [
+        "Win10Arm64"
+      ],
+      "mapMember": "ntoskrnl:memcpy.obj"
+    },
+    {
+      "canonical": "memset",
+      "aliases": [
+        "memset_$fo_default$"
+      ],
+      "profiles": [
+        "Win10X64",
+        "Win7X64"
+      ],
+      "mapMember": "ntoskrnl:memset.obj"
+    },
+    {
+      "canonical": "memset",
+      "aliases": [
+        "_memset_strict_align"
+      ],
+      "profiles": [
+        "Win10Arm64"
+      ],
+      "mapMember": "ntoskrnl:memset.obj"
+    }
+  ],
+  "asyncCallbackRoots": [
+    "fsring_pending_enter_timer_dpc",
+    "fsring_pending_enter_worker",
+    "csq_complete_canceled_irp",
+    "fsring_finalizer_callback"
+  ],
+  "nativeEffectCalls": [
+    {
+      "id": "close_session_admission",
+      "source": "driver/fsring-core/src/adapter/fence.rs",
+      "symbol": "close_session_admission",
+      "requiredCall": "native_close_generation_admission"
+    },
+    {
+      "id": "signal_pending_enter",
+      "source": "driver/fsring-core/src/adapter/fence.rs",
+      "symbol": "signal_pending_enter",
+      "requiredCall": "native_schedule_linked_pending"
+    },
+    {
+      "id": "wait_control_rundown",
+      "source": "driver/fsring-core/src/adapter/fence.rs",
+      "symbol": "wait_control_rundown",
+      "requiredCall": "native_wait_control_and_access_rundown"
+    },
+    {
+      "id": "remove_producer_mappings_reverse",
+      "source": "driver/fsring-core/src/adapter/fence.rs",
+      "symbol": "remove_producer_mappings_reverse",
+      "requiredCall": "native_unmap_producer_aliases_reverse"
+    },
+    {
+      "id": "wait_producer_and_mapping_capture_rundown",
+      "source": "driver/fsring-core/src/adapter/fence.rs",
+      "symbol": "wait_producer_and_mapping_capture_rundown",
+      "requiredCall": "native_wait_producer_capture_rundown"
+    },
+    {
+      "id": "acquire_consumers_increasing",
+      "source": "driver/fsring-core/src/adapter/fence.rs",
+      "symbol": "do_acquire",
+      "requiredCall": "native_acquire_consumers_increasing"
+    },
+    {
+      "id": "drain_stable_prefixes_bounded",
+      "source": "driver/fsring-core/src/adapter/fence.rs",
+      "symbol": "drain_stable_prefixes_with_proof",
+      "requiredCall": "native_drain_stable_prefixes_bounded"
+    },
+    {
+      "id": "retire_credits",
+      "source": "driver/fsring-core/src/adapter/fence.rs",
+      "symbol": "retire_credits_with_proof",
+      "requiredCall": "native_retire_grants"
+    },
+    {
+      "id": "release_consumers",
+      "source": "driver/fsring-core/src/adapter/fence.rs",
+      "symbol": "release_then",
+      "requiredCall": "native_release_consumers"
+    },
+    {
+      "id": "queue_installed_work",
+      "source": "driver/fsring-core/src/adapter/fence.rs",
+      "symbol": "queue_installed_work",
+      "requiredCall": "native_queue_installed_work"
+    },
+    {
+      "id": "wait_pending_and_owners",
+      "source": "driver/fsring-core/src/adapter/fence.rs",
+      "symbol": "do_wait_pending",
+      "requiredCall": "native_wait_pending_and_owner_rundown"
+    },
+    {
+      "id": "release_read_only_mappings_reverse",
+      "source": "driver/fsring-core/src/adapter/fence.rs",
+      "symbol": "release_read_only_mappings_reverse",
+      "requiredCall": "native_unmap_readonly_aliases_reverse"
+    },
+    {
+      "id": "release_mdls_and_system_view",
+      "source": "driver/fsring-core/src/adapter/fence.rs",
+      "symbol": "release_mdls_and_system_view",
+      "requiredCall": "native_release_mdls_and_system_view"
+    },
+    {
+      "id": "release_captured_process",
+      "source": "driver/fsring-core/src/adapter/fence.rs",
+      "symbol": "release_captured_process",
+      "requiredCall": "native_dereference_process"
+    },
+    {
+      "id": "dismount_and_delete_devices",
+      "source": "driver/fsring-core/src/adapter/fence.rs",
+      "symbol": "do_dismount",
+      "requiredCall": "native_take_or_join_mount_and_delete"
+    },
+    {
+      "id": "release_transient_backing",
+      "source": "driver/fsring-core/src/adapter/fence.rs",
+      "symbol": "do_release_backing",
+      "requiredCall": "native_release_transient_arrays"
+    }
+  ],
+  "nativeLifecycleCalls": [
+    {
+      "id": "resolve-acquire",
+      "source": "driver/fsring-fsd/src/lifecycle.rs",
+      "symbol": "resolve",
+      "requiredCall": "ExAcquireRundownProtection"
+    },
+    {
+      "id": "access-guard-drop",
+      "source": "driver/fsring-fsd/src/lifecycle.rs",
+      "symbol": "drop",
+      "requiredCall": "ExReleaseRundownProtection"
+    },
+    {
+      "id": "wait-access-rundown",
+      "source": "driver/fsring-fsd/src/fence.rs",
+      "symbol": "native_wait_control_and_access_rundown",
+      "requiredCall": "wait_session_access_rundown"
+    },
+    {
+      "id": "prepare-final-delete",
+      "source": "driver/fsring-fsd/src/fence.rs",
+      "symbol": "prepare_final_delete",
+      "requiredCall": "decide_delete_preflight"
+    },
+    {
+      "id": "terminal-signal",
+      "source": "driver/fsring-fsd/src/lifecycle.rs",
+      "symbol": "signal_terminal_outcome",
+      "requiredCall": "KeSetEvent"
+    },
+    {
+      "id": "finish-fence",
+      "source": "driver/fsring-fsd/src/fence.rs",
+      "symbol": "finish_fence",
+      "requiredCall": "release_strong_and_deposit"
+    },
+    {
+      "id": "run-prepared-delete",
+      "source": "driver/fsring-fsd/src/fence.rs",
+      "symbol": "execute_prepared_delete",
+      "requiredCall": "prepared.execute"
+    },
+    {
+      "id": "finish-delete",
+      "source": "driver/fsring-core/src/session.rs",
+      "symbol": "finish_delete",
+      "requiredCall": "reset_slot"
+    },
+    {
+      "id": "queue-finalizer",
+      "source": "driver/fsring-fsd/src/fence.rs",
+      "symbol": "queue_finalizer",
+      "requiredCall": "queue_cell_finalizer"
+    },
+    {
+      "id": "complete-rundown",
+      "source": "driver/fsring-fsd/src/lifecycle.rs",
+      "symbol": "complete_access_rundown",
+      "requiredCall": "ExRundownCompleted"
+    },
+    {
+      "id": "reinit-rundown",
+      "source": "driver/fsring-fsd/src/lifecycle.rs",
+      "symbol": "reinitialize_access_rundown",
+      "requiredCall": "ExReInitializeRundownProtection"
+    },
+    {
+      "id": "free-shell",
+      "source": "driver/fsring-fsd/src/lifecycle.rs",
+      "symbol": "destroy_shell_then_release_root",
+      "requiredCall": "free_session_shell_allocation"
+    },
+    {
+      "id": "generation-recheck",
+      "source": "driver/fsring-fsd/src/lifecycle.rs",
+      "symbol": "resolve",
+      "requiredCall": "validate_live"
+    },
+    {
+      "id": "clear-terminal-events",
+      "source": "driver/fsring-fsd/src/lifecycle.rs",
+      "symbol": "clear_terminal_generation_events",
+      "requiredCall": "KeClearEvent"
+    },
+    {
+      "id": "joiners-drained-signal",
+      "source": "driver/fsring-fsd/src/lifecycle.rs",
+      "symbol": "signal_joiners_drained",
+      "requiredCall": "KeSetEvent"
+    },
+    {
+      "id": "joiners-drained-wait",
+      "source": "driver/fsring-fsd/src/lifecycle.rs",
+      "symbol": "wait_joiners_drained",
+      "requiredCall": "KeWaitForSingleObject"
+    },
+    {
+      "id": "pending-completion-plan-size",
+      "source": "driver/fsring-core/src/enter.rs",
+      "symbol": "PendingCompletionPlan",
+      "requiredCall": "size_of::<PendingCompletionPlan>()"
+    }
+  ]
+}

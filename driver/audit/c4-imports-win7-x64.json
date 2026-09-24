@@ -1,0 +1,575 @@
+{
+  "schema": "fsring-c4-imports/v1",
+  "scope": "complete-final-image",
+  "profile": "Win7X64",
+  "machine": "x64",
+  "direct": [
+    {
+      "logical": "BCryptGenRandom",
+      "module": "ksecdd.sys",
+      "symbol": "BCryptGenRandom"
+    },
+    {
+      "logical": "DbgPrint",
+      "module": "ntoskrnl.exe",
+      "symbol": "DbgPrint"
+    },
+    {
+      "logical": "EtwRegister",
+      "module": "ntoskrnl.exe",
+      "symbol": "EtwRegister"
+    },
+    {
+      "logical": "EtwUnregister",
+      "module": "ntoskrnl.exe",
+      "symbol": "EtwUnregister"
+    },
+    {
+      "logical": "EtwWrite",
+      "module": "ntoskrnl.exe",
+      "symbol": "EtwWrite"
+    },
+    {
+      "logical": "ExAcquireRundownProtection",
+      "module": "ntoskrnl.exe",
+      "symbol": "ExAcquireRundownProtection"
+    },
+    {
+      "logical": "ExAllocatePoolWithTag",
+      "module": "ntoskrnl.exe",
+      "symbol": "ExAllocatePoolWithTag"
+    },
+    {
+      "logical": "ExEventObjectType",
+      "module": "ntoskrnl.exe",
+      "symbol": "ExEventObjectType"
+    },
+    {
+      "logical": "ExFreePoolWithTag",
+      "module": "ntoskrnl.exe",
+      "symbol": "ExFreePoolWithTag"
+    },
+    {
+      "logical": "ExInitializeRundownProtection",
+      "module": "ntoskrnl.exe",
+      "symbol": "ExInitializeRundownProtection"
+    },
+    {
+      "logical": "ExReInitializeRundownProtection",
+      "module": "ntoskrnl.exe",
+      "symbol": "ExReInitializeRundownProtection"
+    },
+    {
+      "logical": "ExReleaseRundownProtection",
+      "module": "ntoskrnl.exe",
+      "symbol": "ExReleaseRundownProtection"
+    },
+    {
+      "logical": "ExRundownCompleted",
+      "module": "ntoskrnl.exe",
+      "symbol": "ExRundownCompleted"
+    },
+    {
+      "logical": "ExWaitForRundownProtectionRelease",
+      "module": "ntoskrnl.exe",
+      "symbol": "ExWaitForRundownProtectionRelease"
+    },
+    {
+      "logical": "IoAcquireVpbSpinLock",
+      "module": "ntoskrnl.exe",
+      "symbol": "IoAcquireVpbSpinLock"
+    },
+    {
+      "logical": "IoAllocateMdl",
+      "module": "ntoskrnl.exe",
+      "symbol": "IoAllocateMdl"
+    },
+    {
+      "logical": "IoAllocateWorkItem",
+      "module": "ntoskrnl.exe",
+      "symbol": "IoAllocateWorkItem"
+    },
+    {
+      "logical": "IoBuildPartialMdl",
+      "module": "ntoskrnl.exe",
+      "symbol": "IoBuildPartialMdl"
+    },
+    {
+      "logical": "IoCreateDevice",
+      "module": "ntoskrnl.exe",
+      "symbol": "IoCreateDevice"
+    },
+    {
+      "logical": "IoCreateSymbolicLink",
+      "module": "ntoskrnl.exe",
+      "symbol": "IoCreateSymbolicLink"
+    },
+    {
+      "logical": "IoCsqInitialize",
+      "module": "ntoskrnl.exe",
+      "symbol": "IoCsqInitialize"
+    },
+    {
+      "logical": "IoCsqInsertIrp",
+      "module": "ntoskrnl.exe",
+      "symbol": "IoCsqInsertIrp"
+    },
+    {
+      "logical": "IoCsqRemoveIrp",
+      "module": "ntoskrnl.exe",
+      "symbol": "IoCsqRemoveIrp"
+    },
+    {
+      "logical": "IoDeleteDevice",
+      "module": "ntoskrnl.exe",
+      "symbol": "IoDeleteDevice"
+    },
+    {
+      "logical": "IoDeleteSymbolicLink",
+      "module": "ntoskrnl.exe",
+      "symbol": "IoDeleteSymbolicLink"
+    },
+    {
+      "logical": "IoDeviceObjectType",
+      "module": "ntoskrnl.exe",
+      "symbol": "IoDeviceObjectType"
+    },
+    {
+      "logical": "IoFreeMdl",
+      "module": "ntoskrnl.exe",
+      "symbol": "IoFreeMdl"
+    },
+    {
+      "logical": "IoFreeWorkItem",
+      "module": "ntoskrnl.exe",
+      "symbol": "IoFreeWorkItem"
+    },
+    {
+      "logical": "IoGetRequestorProcess",
+      "module": "ntoskrnl.exe",
+      "symbol": "IoGetRequestorProcess"
+    },
+    {
+      "logical": "IoIsWdmVersionAvailable",
+      "module": "ntoskrnl.exe",
+      "symbol": "IoIsWdmVersionAvailable"
+    },
+    {
+      "logical": "IoQueueWorkItem",
+      "module": "ntoskrnl.exe",
+      "symbol": "IoQueueWorkItem"
+    },
+    {
+      "logical": "IoRegisterFileSystem",
+      "module": "ntoskrnl.exe",
+      "symbol": "IoRegisterFileSystem"
+    },
+    {
+      "logical": "IoReleaseVpbSpinLock",
+      "module": "ntoskrnl.exe",
+      "symbol": "IoReleaseVpbSpinLock"
+    },
+    {
+      "logical": "IoUnregisterFileSystem",
+      "module": "ntoskrnl.exe",
+      "symbol": "IoUnregisterFileSystem"
+    },
+    {
+      "logical": "IofCompleteRequest",
+      "module": "ntoskrnl.exe",
+      "symbol": "IofCompleteRequest"
+    },
+    {
+      "logical": "KeAcquireSpinLockRaiseToDpc",
+      "module": "ntoskrnl.exe",
+      "symbol": "KeAcquireSpinLockRaiseToDpc"
+    },
+    {
+      "logical": "KeBugCheckEx",
+      "module": "ntoskrnl.exe",
+      "symbol": "KeBugCheckEx"
+    },
+    {
+      "logical": "KeCancelTimer",
+      "module": "ntoskrnl.exe",
+      "symbol": "KeCancelTimer"
+    },
+    {
+      "logical": "KeClearEvent",
+      "module": "ntoskrnl.exe",
+      "symbol": "KeClearEvent"
+    },
+    {
+      "logical": "KeDelayExecutionThread",
+      "module": "ntoskrnl.exe",
+      "symbol": "KeDelayExecutionThread"
+    },
+    {
+      "logical": "KeEnterCriticalRegion",
+      "module": "ntoskrnl.exe",
+      "symbol": "KeEnterCriticalRegion"
+    },
+    {
+      "logical": "KeExpandKernelStackAndCallout",
+      "module": "ntoskrnl.exe",
+      "symbol": "KeExpandKernelStackAndCallout"
+    },
+    {
+      "logical": "KeInitializeDpc",
+      "module": "ntoskrnl.exe",
+      "symbol": "KeInitializeDpc"
+    },
+    {
+      "logical": "KeInitializeEvent",
+      "module": "ntoskrnl.exe",
+      "symbol": "KeInitializeEvent"
+    },
+    {
+      "logical": "KeInitializeSpinLock",
+      "module": "ntoskrnl.exe",
+      "symbol": "KeInitializeSpinLock"
+    },
+    {
+      "logical": "KeInitializeTimer",
+      "module": "ntoskrnl.exe",
+      "symbol": "KeInitializeTimer"
+    },
+    {
+      "logical": "KeLeaveCriticalRegion",
+      "module": "ntoskrnl.exe",
+      "symbol": "KeLeaveCriticalRegion"
+    },
+    {
+      "logical": "KeReadStateEvent",
+      "module": "ntoskrnl.exe",
+      "symbol": "KeReadStateEvent"
+    },
+    {
+      "logical": "KeReleaseSpinLock",
+      "module": "ntoskrnl.exe",
+      "symbol": "KeReleaseSpinLock"
+    },
+    {
+      "logical": "KeSetEvent",
+      "module": "ntoskrnl.exe",
+      "symbol": "KeSetEvent"
+    },
+    {
+      "logical": "KeSetTimer",
+      "module": "ntoskrnl.exe",
+      "symbol": "KeSetTimer"
+    },
+    {
+      "logical": "KeStackAttachProcess",
+      "module": "ntoskrnl.exe",
+      "symbol": "KeStackAttachProcess"
+    },
+    {
+      "logical": "KeUnstackDetachProcess",
+      "module": "ntoskrnl.exe",
+      "symbol": "KeUnstackDetachProcess"
+    },
+    {
+      "logical": "KeWaitForSingleObject",
+      "module": "ntoskrnl.exe",
+      "symbol": "KeWaitForSingleObject"
+    },
+    {
+      "logical": "MmGetSystemRoutineAddress",
+      "module": "ntoskrnl.exe",
+      "symbol": "MmGetSystemRoutineAddress"
+    },
+    {
+      "logical": "MmMapLockedPagesSpecifyCache",
+      "module": "ntoskrnl.exe",
+      "symbol": "MmMapLockedPagesSpecifyCache"
+    },
+    {
+      "logical": "MmMapViewInSystemSpace",
+      "module": "ntoskrnl.exe",
+      "symbol": "MmMapViewInSystemSpace"
+    },
+    {
+      "logical": "MmProbeAndLockPages",
+      "module": "ntoskrnl.exe",
+      "symbol": "MmProbeAndLockPages"
+    },
+    {
+      "logical": "MmSectionObjectType",
+      "module": "ntoskrnl.exe",
+      "symbol": "MmSectionObjectType"
+    },
+    {
+      "logical": "MmUnlockPages",
+      "module": "ntoskrnl.exe",
+      "symbol": "MmUnlockPages"
+    },
+    {
+      "logical": "MmUnmapLockedPages",
+      "module": "ntoskrnl.exe",
+      "symbol": "MmUnmapLockedPages"
+    },
+    {
+      "logical": "MmUnmapViewInSystemSpace",
+      "module": "ntoskrnl.exe",
+      "symbol": "MmUnmapViewInSystemSpace"
+    },
+    {
+      "logical": "ObGetObjectSecurity",
+      "module": "ntoskrnl.exe",
+      "symbol": "ObGetObjectSecurity"
+    },
+    {
+      "logical": "ObOpenObjectByPointer",
+      "module": "ntoskrnl.exe",
+      "symbol": "ObOpenObjectByPointer"
+    },
+    {
+      "logical": "ObReferenceObjectByHandle",
+      "module": "ntoskrnl.exe",
+      "symbol": "ObReferenceObjectByHandle"
+    },
+    {
+      "logical": "ObReleaseObjectSecurity",
+      "module": "ntoskrnl.exe",
+      "symbol": "ObReleaseObjectSecurity"
+    },
+    {
+      "logical": "ObfDereferenceObject",
+      "module": "ntoskrnl.exe",
+      "symbol": "ObfDereferenceObject"
+    },
+    {
+      "logical": "ObfReferenceObject",
+      "module": "ntoskrnl.exe",
+      "symbol": "ObfReferenceObject"
+    },
+    {
+      "logical": "PsSetCreateProcessNotifyRoutineEx",
+      "module": "ntoskrnl.exe",
+      "symbol": "PsSetCreateProcessNotifyRoutineEx"
+    },
+    {
+      "logical": "RtlAbsoluteToSelfRelativeSD",
+      "module": "ntoskrnl.exe",
+      "symbol": "RtlAbsoluteToSelfRelativeSD"
+    },
+    {
+      "logical": "RtlAddAccessAllowedAce",
+      "module": "ntoskrnl.exe",
+      "symbol": "RtlAddAccessAllowedAce"
+    },
+    {
+      "logical": "RtlCreateSecurityDescriptor",
+      "module": "ntoskrnl.exe",
+      "symbol": "RtlCreateSecurityDescriptor"
+    },
+    {
+      "logical": "RtlFreeUnicodeString",
+      "module": "ntoskrnl.exe",
+      "symbol": "RtlFreeUnicodeString"
+    },
+    {
+      "logical": "RtlGetDaclSecurityDescriptor",
+      "module": "ntoskrnl.exe",
+      "symbol": "RtlGetDaclSecurityDescriptor"
+    },
+    {
+      "logical": "RtlGetGroupSecurityDescriptor",
+      "module": "ntoskrnl.exe",
+      "symbol": "RtlGetGroupSecurityDescriptor"
+    },
+    {
+      "logical": "RtlGetOwnerSecurityDescriptor",
+      "module": "ntoskrnl.exe",
+      "symbol": "RtlGetOwnerSecurityDescriptor"
+    },
+    {
+      "logical": "RtlGetSaclSecurityDescriptor",
+      "module": "ntoskrnl.exe",
+      "symbol": "RtlGetSaclSecurityDescriptor"
+    },
+    {
+      "logical": "RtlInitUnicodeString",
+      "module": "ntoskrnl.exe",
+      "symbol": "RtlInitUnicodeString"
+    },
+    {
+      "logical": "RtlLengthSecurityDescriptor",
+      "module": "ntoskrnl.exe",
+      "symbol": "RtlLengthSecurityDescriptor"
+    },
+    {
+      "logical": "RtlLengthSid",
+      "module": "ntoskrnl.exe",
+      "symbol": "RtlLengthSid"
+    },
+    {
+      "logical": "RtlSetDaclSecurityDescriptor",
+      "module": "ntoskrnl.exe",
+      "symbol": "RtlSetDaclSecurityDescriptor"
+    },
+    {
+      "logical": "SeCaptureSecurityDescriptor",
+      "module": "ntoskrnl.exe",
+      "symbol": "SeCaptureSecurityDescriptor"
+    },
+    {
+      "logical": "SeExports",
+      "module": "ntoskrnl.exe",
+      "symbol": "SeExports"
+    },
+    {
+      "logical": "ZwClose",
+      "module": "ntoskrnl.exe",
+      "symbol": "ZwClose"
+    },
+    {
+      "logical": "ZwCreateEvent",
+      "module": "ntoskrnl.exe",
+      "symbol": "ZwCreateEvent"
+    },
+    {
+      "logical": "ZwCreateKey",
+      "module": "ntoskrnl.exe",
+      "symbol": "ZwCreateKey"
+    },
+    {
+      "logical": "ZwCreateSection",
+      "module": "ntoskrnl.exe",
+      "symbol": "ZwCreateSection"
+    },
+    {
+      "logical": "ZwMakeTemporaryObject",
+      "module": "ntoskrnl.exe",
+      "symbol": "ZwMakeTemporaryObject"
+    },
+    {
+      "logical": "ZwMapViewOfSection",
+      "module": "ntoskrnl.exe",
+      "symbol": "ZwMapViewOfSection"
+    },
+    {
+      "logical": "ZwOpenEvent",
+      "module": "ntoskrnl.exe",
+      "symbol": "ZwOpenEvent"
+    },
+    {
+      "logical": "ZwOpenKey",
+      "module": "ntoskrnl.exe",
+      "symbol": "ZwOpenKey"
+    },
+    {
+      "logical": "ZwOpenSection",
+      "module": "ntoskrnl.exe",
+      "symbol": "ZwOpenSection"
+    },
+    {
+      "logical": "ZwQuerySection",
+      "module": "ntoskrnl.exe",
+      "symbol": "ZwQuerySection"
+    },
+    {
+      "logical": "ZwQueryValueKey",
+      "module": "ntoskrnl.exe",
+      "symbol": "ZwQueryValueKey"
+    },
+    {
+      "logical": "ZwSetSecurityObject",
+      "module": "ntoskrnl.exe",
+      "symbol": "ZwSetSecurityObject"
+    },
+    {
+      "logical": "ZwSetValueKey",
+      "module": "ntoskrnl.exe",
+      "symbol": "ZwSetValueKey"
+    },
+    {
+      "logical": "ZwUnmapViewOfSection",
+      "module": "ntoskrnl.exe",
+      "symbol": "ZwUnmapViewOfSection"
+    },
+    {
+      "logical": "__C_specific_handler",
+      "module": "ntoskrnl.exe",
+      "symbol": "__C_specific_handler"
+    },
+    {
+      "logical": "__chkstk",
+      "module": "ntoskrnl.exe",
+      "symbol": "__chkstk"
+    },
+    {
+      "logical": "_snwprintf",
+      "module": "ntoskrnl.exe",
+      "symbol": "_snwprintf"
+    },
+    {
+      "logical": "_wcsnicmp",
+      "module": "ntoskrnl.exe",
+      "symbol": "_wcsnicmp"
+    },
+    {
+      "logical": "wcschr",
+      "module": "ntoskrnl.exe",
+      "symbol": "wcschr"
+    }
+  ],
+  "wrappers": [
+    {
+      "logical": "IoCreateDeviceSecure",
+      "rootSymbol": "WdmlibIoCreateDeviceSecure",
+      "rootMember": "wdmsec:wlwrap.obj",
+      "provenance": "final-image-callgraph",
+      "reachableMembers": [
+        "wdmsec:cmregutil.obj",
+        "wdmsec:dispatchcfg.obj",
+        "wdmsec:gshandler.obj",
+        "wdmsec:guard_dispatch.obj",
+        "wdmsec:guard_support.obj",
+        "wdmsec:guard_xfg_dispatch.obj",
+        "wdmsec:iodevobj.obj",
+        "wdmsec:ppregstate.obj",
+        "wdmsec:sesddl.obj",
+        "wdmsec:seutil.obj",
+        "wdmsec:wlwrap.obj"
+      ],
+      "indirectEdgeIds": [
+        "wdmsec-create-device-secure"
+      ],
+      "downstreamImports": [
+        "ntoskrnl.exe!IoCreateDevice",
+        "ntoskrnl.exe!IoDeleteDevice",
+        "ntoskrnl.exe!IoDeviceObjectType",
+        "ntoskrnl.exe!IoIsWdmVersionAvailable",
+        "ntoskrnl.exe!MmGetSystemRoutineAddress",
+        "ntoskrnl.exe!ObGetObjectSecurity",
+        "ntoskrnl.exe!ObOpenObjectByPointer",
+        "ntoskrnl.exe!ObReleaseObjectSecurity",
+        "ntoskrnl.exe!RtlAbsoluteToSelfRelativeSD",
+        "ntoskrnl.exe!RtlAddAccessAllowedAce",
+        "ntoskrnl.exe!RtlCreateSecurityDescriptor",
+        "ntoskrnl.exe!RtlFreeUnicodeString",
+        "ntoskrnl.exe!RtlGetDaclSecurityDescriptor",
+        "ntoskrnl.exe!RtlGetGroupSecurityDescriptor",
+        "ntoskrnl.exe!RtlGetOwnerSecurityDescriptor",
+        "ntoskrnl.exe!RtlGetSaclSecurityDescriptor",
+        "ntoskrnl.exe!RtlInitUnicodeString",
+        "ntoskrnl.exe!RtlLengthSecurityDescriptor",
+        "ntoskrnl.exe!RtlLengthSid",
+        "ntoskrnl.exe!RtlSetDaclSecurityDescriptor",
+        "ntoskrnl.exe!SeCaptureSecurityDescriptor",
+        "ntoskrnl.exe!SeExports",
+        "ntoskrnl.exe!ZwClose",
+        "ntoskrnl.exe!ZwCreateKey",
+        "ntoskrnl.exe!ZwOpenKey",
+        "ntoskrnl.exe!ZwQueryValueKey",
+        "ntoskrnl.exe!ZwSetSecurityObject",
+        "ntoskrnl.exe!ZwSetValueKey",
+        "ntoskrnl.exe!_snwprintf",
+        "ntoskrnl.exe!_wcsnicmp",
+        "ntoskrnl.exe!wcschr"
+      ]
+    }
+  ]
+}

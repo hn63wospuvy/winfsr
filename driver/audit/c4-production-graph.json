@@ -1,0 +1,981 @@
+{
+  "schema": "fsring-c4-production-graph/v2",
+  "note": "Closed production-reachability manifest for the C4 recovery. The conservative bare-mention graph remains the R4/R5 unreachability proof; v2 adds a separate source/owner-qualified, multiplicity-preserving direct-call index for exact Task 12 caller contracts. Roots are the driver's retained INTENDED entry points; adding a root or staged target extends the conservative gate, while requiredDirectEdges, soleDirectCallers, and deniedIngresses close exact production boundaries. A retained export that is a denied ingress is deliberately NOT a root: it is listed in deniedIngresses instead, which pins its exact attribute, signature, refusal body, and zero outgoing calls - a strictly stronger contract than walking it as a reachability source, which would prove nothing because the stub reaches nothing.",
+  "testFiles": [
+    "driver/fsring-core/src/adapter/enter/tests.rs",
+    "driver/fsring-core/src/adapter/fence/tests.rs",
+    "driver/fsring-core/src/adapter/lifecycle/tests.rs",
+    "driver/fsring-core/src/adapter/lifecycle/tests/close_choreography.rs",
+    "driver/fsring-core/src/adapter/load/tests.rs",
+    "driver/fsring-core/src/adapter/setup/tests.rs",
+    "driver/fsring-core/src/adapter/stackexpand/tests.rs",
+    "driver/fsring-core/src/adapter/volume/tests.rs",
+    "driver/fsring-core/src/bootctx/tests.rs",
+    "driver/fsring-core/src/controldev/tests.rs",
+    "driver/fsring-core/src/enter/tests.rs",
+    "driver/fsring-core/src/grant/tests.rs",
+    "driver/fsring-core/src/reqtab/tests.rs",
+    "driver/fsring-core/src/session/tests.rs",
+    "driver/fsring-core/src/volume/tests.rs"
+  ],
+  "productionRoots": [
+    "dispatch_default",
+    "driver_entry",
+    "fsring_dispatch_cleanup",
+    "fsring_dispatch_close",
+    "fsring_dispatch_create",
+    "fsring_dispatch_device_control",
+    "fsring_dispatch_enter",
+    "fsring_dispatch_file_system_control",
+    "fsring_dispatch_fscontrol",
+    "fsring_dispatch_mount",
+    "fsring_dispatch_provider",
+    "fsring_dispatch_setup",
+    "fsring_dispatch_vdo",
+    "fsring_dispatch_vdo_ioctl",
+    "fsring_dispatch_verify",
+    "fsring_dispatch_volume",
+    "fsring_driver_unload",
+    "fsring_process_loss",
+    "fsring_setup_callout",
+    "fsring_trace_enable_callback"
+  ],
+  "profileNote": "The closed profile set grows one checkpoint at a time, and a profile with no rows is a refusal rather than a vacuous PASS. `r3-stage` is Tasks 9-11. `r3-cutover` (Task 12), `r4-stage` (13-18), `r4-cutover` (19), `r5-stage` (20-24), and `r5-cutover` (25/27) are added by the tasks that own them, each re-running the prior cutover's invariants at the changed source identity. `r4-cutover` is the attested profile from Task 19 on; `r4-stage` and `r5-stage` are retired, because both carry the R4 staging gate the cutover makes fail by design.",
+  "profiles": {
+    "r3-cutover": {
+      "note": "Task 12. The staging gate is deliberately absent from this profile: once the cutover lands, R3 IS reachable and that gate fails by design. Its replacement is the cutover gate, which proves the new path became reachable and the predecessor roster is gone.",
+      "gates": [
+        "task12_r3_cutover_has_exactly_one_terminal_delete_path"
+      ],
+      "properties": [
+        {
+          "name": "r3_core_session_terminal_authority",
+          "package": "fsring-core",
+          "filter": "session::tests"
+        },
+        {
+          "name": "r3_core_lifecycle_routes_and_counted_waits",
+          "package": "fsring-core",
+          "filter": "adapter::lifecycle::tests"
+        },
+        {
+          "name": "r3_core_checkpoint_roster_and_deletion",
+          "package": "fsring-core",
+          "filter": "adapter::fence::tests"
+        },
+        {
+          "name": "r3_core_mount_ledger",
+          "package": "fsring-core",
+          "filter": "volume::tests"
+        }
+      ]
+    },
+    "r3-stage": {
+      "note": "The current R3-unreachable gate plus the exact Rust property filters that make the staged terminal claim mean something. The gate says the machinery cannot be reached; the properties say the machinery it cannot reach is the one whose behaviour was proven.",
+      "gates": [
+        "task09_11_r3_staging_is_production_unreachable"
+      ],
+      "properties": [
+        {
+          "name": "r3_core_session_terminal_authority",
+          "package": "fsring-core",
+          "filter": "session::tests"
+        },
+        {
+          "name": "r3_core_lifecycle_routes_and_counted_waits",
+          "package": "fsring-core",
+          "filter": "adapter::lifecycle::tests"
+        }
+      ]
+    },
+    "r4-cutover": {
+      "note": "Task 19, and SUPERSEDED by r5-cutover: this profile carries the R5 staging gate, which Task 25's cutover retired, so selecting it now FAILs by design. The live profile is r5-cutover, and the attestation's own `profile` key is the authority on that. Its contract as it stood: R3 must stay the one terminal/delete path, R4 must BE reachable through exactly one pending route, and R5 must stay unreachable -- that last clause read `until Task 25`, which is why the profile expired when Task 25 landed rather than being wrong. The R4 staging gate is deliberately absent -- it fails by design once the cutover lands, and carrying it would make the artifact claim R4 is both live and unreachable.",
+      "gates": [
+        "task12_r3_cutover_has_exactly_one_terminal_delete_path",
+        "task19_r4_cutover_has_exactly_one_pending_terminal_delete_path",
+        "task20_24_r5_staging_is_production_unreachable"
+      ],
+      "properties": [
+        {
+          "name": "r3_core_session_terminal_authority",
+          "package": "fsring-core",
+          "filter": "session::tests"
+        },
+        {
+          "name": "r3_core_lifecycle_routes_and_counted_waits",
+          "package": "fsring-core",
+          "filter": "adapter::lifecycle::tests"
+        },
+        {
+          "name": "r3_core_checkpoint_roster_and_deletion",
+          "package": "fsring-core",
+          "filter": "adapter::fence::tests"
+        },
+        {
+          "name": "r3_core_mount_ledger",
+          "package": "fsring-core",
+          "filter": "volume::tests"
+        },
+        {
+          "name": "r4_task13_ring_set_and_pending_ledger",
+          "package": "fsring-core",
+          "filter": "session::tests"
+        },
+        {
+          "name": "r5_task20_21_cq_and_protocol_staging",
+          "package": "fsring-core",
+          "filter": "enter::tests"
+        },
+        {
+          "name": "task12_delete_requires_r3_discharge_and_later_authority_absence",
+          "package": "fsring-core",
+          "filter": "adapter::fence::tests::task12_delete_requires_r3_discharge_and_later_authority_absence"
+        },
+        {
+          "name": "task19_r4_cutover_pending_route_and_authority_absence",
+          "package": "fsring-core",
+          "filter": "task19_"
+        },
+        {
+          "name": "r4_authority_absence_requires_same_artifact_structural_pass",
+          "package": "fsring-core",
+          "filter": "session::tests::r4_authority_absence_requires_same_artifact_structural_pass"
+        }
+      ]
+    },
+    "r4-stage": {
+      "note": "Tasks 13-18. Carries BOTH the R3 cutover gate and the R4 staging gate: the R3 path must stay the one terminal/delete path while R4 is being staged beside it, and the R4 surface must stay unreachable. Dropping either row would let one half regress while the other is being built.",
+      "gates": [
+        "task12_r3_cutover_has_exactly_one_terminal_delete_path",
+        "task13_18_r4_staging_is_production_unreachable"
+      ],
+      "properties": [
+        {
+          "name": "r3_core_session_terminal_authority",
+          "package": "fsring-core",
+          "filter": "session::tests"
+        },
+        {
+          "name": "r3_core_lifecycle_routes_and_counted_waits",
+          "package": "fsring-core",
+          "filter": "adapter::lifecycle::tests"
+        },
+        {
+          "name": "r3_core_checkpoint_roster_and_deletion",
+          "package": "fsring-core",
+          "filter": "adapter::fence::tests"
+        },
+        {
+          "name": "r3_core_mount_ledger",
+          "package": "fsring-core",
+          "filter": "volume::tests"
+        },
+        {
+          "name": "r4_task13_ring_set_and_pending_ledger",
+          "package": "fsring-core",
+          "filter": "session::tests"
+        }
+      ]
+    },
+    "r5-stage": {
+      "note": "Tasks 20-24, and SUPERSEDED by r5-cutover: this profile carries both the R4 and the R5 staging gates, which Tasks 19 and 25 retired, so selecting it now FAILs by design twice over. The live profile is r5-cutover. Its contract as it stood: R3 must stay the one terminal/delete path, R4 must stay unreachable until Task 19, and R5 must stay unreachable until Task 25 -- both bounds have now been reached, which is what expired the profile. Dropping any row would have let one layer regress while another was built.",
+      "gates": [
+        "task12_r3_cutover_has_exactly_one_terminal_delete_path",
+        "task13_18_r4_staging_is_production_unreachable",
+        "task20_24_r5_staging_is_production_unreachable"
+      ],
+      "properties": [
+        {
+          "name": "r3_core_session_terminal_authority",
+          "package": "fsring-core",
+          "filter": "session::tests"
+        },
+        {
+          "name": "r3_core_lifecycle_routes_and_counted_waits",
+          "package": "fsring-core",
+          "filter": "adapter::lifecycle::tests"
+        },
+        {
+          "name": "r3_core_checkpoint_roster_and_deletion",
+          "package": "fsring-core",
+          "filter": "adapter::fence::tests"
+        },
+        {
+          "name": "r3_core_mount_ledger",
+          "package": "fsring-core",
+          "filter": "volume::tests"
+        },
+        {
+          "name": "r4_task13_ring_set_and_pending_ledger",
+          "package": "fsring-core",
+          "filter": "session::tests"
+        },
+        {
+          "name": "r5_task20_21_cq_and_protocol_staging",
+          "package": "fsring-core",
+          "filter": "enter::tests"
+        },
+        {
+          "name": "task12_delete_requires_r3_discharge_and_later_authority_absence",
+          "package": "fsring-core",
+          "filter": "adapter::fence::tests::task12_delete_requires_r3_discharge_and_later_authority_absence"
+        }
+      ]
+    },
+    "r5-cutover": {
+      "note": "Task 25. The R5 staging gate is deliberately absent: once the cutover lands, CQ/PROTOCOL/all-16/final delete ARE reachable and that gate fails by design. Its replacement is the cutover gate, which proves the new path became reachable, the 47-entry predecessor roster is gone, and there is exactly one terminal-to-delete route. The R3 checkpoint requiredReachable rows are also absent -- Task 25 deletes that scheduler. Task 19's pending-ENTER cutover remains, because that route stays live.",
+      "gates": [
+        "task19_r4_cutover_has_exactly_one_pending_terminal_delete_path",
+        "task25_r5_cutover_has_exactly_one_all16_terminal_delete_path"
+      ],
+      "properties": [
+        {
+          "name": "r5_task20_21_cq_and_protocol_staging",
+          "package": "fsring-core",
+          "filter": "enter::tests"
+        },
+        {
+          "name": "task25_r5_cutover_all16_terminal_delete",
+          "package": "fsring-core",
+          "filter": "task25_"
+        }
+      ]
+    }
+  },
+  "gates": {
+    "task09_11_r3_staging_is_production_unreachable": {
+      "profile": "r3-stage",
+      "note": "Tasks 9-11 stage the counted terminal claim, the checkpoint scheduler, and the mount teardown ledger. None of them may be reachable from a production entry point until Task 12's atomic cutover. The scan below is the Task 8 recording-only process step: it observes a locator and claims nothing, so it is a staged target too until Task 12 binds it to run_terminal. `dispatch_default` is a root because control.rs installs it into every DRIVER_OBJECT::MajorFunction slot; it has no export name, so an export-only reading of the roots misses it. NARROWED after the cutover this note names as its expiry. Every departed row is recorded here rather than dropped silently. Now production-reachable through `fsring_dispatch_cleanup -> ... -> claim_native_cleanup_route`, which is the cutover working as designed, so `unreachable` is no longer a true claim about them and what IS true of them was measured at c043ee6 with the auditor's own build_graph/reachable_from over the manifest's production roots, and recorded rather than asserted: 25 of them are production-reachable today (blocked_observation, cell_finish_preflight, checkpoint_finish_preflight, claim_native_cleanup_route, decide_cleanup_route, decide_delete_preflight, delete_preflight_observation, lifetime_is_cell_owned, observe_delete_preflight, park_readiness, preflight_strong_release, preflight_terminal_claim, preflight_terminal_release, prepare_final_delete, prepare_native_terminal_claim, prepare_strong_release, prepare_terminal_claim, prepare_terminal_release, release_deposit_preflight, release_strong_and_deposit, resolve_terminal_release, scan_one_cell_for_process, take_completed_record, take_parked_readiness, wait_access_rundown); six are present and NOT reachable from any production root (checkpoint_ledger_is_discharged, from_embedded_artifact, incomplete_from_refusal, into_preparation_refusal, preparation_refusal, with_absence), and they are now stagedTargets of task25_r5_cutover_has_exactly_one_all16_terminal_delete_path, which the live r5-cutover profile runs, so that claim is checked by a row and fails if one becomes reachable or is deleted; release_control_strong_ref is a seventh in the same state that CANNOT be rowed, because it has two definitions, both in driver/fsring-fsd/src/fence.rs, and the bare-identifier edge model makes them one node -- which is the condition stagedTargets refuses -- so it is pinned instead by the ambiguousUnstaged entry on task25_r5_cutover_has_exactly_one_all16_terminal_delete_path, which fails as stale the day that stops being true. Round-18 evidence E1: the previous sentence called all 32 \"Now production-reachable\" after a repair that verified the names still EXIST, which is not the property the sentence asserts. Three more were on this list and are not reachable now, because they no longer exist: c235564, the final fence cutover, deleted finish_checkpoint_teardown, prepare_checkpoint_finish, run_checkpoint_teardown with the R3 checkpoint scheduler, and the first and last are zero-roster entries of task25_r5_cutover_has_exactly_one_all16_terminal_delete_path at count 0. This note used to list all 35 as \"Now production-reachable\" (round-17 evidence E5). Removed from the source entirely by f6b48ce after ca67819 introduced them, moved to forbiddenSymbols so their return fails rather than going unnoticed (5): execute_checkpoint_effect, perform_checkpoint_effect, store_deposit_and_queue, verify_ledgers, wait_for_terminal_outcome. The 6 rows that remain are still production-unreachable, and this gate is the only place any of them is guarded -- neither the r4 nor the r5 staging gate lists them.",
+      "coverageBoundary": "An edge here is a mention of a *bare function name*, so a name several inherent impls answer to is one merged node. Two Task 9 methods are deliberately NOT listed as staged targets for that reason, and this is what covers them instead: `PreparedTerminalClaim::commit` and `PreparedNativeTerminalClaim::commit` share the node `commit` with `size.rs`'s unrelated method, so listing it would merge three callers and report a route that does not exist. Neither `commit` is callable without first holding the value its listed constructor returns -- `prepare_terminal_claim` and `prepare_native_terminal_claim` are both staged rows -- and `commit_terminal_claim` is private to session.rs with `PreparedTerminalClaim::commit` as its only caller. So the constructors are the cut. The staged join waiter is listed as `wait_for_terminal_outcome` for exactly this reason. It was called `release` first, which merged it with sixteen unrelated releases and produced a false route from CLEANUP; renaming it to `wait` merged it with the *field* `plan::BOOT_LOCK_RELEASE.wait`, because a mention is any identifier token and this model does not distinguish a field read from a call. Anything added here whose name is not unique across the two source roots is measured by its constructor, not by itself; say so in this field rather than dropping the row silently.",
+      "roots": [
+        "dispatch_default",
+        "driver_entry",
+        "fsring_dispatch_cleanup",
+        "fsring_dispatch_close",
+        "fsring_dispatch_create",
+        "fsring_dispatch_device_control",
+        "fsring_dispatch_enter",
+        "fsring_dispatch_file_system_control",
+        "fsring_dispatch_fscontrol",
+        "fsring_dispatch_mount",
+        "fsring_dispatch_provider",
+        "fsring_dispatch_setup",
+        "fsring_dispatch_vdo",
+        "fsring_dispatch_vdo_ioctl",
+        "fsring_dispatch_verify",
+        "fsring_dispatch_volume",
+        "fsring_driver_unload",
+        "fsring_process_loss",
+        "fsring_setup_callout",
+        "fsring_trace_enable_callback"
+      ],
+      "stagedTargets": [
+        "acknowledge_completed_control",
+        "store_close_right",
+        "decide_scan_continuation",
+        "decide_terminal_wait",
+        "decide_blocked_arrival",
+        "delete_preparation_survives"
+      ],
+      "forbiddenSymbols": [
+        "execute_checkpoint_effect",
+        "fence_bound_session",
+        "is_published_session",
+        "perform_checkpoint_effect",
+        "store_deposit_and_queue",
+        "verify_ledgers",
+        "wait_for_terminal_outcome"
+      ],
+      "forbiddenEdges": []
+    },
+    "task12_r3_cutover_has_exactly_one_terminal_delete_path": {
+      "profile": "r3-cutover",
+      "note": "The mirror of the staging gate. After Task 12 there is exactly one terminal/delete path and it is the R3 one: the scheduler, its preparation, its infallible finish, and the sole release/deposit boundary must all be REACHABLE from a production root, and every predecessor route must be gone. A gate that only checked absence would pass the pre-cutover tree, in which the new path exists and nothing calls it -- which is why `requiredReachable` exists.",
+      "roots": [
+        "dispatch_default",
+        "driver_entry",
+        "fsring_dispatch_cleanup",
+        "fsring_dispatch_close",
+        "fsring_dispatch_create",
+        "fsring_dispatch_device_control",
+        "fsring_dispatch_enter",
+        "fsring_dispatch_file_system_control",
+        "fsring_dispatch_fscontrol",
+        "fsring_dispatch_mount",
+        "fsring_dispatch_provider",
+        "fsring_dispatch_setup",
+        "fsring_dispatch_vdo",
+        "fsring_dispatch_vdo_ioctl",
+        "fsring_dispatch_verify",
+        "fsring_dispatch_volume",
+        "fsring_driver_unload",
+        "fsring_process_loss",
+        "fsring_setup_callout",
+        "fsring_trace_enable_callback"
+      ],
+      "requiredReachable": [
+        "prepare_native_terminal_claim",
+        "claim_native_cleanup_route",
+        "run_checkpoint_teardown",
+        "prepare_checkpoint_finish",
+        "finish_checkpoint_teardown",
+        "release_strong_and_deposit",
+        "prepare_final_delete",
+        "run_queued_finalizer",
+        "scan_one_cell_for_process"
+      ],
+      "requiredDirectEdges": [
+        {
+          "caller": {
+            "source": "driver/fsring-fsd/src/fence.rs",
+            "symbol": "run_terminal"
+          },
+          "callee": {
+            "source": "driver/fsring-fsd/src/fence.rs",
+            "symbol": "run_checkpoint_teardown"
+          },
+          "exactCalls": 1,
+          "soleCaller": true
+        },
+        {
+          "caller": {
+            "source": "driver/fsring-fsd/src/fence.rs",
+            "symbol": "run_terminal"
+          },
+          "callee": {
+            "source": "driver/fsring-fsd/src/fence.rs",
+            "symbol": "prepare_checkpoint_finish"
+          },
+          "exactCalls": 1,
+          "soleCaller": true
+        },
+        {
+          "caller": {
+            "source": "driver/fsring-fsd/src/fence.rs",
+            "symbol": "run_terminal"
+          },
+          "callee": {
+            "source": "driver/fsring-fsd/src/fence.rs",
+            "symbol": "finish_checkpoint_teardown"
+          },
+          "exactCalls": 1,
+          "soleCaller": true
+        }
+      ],
+      "soleDirectCallers": [
+        {
+          "callee": {
+            "source": "driver/fsring-fsd/src/fence.rs",
+            "symbol": "release_strong_and_deposit"
+          },
+          "callers": [
+            {
+              "caller": {
+                "source": "driver/fsring-fsd/src/fence.rs",
+                "symbol": "finish_checkpoint_teardown"
+              },
+              "exactCalls": 1
+            },
+            {
+              "caller": {
+                "source": "driver/fsring-fsd/src/fence.rs",
+                "symbol": "NativeCheckpointExecutor::release_control_strong_ref"
+              },
+              "exactCalls": 1
+            },
+            {
+              "caller": {
+                "source": "driver/fsring-fsd/src/fence.rs",
+                "symbol": "NativeCheckpointExecutor::release_mount_reference"
+              },
+              "exactCalls": 1
+            },
+            {
+              "caller": {
+                "source": "driver/fsring-fsd/src/volume.rs",
+                "symbol": "undo_mount"
+              },
+              "exactCalls": 1
+            }
+          ]
+        },
+        {
+          "callee": {
+            "source": "driver/fsring-fsd/src/fence.rs",
+            "symbol": "prepare_final_delete"
+          },
+          "callers": [
+            {
+              "caller": {
+                "source": "driver/fsring-fsd/src/fence.rs",
+                "symbol": "run_queued_finalizer"
+              },
+              "exactCalls": 1
+            }
+          ]
+        },
+        {
+          "callee": {
+            "source": "driver/fsring-fsd/src/fence.rs",
+            "symbol": "execute_prepared_delete"
+          },
+          "callers": [
+            {
+              "caller": {
+                "source": "driver/fsring-fsd/src/fence.rs",
+                "symbol": "run_queued_finalizer"
+              },
+              "exactCalls": 1
+            }
+          ]
+        },
+        {
+          "callee": {
+            "source": "driver/fsring-fsd/src/fence.rs",
+            "symbol": "run_queued_finalizer"
+          },
+          "callers": [
+            {
+              "caller": {
+                "source": "driver/fsring-fsd/src/lifecycle.rs",
+                "symbol": "fsring_finalizer_callback"
+              },
+              "exactCalls": 1
+            }
+          ]
+        },
+        {
+          "callee": {
+            "source": "driver/fsring-fsd/src/lifecycle.rs",
+            "symbol": "queue_cell_finalizer"
+          },
+          "callers": [
+            {
+              "caller": {
+                "source": "driver/fsring-fsd/src/fence.rs",
+                "symbol": "queue_finalizer"
+              },
+              "exactCalls": 1
+            }
+          ]
+        },
+        {
+          "callee": {
+            "source": "driver/fsring-fsd/src/session.rs",
+            "symbol": "free_session_shell_allocation"
+          },
+          "callers": [
+            {
+              "caller": {
+                "source": "driver/fsring-fsd/src/lifecycle.rs",
+                "symbol": "UnpublishedNativeSessionShell::destroy"
+              },
+              "exactCalls": 1
+            },
+            {
+              "caller": {
+                "source": "driver/fsring-fsd/src/lifecycle.rs",
+                "symbol": "NativeSessionShell::destroy_shell_then_release_root"
+              },
+              "exactCalls": 1
+            }
+          ]
+        }
+      ],
+      "deniedIngresses": [
+        {
+          "source": "driver/fsring-fsd/src/session.rs",
+          "symbol": "fsring_session_fence",
+          "attribute": "#[unsafe(no_mangle)]",
+          "signature": "pub unsafe extern \"system\" fn(*mut NativeSession, u32) -> NTSTATUS",
+          "normalizedBody": "STATUS_INVALID_DEVICE_STATE",
+          "outgoingDirectCalls": 0
+        }
+      ],
+      "stagedTargets": [],
+      "forbiddenSymbols": [
+        "fence_bound_session",
+        "is_published_session",
+        "fence_all",
+        "claim_by_process",
+        "live_count"
+      ],
+      "forbiddenEdges": [],
+      "forbiddenText": [
+        "MountRegistry",
+        "MountEntry",
+        ".mounts",
+        "MOUNT_SLOT_",
+        "live_count"
+      ]
+    },
+    "task13_18_r4_staging_is_production_unreachable": {
+      "profile": "r4-stage",
+      "note": "RETIRED by Task 19's cutover: the staged R4 surface is production-reachable now, so this gate FAILS by design and no profile carries it any more. Its replacement is task19_r4_cutover_has_exactly_one_pending_terminal_delete_path, which proves the new route BECAME reachable. The rows are retained so the predecessor contract stays readable and so the retirement is a recorded decision rather than a deletion. The two legacy bridges the cutover deleted were dropped from stagedTargets because an absent staged target is an auditor error rather than a FAIL, and an unevaluable gate measures nothing. `slot_owed_signal_generation` was dropped for the same reason and is recorded here rather than removed silently: `62bfd68` deleted it from the source when it removed `pending_enter.rs`'s module-wide dead-code allow, and no commit in that round updated this file, so the roster named a symbol that exists nowhere in the tree until round 16 swept for it. Tasks 13-18 stage the R4 pending-ENTER runtime. Nothing they add may be reachable from a production root until Task 19's atomic cutover. Task 13 stages the ring-set brand family, the one-shot CQ bind right, and the pending control ledger; every one of them is listed below as a staged target, so an accidental production caller is a gate failure rather than a review comment. Task 14.1 adds the ring runtime aggregate and its sealed factory: `build_ring_runtime_parts` is the only constructor for any of the three pending components, so staging that one symbol covers all of them.",
+      "coverageBoundary": "Same edge model as the R3 gates: an edge is a mention of a bare function name, so a name several inherent impls answer to is one merged node. `finish` and `abort` are deliberately NOT staged targets for that reason -- both names are answered by unrelated impls across the two source roots, and staging them would report a route that does not exist. They are reachable only through `begin_ring_set`, which IS staged, so the initializer as a whole is still covered. `into_parts` is excluded for the same reason: a dozen unrelated types answer to that name, several of them production-reachable, so staging it reports `fsring_dispatch_cleanup -> into_parts` -- a route to somebody else's method. `RingRuntimeParts::into_parts` is reachable only through `build_ring_runtime_parts`, which IS staged. `from_raw` is excluded on the same ground: `DeviceKind::from_raw` and friends answer to it, so the row reported `fsring_dispatch_enter -> next -> from_raw`. `IrpObservation::from_raw` is the only public constructor of an observation and it refuses null, but a *production caller of it* is not what this gate can see; `park` and `dequeue`, which are the only ways an observation reaches a receipt, are staged and are. Task 14.5's three boundary commits are named `commit_result_write`/`commit_irp_completion`/`commit_final_publication` rather than `commit` for the same reason: a method called `commit` here made `release_owner` look reachable as `fsring_dispatch_cleanup -> claim_native_cleanup_route -> commit -> release_owner`, a route that does not exist. `CqMutationWitness::for_test_packet` cannot be a staged target at all: it is `#[cfg(test)]`, and this gate strips `#[cfg(test)]` before building the graph, so the symbol is absent by construction rather than unreachable. That is the correct outcome -- a test-only factory has no production reachability to prove -- and it is recorded here so its absence from the roster is not read as an oversight. Task 17 stages the pending-install trace through its five unique entry points: `begin_pending_install` is the only constructor of the thirteen-effect cursor, `select_pending_install` the only minter of `SelectedPendingInstall`, `commit_pending_handoff` the only atomic handoff, `commit_after_queue` the only way a queued receipt becomes readable, and `from_handoff` the only production route into `PendingDispatchReceipt`. The cursor's own `begin`/`effect`/`succeeded`/`refused`/`performed` methods are deliberately NOT staged and were named or left accordingly: each is answered by unrelated impls across the two source roots, so staging one would report a route to somebody else's method. Every type they reach is reachable only through the five above. Task 18's timer quiescence machine is staged through `arm`, `dpc_entered`, `dpc_exiting` and `finite_due_time_100ns`. Its `cancel` and `epoch` methods are NOT staged: two and three unrelated impls answer to those names, so a row would report somebody else's route. Both are reachable only on a `TimerState` that `arm` created. Task 18's producer wrapper is staged as `record_and_schedule_pending` with `commit_after_work_queued`, the sole discharge of the queue right. The right's own `install` accessor is not staged: `install` is answered by a dozen impls. **Task 17's fsd half is staged here too, and was not before.** Every one of the 75 rows this gate carried named a symbol in `fsring-core`, so `driver/fsring-fsd/src/pending_enter.rs` -- whose module header cites this gate as the proof of its unreachability -- had no row at all, and a production call into it would have changed only the edge count. The nine names now listed (`initialize_staged_pending_slot`, `observe_insert_outcome`, `from_csq`, and the six `csq_*` callbacks) are each answered by exactly one definition across both source roots, so the merged-node exclusion that covers `finish`/`abort`/`cancel`/`epoch` does not apply to any of them.",
+      "roots": [
+        "dispatch_default",
+        "driver_entry",
+        "fsring_dispatch_cleanup",
+        "fsring_dispatch_close",
+        "fsring_dispatch_create",
+        "fsring_dispatch_device_control",
+        "fsring_dispatch_enter",
+        "fsring_dispatch_file_system_control",
+        "fsring_dispatch_fscontrol",
+        "fsring_dispatch_mount",
+        "fsring_dispatch_provider",
+        "fsring_dispatch_setup",
+        "fsring_dispatch_vdo",
+        "fsring_dispatch_vdo_ioctl",
+        "fsring_dispatch_verify",
+        "fsring_dispatch_volume",
+        "fsring_driver_unload",
+        "fsring_process_loss",
+        "fsring_setup_callout",
+        "fsring_trace_enable_callback"
+      ],
+      "stagedTargets": [
+        "begin_ring_set",
+        "next_ring",
+        "allocate_nonzero",
+        "reserve_for_setup",
+        "publish_installed_setup_with_ring_set",
+        "completed_ring_set",
+        "contains_brand",
+        "into_brand",
+        "build_ring_runtime_parts",
+        "for_brand",
+        "is_covered",
+        "acquire_sq_wait",
+        "acquire_cq_consumer",
+        "release_sq_wait",
+        "release_cq_consumer",
+        "mint_invocation",
+        "check_release",
+        "acquire_owner",
+        "release_owner",
+        "record_wake",
+        "take_for_worker",
+        "queue_worker",
+        "begin_worker_pass",
+        "finish_worker_pass",
+        "begin_worker_completion",
+        "handoff_done",
+        "begin_install",
+        "bind_install",
+        "park",
+        "dequeue",
+        "take_early_receipt",
+        "early_disposition",
+        "run_next",
+        "downgrade_stable_release",
+        "occupy",
+        "is_reusable",
+        "commit_result_write",
+        "commit_irp_completion",
+        "commit_final_publication",
+        "acquire_sq_wait_aggregate",
+        "acquire_cq_consumer_aggregate",
+        "authorize_resume",
+        "bind_cq_consumer",
+        "for_resume",
+        "record_commit",
+        "into_plan_parts",
+        "bind_sq_wait",
+        "rebind_resumed",
+        "observe_cancel",
+        "observe_irp",
+        "arbitrate_cq_mutation",
+        "has_committed",
+        "prepare_for_irp",
+        "commit_after_io_complete",
+        "into_dispatch_status",
+        "publish_vacant",
+        "park_publication_fail_stop",
+        "admits_install",
+        "driver_owns_completion",
+        "record_initialized",
+        "rollback_span",
+        "next_uninitialized_index",
+        "begin_pending_install",
+        "select_pending_install",
+        "commit_pending_handoff",
+        "commit_after_queue",
+        "from_handoff",
+        "finite_due_time_100ns",
+        "dpc_entered",
+        "dpc_exiting",
+        "arm",
+        "record_and_schedule_pending",
+        "commit_after_work_queued",
+        "next_reverse",
+        "initialize_staged_pending_slot",
+        "observe_insert_outcome",
+        "from_csq",
+        "csq_insert_irp",
+        "csq_remove_irp",
+        "csq_peek_next_irp",
+        "csq_acquire_lock",
+        "csq_release_lock",
+        "csq_complete_canceled_irp",
+        "begin_dpc_pass",
+        "run_next_dpc_effect",
+        "commit_after_exit_signalled",
+        "forbidden_at_dispatch_level",
+        "decide_pending_park",
+        "exhausted_pending_completion",
+        "publish_sq_or_terminalize",
+        "owed_signal_generation",
+        "fsring_pending_enter_timer_dpc",
+        "fsring_pending_enter_worker",
+        "perform_pending_effect",
+        "finite_due_time",
+        "allocate_pending_arena",
+        "begin_pending_runtime",
+        "initialize_pending_context",
+        "commit_pending_context",
+        "finish_pending_runtime",
+        "rollback_pending_runtime",
+        "free_pending_work_item",
+        "queue_pending_worker",
+        "slot_result_view",
+        "prepare_installed_ring_setup",
+        "into_uncommitted_parts",
+        "commit_after_native_runtime_install",
+        "build_pending_slot_parts",
+        "from_parts",
+        "serving_install",
+        "finalize_native_pending_publication",
+        "observe_pending_for_unload"
+      ],
+      "forbiddenSymbols": [],
+      "forbiddenEdges": []
+    },
+    "task20_24_r5_staging_is_production_unreachable": {
+      "profile": "r5-stage",
+      "note": "RETIRED by Task 25's cutover: the staged R5 surface is production-reachable now, so this gate FAILS by design and no profile carries it any more. Its replacement is task25_r5_cutover_has_exactly_one_all16_terminal_delete_path. Tasks 20-24 stage the R5 CQ, protocol, and fence surface. These symbols were briefly staged under the R4 gate, which was a misclassification: an R4 gate passing does not say anything about R5 reachability, and after Task 19's cutover the R4 gate is retired while these must still be proven unreachable. WHAT THIS NOTE USED TO SAY, and why it was wrong: it read `Task 25's atomic cutover is the first production caller`. Task 25 closed without becoming a caller of the CQ storage lane -- the gate document's section 11 entry records that `BrandedCqStorage` has no production constructor at all -- so the sentence promised a cutover that had already happened and had not done this. It is replaced by what is true of each lane rather than by a later task's name; see ambiguousUnstaged below for the CQ lane in particular.",
+      "coverageBoundary": "Same bare-identifier edge model as the R3 and R4 gates. Only the core half of Tasks 20 and 21 is staged here: the deferred CQ pop lives in fsring-abi, which is NOT a source root for this gate, and the executor surface is fsd recording projections that do not exist yet. THE ROSTER RULE, stated exactly because an earlier wording overstated it: every symbol a task adds that has exactly ONE definition across the two source roots gets a row. A symbol whose name has more than one definition is deliberately NOT staged and is listed in ambiguousUnstaged below with its definition count, because the edge model is bare identifiers -- a row on an ambiguous name merges unrelated bodies into one node and reports routes that do not exist. So the absence of a row means either the symbol does not exist or its name is ambiguous and named below; it never means a symbol was judged safe. One further exclusion, learned the hard way: a symbol EXTRACTED from an existing production function is production, not staged surface. Task 20 split `GrantTable::claim_notify` into `prepare_claim_notify` + `PreparedCreditClaim::commit` so the branded lane could put the arbitration between the check and the mutation; `claim_notify` still calls both, so both are reachable from the predecessor path by design and staging either one would assert something false. A third exclusion, recorded in unstageableViaAmbiguousCaller: a symbol whose own name is unique but whose only caller's name is ambiguous cannot carry a row either, because the merged caller node reports a route that does not exist.",
+      "roots": [
+        "dispatch_default",
+        "driver_entry",
+        "fsring_dispatch_cleanup",
+        "fsring_dispatch_close",
+        "fsring_dispatch_create",
+        "fsring_dispatch_device_control",
+        "fsring_dispatch_enter",
+        "fsring_dispatch_file_system_control",
+        "fsring_dispatch_fscontrol",
+        "fsring_dispatch_mount",
+        "fsring_dispatch_provider",
+        "fsring_dispatch_setup",
+        "fsring_dispatch_vdo",
+        "fsring_dispatch_vdo_ioctl",
+        "fsring_dispatch_verify",
+        "fsring_dispatch_volume",
+        "fsring_driver_unload",
+        "fsring_process_loss",
+        "fsring_setup_callout",
+        "fsring_trace_enable_callback"
+      ],
+      "stagedTargets": [
+        "prepare_cq_release",
+        "commit_cq_release",
+        "bind_storage",
+        "borrow_consumer",
+        "cq_stream",
+        "bind_drain",
+        "bind_refusal",
+        "bind_cq_drain",
+        "try_peek",
+        "preflight_notify_shape",
+        "prepare_notify_commit",
+        "mutation_witness",
+        "credit_mutation_witness",
+        "has_conservative_notify_shape",
+        "names_an_arena_body",
+        "cursor_mut",
+        "serves",
+        "is_cq_domain",
+        "entry_bytes",
+        "bind_credit",
+        "prepare_credit_claim",
+        "read_out_control",
+        "grant_source_range",
+        "from_published",
+        "base_of",
+        "arena_offset",
+        "preflight_protocol",
+        "prepare_consumer_release",
+        "bind_mutation",
+        "protocol_mutation_witness",
+        "authenticated_locator",
+        "protocol_commit_witness",
+        "pop_packet_identity",
+        "packet_identity",
+        "into_consumer_token",
+        "commit_protocol_abort",
+        "reject_committed_protocol",
+        "complete_protocol_reject",
+        "into_terminal_record",
+        "prepare_protocol_terminal_claim",
+        "into_result",
+        "commit_protocol_claim",
+        "execute_effect",
+        "bind_native_storage",
+        "push_acquired",
+        "begin_release",
+        "pop_for_release",
+        "park_partial_release",
+        "finish_release",
+        "prepare_drain",
+        "restart_released_partial",
+        "restart_from_complete",
+        "drain_stable_prefixes_with_proof",
+        "retire_credits_with_proof",
+        "pair",
+        "record_failed_ring",
+        "into_release_proof",
+        "resume_effect",
+        "release_next",
+        "retry_point",
+        "drain_proof",
+        "into_terminal_authorities",
+        "release_protocol_join",
+        "release_opaque_protocol_join",
+        "prepare_protocol_terminal_reject",
+        "try_new_fence_retry_lifecycle",
+        "try_new_from_source",
+        "prepare_fence_retry",
+        "begin_fence_retry_run",
+        "lifecycle_state",
+        "begin_delay_dpc",
+        "queue_from_dpc",
+        "defer",
+        "prepare_complete",
+        "prepare_initial_complete",
+        "checked_retry_due_time_100ns",
+        "same_key_attempts",
+        "residual_retry_point",
+        "try_new_fence_residual",
+        "accumulate_failed_mask",
+        "residual_failed_mask",
+        "fail_stop_reason",
+        "due_time_100ns",
+        "same_point_attempts",
+        "into_queued_right",
+        "into_run_right",
+        "into_initial_binding",
+        "has_completed_consumers",
+        "has_pending_mount_bind",
+        "is_transient_native",
+        "from_invoked_native_refusal",
+        "from_invariant_refusal",
+        "allocate_fence_retry_lifecycle_id",
+        "commit_retry_complete",
+        "commit_initial_complete",
+        "into_initial_prepare_parts",
+        "into_defer_parts"
+      ],
+      "ambiguousUnstaged": {
+        "note": "Names Task 20 adds or touches that have more than one definition across driver/fsring-core/src and driver/fsring-fsd/src. Each is production-unreachable for the same reason its staged siblings are -- the CQ storage lane has no production caller at all, which is a statement about this tree and not a wait for a later task -- but a bare-identifier row on any of them would merge unrelated bodies and report a route that does not exist. Recorded rather than omitted so a later reader can tell a skipped name from an absent one. This sentence previously read `until Task 25`; Task 25 closed without binding the lane, so the bound was a promise rather than a measurement. The unreachability is measured by this gate's staged siblings and by the section 11 non-claim, neither of which names a future commit.",
+        "into_authority": 2,
+        "abort": 8,
+        "commit": 11,
+        "body": 7,
+        "sequence": 6,
+        "next_head": 6,
+        "brand": 20,
+        "source_range": 3,
+        "consumer_token": 2,
+        "abort_record": 2,
+        "error": 14,
+        "into_parts": 23,
+        "reason": 13,
+        "locator": 70,
+        "retry_key": 3,
+        "end_observation": 2
+      },
+      "forbiddenSymbols": [],
+      "forbiddenEdges": [],
+      "unstageableViaAmbiguousCaller": {
+        "note": "Symbols whose own name is unique but whose only caller's name is not. A row on one reports a route through the merged caller node into a body nobody staged. Their unreachability follows from their callers' -- every caller here is itself a staged commit suffix on the R5 lane -- and both halves of each excuse are checked above.",
+        "record_first_mutation": "commit"
+      }
+    },
+    "task19_r4_cutover_has_exactly_one_pending_terminal_delete_path": {
+      "profile": "r4-cutover",
+      "note": "Task 19's cutover gate, added RED exactly as Task 12's was and turned GREEN by the cutover commit. Its requiredReachable rows are the pending route Step 5b wires -- SETUP building and installing the runtime, the checkpoint depositing/queueing/draining it, the worker finalizing publication, and unload observing it -- and its forbiddenSymbols are the two legacy bridges Step 5b deletes. R4AuthorityAbsence is minted only for an artifact identity for which THIS gate and task20_24_r5_staging_is_production_unreachable both PASS, which is why the gate had to exist before the authority type did. The enum LegacyProviderDisposition is deliberately NOT a forbiddenSymbols row: that mechanism sees functions, and a row naming a type would sit there measuring nothing. Its deletion is covered by the two functions above, which were its only producers.",
+      "roots": [
+        "dispatch_default",
+        "driver_entry",
+        "fsring_dispatch_cleanup",
+        "fsring_dispatch_close",
+        "fsring_dispatch_create",
+        "fsring_dispatch_device_control",
+        "fsring_dispatch_enter",
+        "fsring_dispatch_file_system_control",
+        "fsring_dispatch_fscontrol",
+        "fsring_dispatch_mount",
+        "fsring_dispatch_provider",
+        "fsring_dispatch_setup",
+        "fsring_dispatch_vdo",
+        "fsring_dispatch_vdo_ioctl",
+        "fsring_dispatch_verify",
+        "fsring_dispatch_volume",
+        "fsring_driver_unload",
+        "fsring_process_loss",
+        "fsring_setup_callout",
+        "fsring_trace_enable_callback"
+      ],
+      "requiredReachable": [
+        "initialize_staged_pending_slot",
+        "fsring_pending_enter_timer_dpc",
+        "fsring_pending_enter_worker",
+        "finalize_native_pending_publication",
+        "observe_pending_for_unload",
+        "prepare_installed_ring_setup",
+        "commit_after_native_runtime_install",
+        "build_pending_slot_parts",
+        "begin_pending_runtime",
+        "finish_pending_runtime",
+        "queue_pending_worker",
+        "classify_worker_dequeue"
+      ],
+      "requiredDirectEdges": [],
+      "soleDirectCallers": [],
+      "deniedIngresses": [],
+      "stagedTargets": [],
+      "forbiddenSymbols": [
+        "publish_installed_setup_legacy",
+        "split_legacy_provider_disposition"
+      ],
+      "forbiddenEdges": [],
+      "forbiddenText": []
+    },
+    "task25_r5_cutover_has_exactly_one_all16_terminal_delete_path": {
+      "profile": "r5-cutover",
+      "note": "Task 25's cutover gate, added RED exactly as Task 12's and Task 19's were and turned GREEN by the cutover commit. requiredReachable rows are the unique staged names the cutover makes production-reachable; forbiddenSymbols are the unique checkpoint scheduler names it deletes; zeroRoster is the immutable 47-entry predecessor table. Direct try_new/resume/native edges are added once those unique owner-qualified nodes exist -- listing an absent KernelFenceOps::try_new here would raise AuditError before the R4 route could be reported as still reachable.",
+      "coverageBoundary": "Same bare-identifier edge model as the R3/R4/R5 staging gates for requiredReachable and forbiddenSymbols. Zero-roster rows are literal substring counts in stripped production source plus the closed compatibility-manifest set. requiredDirectEdges stay empty until the unique owner-qualified KernelFenceOps and native DDI nodes exist; an absent direct callee is an auditor error rather than a gate FAIL, and a RED that never names the still-live R4 scheduler is not the RED this gate exists to record.",
+      "roots": [
+        "dispatch_default",
+        "driver_entry",
+        "fsring_dispatch_cleanup",
+        "fsring_dispatch_close",
+        "fsring_dispatch_create",
+        "fsring_dispatch_device_control",
+        "fsring_dispatch_enter",
+        "fsring_dispatch_file_system_control",
+        "fsring_dispatch_fscontrol",
+        "fsring_dispatch_mount",
+        "fsring_dispatch_provider",
+        "fsring_dispatch_setup",
+        "fsring_dispatch_vdo",
+        "fsring_dispatch_vdo_ioctl",
+        "fsring_dispatch_verify",
+        "fsring_dispatch_volume",
+        "fsring_driver_unload",
+        "fsring_process_loss",
+        "fsring_setup_callout",
+        "fsring_trace_enable_callback"
+      ],
+      "requiredReachable": [
+        "execute_effect",
+        "drain_stable_prefixes_with_proof",
+        "retire_credits_with_proof",
+        "try_new_fence_retry_lifecycle",
+        "prepare_complete",
+        "prepare_initial_complete",
+        "commit_retry_complete",
+        "commit_initial_complete",
+        "prepare_fence_retry",
+        "begin_fence_retry_run",
+        "bind_native_storage"
+      ],
+      "requiredDirectEdges": [],
+      "soleDirectCallers": [],
+      "deniedIngresses": [],
+      "stagedTargets": [
+        "checkpoint_ledger_is_discharged",
+        "from_embedded_artifact",
+        "incomplete_from_refusal",
+        "into_preparation_refusal",
+        "preparation_refusal",
+        "with_absence"
+      ],
+      "ambiguousUnstaged": {
+        "note": "release_control_strong_ref has two definitions, both in driver/fsring-fsd/src/fence.rs, which the bare-identifier edge model makes one node, so stagedTargets refuses it. It is production-unreachable like the six stagedTargets the task09_11 note names, measured absent from every reachable edge at round 21. Pinned here so the excuse stays true: the day the two definitions become one, or the name is deleted, this entry fails as stale and a stagedTargets row is owed. The task09_11 note used to record it in prose that nothing checked (round-20 evidence review, E4).",
+        "release_control_strong_ref": 2
+      },
+      "forbiddenSymbols": [
+        "run_checkpoint_teardown",
+        "finish_checkpoint_teardown"
+      ],
+      "forbiddenEdges": [],
+      "forbiddenText": [],
+      "zeroRoster": [
+        "run_checkpoint_teardown",
+        "finish_checkpoint_teardown",
+        "R3TeardownComplete",
+        "R3AuthorityAbsence",
+        "R3PreparedCheckpointFinish",
+        "R3PreparedCheckpointFinish::prepare",
+        "R3FenceIncomplete",
+        "R3DeletionReadiness",
+        "R3FinalizerDeposit",
+        "R4TeardownComplete",
+        "R4AuthorityAbsence",
+        "R4PreparedCheckpointFinish",
+        "R4PreparedCheckpointFinish::prepare",
+        "R4ResidualLedger",
+        "R4FenceIncomplete",
+        "R4FenceIncomplete::BaseRefusal",
+        "R4FenceIncomplete::PendingRefusal",
+        "R4FenceIncomplete::PublicationBlocked",
+        "R4DeletionReadiness",
+        "R4FinalizerDeposit",
+        "PrepareCheckpointFinish",
+        "CheckpointTerminalBlocked",
+        "CheckpointTerminalBlocked::R3",
+        "CheckpointTerminalBlocked::R4",
+        "MountRegistry",
+        ".mounts",
+        "claim_by_process",
+        "fence_all",
+        "live_count",
+        "fence_bound_session",
+        "run_provisional_fence",
+        "LegacyCompletedFenceAdapter",
+        "LegacyFinalizerDepositView",
+        "LegacyFenceNotRepresentable",
+        "LegacyCompletedFenceAdapter::from_completed_only",
+        "LegacyCompletedFenceAdapter::try_from_outcome",
+        "publish_installed_setup_legacy",
+        "LegacyProviderDisposition",
+        "split_legacy_provider_disposition",
+        "ALLOW_CHECKPOINT_TEARDOWN_PRODUCTION_EDGE",
+        "ALLOW_LEGACY_SETUP_PUBLISHER_PRODUCTION_EDGE",
+        "ALLOW_LEGACY_PROVIDER_DISPOSITION_PRODUCTION_EDGE",
+        "ALLOW_PROVISIONAL_FENCE_PRODUCTION_EDGE",
+        "run_terminal -> run_checkpoint_teardown",
+        "run_terminal -> R3PreparedCheckpointFinish::prepare",
+        "run_terminal -> R4PreparedCheckpointFinish::prepare",
+        "run_terminal -> finish_checkpoint_teardown",
+        "run_terminal -> run_provisional_fence",
+        "run_provisional_fence -> package_completed_fence",
+        "run_provisional_fence -> LegacyCompletedFenceAdapter::from_completed_only",
+        "LegacyCompletedFenceAdapter::try_from_outcome -> LegacyFinalizerDepositView::Completed",
+        "execute_setup -> publish_installed_setup_legacy",
+        "fsring_dispatch_provider -> split_legacy_provider_disposition"
+      ],
+      "zeroRosterFiles": [
+        "driver/audit/c4-imports-win10-x64.json",
+        "driver/audit/c4-imports-win10-arm64.json",
+        "driver/audit/c4-imports-win7-x64.json",
+        "driver/audit/win10-imports.allow",
+        "driver/audit/win7-sp1-imports.allow",
+        "driver/audit/c4-stack-roots.json"
+      ]
+    }
+  }
+}

@@ -1,0 +1,9 @@
+E0451
+field `table_id` of struct `ControlRelease` is private
+field `slot_index` of struct `ControlRelease` is private
+field `lane` of struct `ControlRelease` is private
+field `birth_session_epoch` of struct `ControlRelease` is private
+field `birth_generation` of struct `ControlRelease` is private
+field `terminal_wire_session_epoch` of struct `ControlRelease` is private
+field `terminal_req_id` of struct `ControlRelease` is private
+field `terminal_kind` of struct `ControlRelease` is private

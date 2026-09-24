@@ -1,0 +1,31 @@
+E0603
+struct `RequestTableId` is private
+E0451
+field `table_id` of struct `ApplicationCapture` is private
+field `slot_index` of struct `ApplicationCapture` is private
+field `birth_session_epoch` of struct `ApplicationCapture` is private
+field `birth_generation` of struct `ApplicationCapture` is private
+field `wire_session_epoch` of struct `ApplicationCapture` is private
+field `req_id` of struct `ApplicationCapture` is private
+field `expected_opcode` of struct `ApplicationCapture` is private
+field `table_id` of struct `ControlCapture` is private
+field `slot_index` of struct `ControlCapture` is private
+field `lane` of struct `ControlCapture` is private
+field `birth_session_epoch` of struct `ControlCapture` is private
+field `birth_generation` of struct `ControlCapture` is private
+field `wire_session_epoch` of struct `ControlCapture` is private
+field `req_id` of struct `ControlCapture` is private
+field `expected_opcode` of struct `ControlCapture` is private
+field `table_id` of struct `CapturedApplication` is private
+field `slot_index` of struct `CapturedApplication` is private
+field `birth_session_epoch` of struct `CapturedApplication` is private
+field `birth_generation` of struct `CapturedApplication` is private
+field `wire_session_epoch` of struct `CapturedApplication` is private
+field `req_id` of struct `CapturedApplication` is private
+field `table_id` of struct `CapturedControl` is private
+field `slot_index` of struct `CapturedControl` is private
+field `lane` of struct `CapturedControl` is private
+field `birth_session_epoch` of struct `CapturedControl` is private
+field `birth_generation` of struct `CapturedControl` is private
+field `wire_session_epoch` of struct `CapturedControl` is private
+field `req_id` of struct `CapturedControl` is private

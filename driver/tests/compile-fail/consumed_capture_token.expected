@@ -1,0 +1,5 @@
+E0382
+use of moved value: `application_token`
+use of moved value: `control_token`
+use of moved value: `captured_application`
+use of moved value: `captured_control`

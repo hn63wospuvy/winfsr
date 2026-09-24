@@ -1,0 +1,28 @@
+[package]
+name = "fsring-user"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.82"
+description = "FSRING daemon-side std/OS ring transport runtime built on the frozen fsring-abi wire contract."
+
+[features]
+default = []
+# The kernel-role harness (section construction, SQE submission, CQE reaping).
+# Non-default so it never ships in a production daemon build.
+testkit = []
+
+[dependencies]
+fsring-abi = { path = "../fsring-abi" }
+
+[dev-dependencies]
+# Integration tests build wire bodies (SqeBody/CqeBody) directly.
+fsring-abi = { path = "../fsring-abi" }
+
+# Loom model-checks the park/wake handoff. Only pulled under `--cfg loom`
+# (the lib module `loom_model` uses it, so it is a dependency, not a dev-dep):
+#   RUSTFLAGS="--cfg loom" cargo test --offline loom
+[target.'cfg(loom)'.dependencies]
+loom = "=0.7.2"
+
+[lints.rust]
+unexpected_cfgs = { level = "warn", check-cfg = ['cfg(loom)'] }

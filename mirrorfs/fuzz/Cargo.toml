@@ -1,0 +1,42 @@
+[package]
+name = "mirrorfs-fuzz"
+version = "0.0.0"
+publish = false
+edition = "2021"
+
+[package.metadata]
+cargo-fuzz = true
+
+[dependencies]
+libfuzzer-sys = "0.4"
+mirrorfs = { path = "..", features = ["fuzzing"] }
+
+[[bin]]
+name = "path"
+path = "fuzz_targets/path.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "status"
+path = "fuzz_targets/status.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "identity"
+path = "fuzz_targets/identity.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "pending"
+path = "fuzz_targets/pending.rs"
+test = false
+doc = false
+bench = false
+
+[workspace]

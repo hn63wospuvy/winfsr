@@ -1,0 +1,308 @@
+# Windows-7-SP1 import allowlist (11-rust-implementation.md section 8).
+# One "module!symbol" per line, case-insensitive; '#' starts a comment.
+#
+# This file proves "no import outside the reviewed set". It does NOT prove
+# every entry is genuinely Windows-7-SP1-exported: no Windows 7 SP1 binary is
+# available on this machine, so each provenance note below is an assertion
+# recorded for review, not a measurement (design section 11, risk 4).
+#
+# ntoskrnl.exe!DbgPrint - present since Windows NT 3.1; long predates 7 SP1.
+ntoskrnl.exe!DbgPrint
+#
+# Added by slice A3, from the built Win7 image's actual import table. Each
+# provenance note below is an ASSERTION recorded for review, not a measurement:
+# no Windows 7 SP1 binary is available on this machine (see the file header).
+#
+# ntoskrnl.exe!ExAllocatePoolWithTag - wdm.h declares it gated at NTDDI_WIN2K,
+#   i.e. Windows 2000 and later; it is the documented pool allocator on the
+#   Win7 baseline and is why this driver static-imports it rather than the
+#   post-1507 ExAllocatePool2.
+ntoskrnl.exe!ExAllocatePoolWithTag
+# ntoskrnl.exe!ExFreePoolWithTag - the matching free, same NTDDI_WIN2K gate.
+ntoskrnl.exe!ExFreePoolWithTag
+# ntoskrnl.exe!MmGetSystemRoutineAddress - present since Windows 2000; it is
+#   the mechanism 11-rust-implementation.md section 3 mandates for reaching a
+#   post-baseline DDI, so it must itself be a baseline import.
+ntoskrnl.exe!MmGetSystemRoutineAddress
+# ksecdd.sys!BCryptGenRandom - kernel CNG. 11-rust-implementation.md section 4
+#   states it "is available to the Win7 profile as well". That sentence is the
+#   provenance; it has not been verified against a Windows 7 SP1 machine here,
+#   and it is the entry in this file whose assertion carries the most weight.
+ksecdd.sys!BCryptGenRandom
+
+# Slice C3 direct imports measured from the built Win7X64 image. The C3 x64 and
+# ARM64 package link maps attribute these import thunks to ntoskrnl.lib, not to
+# the static Wdmsec archive; the Win7 image independently measures their
+# presence. Header lines are from installed WDK 10.0.26100; each NTDDI gate
+# predates Windows 7 SP1: exactly four rundown imports are gated at NTDDI_WINXP
+# and the other eight are gated at NTDDI_WIN2K. These are documented/header-
+# gate baseline assertions, not measurements against a Windows 7 kernel.
+#
+# ntoskrnl.exe!ExAcquireRundownProtection - direct ntoskrnl.lib;
+#   wdm.h:27868, gated at NTDDI_WINXP, below Win7 SP1.
+ntoskrnl.exe!ExAcquireRundownProtection
+# ntoskrnl.exe!ExInitializeRundownProtection - direct ntoskrnl.lib;
+#   wdm.h:27844, gated at NTDDI_WINXP, below Win7 SP1.
+ntoskrnl.exe!ExInitializeRundownProtection
+# ntoskrnl.exe!ExReleaseRundownProtection - direct ntoskrnl.lib;
+#   wdm.h:27894, gated at NTDDI_WINXP, below Win7 SP1.
+ntoskrnl.exe!ExReleaseRundownProtection
+# ntoskrnl.exe!ExReInitializeRundownProtection - direct ntoskrnl.lib;
+#   wdm.h:27855, gated at NTDDI_WINXP, below Win7 SP1.
+ntoskrnl.exe!ExReInitializeRundownProtection
+# ntoskrnl.exe!ExWaitForRundownProtectionRelease - direct ntoskrnl.lib;
+#   wdm.h:27930, gated at NTDDI_WINXP, below Win7 SP1.
+ntoskrnl.exe!ExWaitForRundownProtectionRelease
+# ntoskrnl.exe!IoCreateSymbolicLink - direct ntoskrnl.lib; wdm.h:34462,
+#   gated at NTDDI_WIN2K, below Win7 SP1.
+ntoskrnl.exe!IoCreateSymbolicLink
+# ntoskrnl.exe!IoDeleteDevice - direct ntoskrnl.lib; wdm.h:34493, gated at
+#   NTDDI_WIN2K, below Win7 SP1.
+ntoskrnl.exe!IoDeleteDevice
+# ntoskrnl.exe!IoQueueWorkItem - direct ntoskrnl.lib;
+#   wdm.h:35844, gated at NTDDI_WIN2K, below Win7 SP1.
+ntoskrnl.exe!IoQueueWorkItem
+# ntoskrnl.exe!IoDeleteSymbolicLink - direct ntoskrnl.lib; wdm.h:34502,
+#   gated at NTDDI_WIN2K, below Win7 SP1.
+ntoskrnl.exe!IoDeleteSymbolicLink
+# ntoskrnl.exe!IofCompleteRequest - direct ntoskrnl.lib; wdm.h:33854, gated at
+#   NTDDI_WIN2K, below Win7 SP1.
+ntoskrnl.exe!IofCompleteRequest
+# ntoskrnl.exe!IoGetRequestorProcess - direct ntoskrnl.lib; ntifs.h:20323,
+#   gated at NTDDI_WIN2K, below Win7 SP1.
+ntoskrnl.exe!IoGetRequestorProcess
+# ntoskrnl.exe!KeBugCheckEx - direct ntoskrnl.lib; wdm.h:24433, gated at
+#   NTDDI_WIN2K, below Win7 SP1.
+ntoskrnl.exe!KeBugCheckEx
+# ntoskrnl.exe!ObfDereferenceObject - direct ntoskrnl.lib; wdm.h:43356,
+#   gated at NTDDI_WIN2K, below Win7 SP1.
+ntoskrnl.exe!ObfDereferenceObject
+# ntoskrnl.exe!ObfReferenceObject - direct ntoskrnl.lib; wdm.h:43310, gated at
+#   NTDDI_WIN2K, below Win7 SP1.
+ntoskrnl.exe!ObfReferenceObject
+
+# Task 6 permanent-root imports. The final link retains exactly these three
+# newly selected generated DDIs. Provenance is the installed WDK 10.0.26100;
+# each public declaration is gated at NTDDI_WIN2K, below Windows 7 SP1. These
+# are header-gate assertions, not live measurements against a Win7 kernel.
+#
+# ntoskrnl.exe!IoAllocateWorkItem - direct ntoskrnl.lib; WDK 10.0.26100 wdm.h:35830; gate NTDDI_WIN2K.
+ntoskrnl.exe!IoAllocateWorkItem
+# ntoskrnl.exe!IoFreeWorkItem - direct ntoskrnl.lib; WDK 10.0.26100 wdm.h:35837; gate NTDDI_WIN2K.
+ntoskrnl.exe!IoFreeWorkItem
+# ntoskrnl.exe!KeInitializeSpinLock - direct ntoskrnl.lib; WDK 10.0.26100 wdm.h:23646; gate NTDDI_WIN2K.
+ntoskrnl.exe!KeInitializeSpinLock
+
+# Task 19 R4 cutover imports. SETUP now builds each session's pending-ENTER
+# runtime; initializing one slot publishes its cancel-safe queue and initializes
+# the timer and DPC it will only arm for a finite WAIT. Provenance is the
+# installed WDK 10.0.26100, and as everywhere in this file these are header-gate
+# assertions recorded for review, not measurements against a Win7 SP1 kernel.
+#
+# ntoskrnl.exe!IoCsqInitialize - direct ntoskrnl.lib; WDK 10.0.26100 wdm.h:36302;
+#   gate NTDDI_WINXP, i.e. Windows XP and later, below Windows 7 SP1. The
+#   non-Ex form: the Ex variants are declared in fsring-sys and deliberately
+#   uncalled, so neither appears here.
+ntoskrnl.exe!IoCsqInitialize
+# ntoskrnl.exe!IoCsqInsertIrp - direct ntoskrnl.lib; WDK 10.0.26100 wdm.h; gate
+#   NTDDI_WINXP, below Windows 7 SP1. Void non-Ex insert; the Ex form stays
+#   uncalled.
+ntoskrnl.exe!IoCsqInsertIrp
+# ntoskrnl.exe!IoCsqRemoveIrp - direct ntoskrnl.lib; WDK 10.0.26100 wdm.h; gate
+#   NTDDI_WINXP. Sole non-cancel dequeue.
+ntoskrnl.exe!IoCsqRemoveIrp
+# ntoskrnl.exe!KeInitializeDpc - direct ntoskrnl.lib; WDK 10.0.26100 wdm.h:22978; gate NTDDI_WIN2K.
+ntoskrnl.exe!KeInitializeDpc
+# ntoskrnl.exe!KeInitializeTimer - direct ntoskrnl.lib; WDK 10.0.26100 wdm.h:23498; gate NTDDI_WIN2K.
+ntoskrnl.exe!KeInitializeTimer
+# ntoskrnl.exe!KeDelayExecutionThread - direct ntoskrnl.lib; WDK 10.0.26100
+#   wdm.h:23317; gate NTDDI_WIN2K, i.e. Windows 2000 and later, below Win7 SP1.
+ntoskrnl.exe!KeDelayExecutionThread
+# The Task 19 block above also names IoCsqInitialize, KeInitializeDpc and
+# KeInitializeTimer; this fourth entry arrived with the bounded drain wait.
+
+# Slice C3 static-Wdmsec imports measured from the built Win7X64 image. The C3
+# x64 and ARM64 package link maps attribute these ntoskrnl.exe import thunks to
+# code pulled from wdmsec.lib; the Win7 image independently measures their
+# presence, and wdmsec.sys is not a runtime module. Microsoft documents
+# WdmlibIoCreateDeviceSecure plus Wdmsec.lib for Windows 2000 and later, below
+# Windows 7 SP1. Public header gates below independently predate Win7 SP1.
+# "Wdmsec Win2K+ contract" names that documented baseline where the public
+# declaration is ungated or private. Exactly 16 declarations are gated at
+# NTDDI_WIN2K, three at NTDDI_WS03SP1, three public declarations are ungated,
+# three kernel-CRT declarations are ungated, and two imports are archive-only.
+# The last eight use that Wdmsec contract rather than an invented per-symbol
+# NTDDI gate. None is live Win7 export/load evidence.
+#
+# ntoskrnl.exe!_snwprintf - static wdmsec.lib; kernel CRT declaration at
+#   km/crt/stdio.h:502; no NTDDI gate, with the Wdmsec Win2K+ contract.
+ntoskrnl.exe!_snwprintf
+# ntoskrnl.exe!_wcsnicmp - static wdmsec.lib; kernel CRT declaration at
+#   km/crt/string.h:348; no NTDDI gate, with the Wdmsec Win2K+ contract.
+ntoskrnl.exe!_wcsnicmp
+# ntoskrnl.exe!IoCreateDevice - static wdmsec.lib; wdm.h:34390, gated at
+#   NTDDI_WIN2K, below Win7 SP1.
+ntoskrnl.exe!IoCreateDevice
+# ntoskrnl.exe!IoDeviceObjectType - static wdmsec.lib data import; no public
+#   WDK-header declaration was found. The installed x64 and ARM64 archive
+#   indexes both contain __imp_IoDeviceObjectType; baseline is the Wdmsec
+#   Win2K+ contract.
+ntoskrnl.exe!IoDeviceObjectType
+# ntoskrnl.exe!IoIsWdmVersionAvailable - static wdmsec.lib; wdm.h:34415,
+#   gated at NTDDI_WIN2K, below Win7 SP1.
+ntoskrnl.exe!IoIsWdmVersionAvailable
+# ntoskrnl.exe!ObOpenObjectByPointer - static wdmsec.lib; ntifs.h:21395,
+#   gated at NTDDI_WIN2K, below Win7 SP1.
+ntoskrnl.exe!ObOpenObjectByPointer
+# ntoskrnl.exe!RtlAbsoluteToSelfRelativeSD - static wdmsec.lib; ntifs.h:4248,
+#   gated at NTDDI_WS03SP1, below Win7 SP1.
+ntoskrnl.exe!RtlAbsoluteToSelfRelativeSD
+# ntoskrnl.exe!RtlAddAccessAllowedAce - static wdmsec.lib; ntifs.h:4151,
+#   gated at NTDDI_WIN2K, below Win7 SP1.
+ntoskrnl.exe!RtlAddAccessAllowedAce
+# ntoskrnl.exe!RtlCreateSecurityDescriptor - static wdmsec.lib; wdm.h:16366,
+#   gated at NTDDI_WIN2K, below Win7 SP1.
+ntoskrnl.exe!RtlCreateSecurityDescriptor
+# ntoskrnl.exe!RtlFreeUnicodeString - static wdmsec.lib; public declaration at
+#   wdm.h:14396; ungated, with the Wdmsec Win2K+ contract.
+ntoskrnl.exe!RtlFreeUnicodeString
+# ntoskrnl.exe!RtlGetDaclSecurityDescriptor - static wdmsec.lib;
+#   ntifs.h:4192, gated at NTDDI_WIN2K, below Win7 SP1.
+ntoskrnl.exe!RtlGetDaclSecurityDescriptor
+# ntoskrnl.exe!RtlGetGroupSecurityDescriptor - static wdmsec.lib;
+#   ntifs.h:4233, gated at NTDDI_WS03SP1, below Win7 SP1.
+ntoskrnl.exe!RtlGetGroupSecurityDescriptor
+# ntoskrnl.exe!RtlGetOwnerSecurityDescriptor - static wdmsec.lib;
+#   ntifs.h:4280, gated at NTDDI_WIN2K, below Win7 SP1.
+ntoskrnl.exe!RtlGetOwnerSecurityDescriptor
+# ntoskrnl.exe!RtlGetSaclSecurityDescriptor - static wdmsec.lib;
+#   ntifs.h:4018, gated at NTDDI_WS03SP1, below Win7 SP1.
+ntoskrnl.exe!RtlGetSaclSecurityDescriptor
+# ntoskrnl.exe!RtlInitUnicodeString - static wdmsec.lib; public declaration at
+#   wdm.h:13849; ungated, with the Wdmsec Win2K+ contract.
+ntoskrnl.exe!RtlInitUnicodeString
+# ntoskrnl.exe!RtlLengthSecurityDescriptor - static wdmsec.lib; wdm.h:16389,
+#   gated at NTDDI_WIN2K, below Win7 SP1.
+ntoskrnl.exe!RtlLengthSecurityDescriptor
+# ntoskrnl.exe!RtlLengthSid - static wdmsec.lib; ntifs.h:3983, gated at
+#   NTDDI_WIN2K, below Win7 SP1.
+ntoskrnl.exe!RtlLengthSid
+# ntoskrnl.exe!RtlSetDaclSecurityDescriptor - static wdmsec.lib; wdm.h:16413,
+#   gated at NTDDI_WIN2K, below Win7 SP1.
+ntoskrnl.exe!RtlSetDaclSecurityDescriptor
+# ntoskrnl.exe!SeCaptureSecurityDescriptor - static wdmsec.lib; no public
+#   WDK-header declaration was found. The installed x64 and ARM64 archive
+#   indexes both contain __imp_SeCaptureSecurityDescriptor; baseline is the
+#   Wdmsec Win2K+ contract.
+ntoskrnl.exe!SeCaptureSecurityDescriptor
+# ntoskrnl.exe!SeExports - static wdmsec.lib data import; public declaration at
+#   ntifs.h:19454; ungated, with the Wdmsec Win2K+ contract.
+ntoskrnl.exe!SeExports
+# ntoskrnl.exe!wcschr - static wdmsec.lib; kernel CRT declaration at
+#   km/crt/string.h:281; no NTDDI gate, with the Wdmsec Win2K+ contract.
+ntoskrnl.exe!wcschr
+# ntoskrnl.exe!ZwClose - static wdmsec.lib; wdm.h:45405, gated at NTDDI_WIN2K,
+#   below Win7 SP1.
+ntoskrnl.exe!ZwClose
+# ntoskrnl.exe!ZwCreateKey - static wdmsec.lib; wdm.h:45522, gated at
+#   NTDDI_WIN2K, below Win7 SP1.
+ntoskrnl.exe!ZwCreateKey
+# ntoskrnl.exe!ZwOpenKey - static wdmsec.lib; wdm.h:45604, gated at
+#   NTDDI_WIN2K, below Win7 SP1.
+ntoskrnl.exe!ZwOpenKey
+# ntoskrnl.exe!ZwQueryValueKey - static wdmsec.lib; wdm.h:45753, gated at
+#   NTDDI_WIN2K, below Win7 SP1.
+ntoskrnl.exe!ZwQueryValueKey
+# ntoskrnl.exe!ZwSetSecurityObject - static wdmsec.lib; ntifs.h:31576, gated
+#   at NTDDI_WIN2K, below Win7 SP1.
+ntoskrnl.exe!ZwSetSecurityObject
+# ntoskrnl.exe!ZwSetValueKey - static wdmsec.lib; wdm.h:45826, gated at
+#   NTDDI_WIN2K, below Win7 SP1.
+ntoskrnl.exe!ZwSetValueKey
+
+# --- C4 additions, measured 2026-08-05 -------------------------------
+#
+# Every symbol below was observed in the final release image of all
+# three profiles by `llvm-readobj --coff-imports`, and is frozen
+# positively in driver/audit/c4-imports-*.json. This file grants
+# permission; the manifests prove presence. Permission alone is not
+# evidence that a required DDI is still linked.
+ntoskrnl.exe!EtwRegister
+ntoskrnl.exe!EtwUnregister
+ntoskrnl.exe!EtwWrite
+ntoskrnl.exe!ExEventObjectType
+ntoskrnl.exe!IoAcquireVpbSpinLock
+ntoskrnl.exe!IoAllocateMdl
+ntoskrnl.exe!IoBuildPartialMdl
+ntoskrnl.exe!IoFreeMdl
+ntoskrnl.exe!IoRegisterFileSystem
+ntoskrnl.exe!IoReleaseVpbSpinLock
+ntoskrnl.exe!IoUnregisterFileSystem
+# ntoskrnl.exe!KeCancelTimer - direct ntoskrnl.lib; WDK 10.0.26100 wdm.h; gate
+#   NTDDI_WIN2K. The R6 parked-WAIT repair cancels a finite WAIT's timer at the
+#   completion's CancelTimer stage. Without it an armed timer stayed queued
+#   while the pool holding its KTIMER and KDPC was freed. The DDI's BOOLEAN is
+#   what decides who owns the DPC, so it is fed straight into
+#   `TimerState::cancel` rather than inferred.
+ntoskrnl.exe!KeCancelTimer
+ntoskrnl.exe!KeEnterCriticalRegion
+ntoskrnl.exe!KeInitializeEvent
+ntoskrnl.exe!KeLeaveCriticalRegion
+ntoskrnl.exe!KeReadStateEvent
+ntoskrnl.exe!KeSetEvent
+# ntoskrnl.exe!KeSetTimer - direct ntoskrnl.lib; WDK 10.0.26100 wdm.h; gate
+#   NTDDI_WIN2K, i.e. Windows 2000 and later, below Win7 SP1. Task 25 residual
+#   retry arms the parked KTIMER after the registry lock is dropped.
+ntoskrnl.exe!KeSetTimer
+ntoskrnl.exe!KeStackAttachProcess
+ntoskrnl.exe!KeUnstackDetachProcess
+ntoskrnl.exe!KeWaitForSingleObject
+ntoskrnl.exe!MmMapLockedPagesSpecifyCache
+ntoskrnl.exe!MmMapViewInSystemSpace
+ntoskrnl.exe!MmProbeAndLockPages
+ntoskrnl.exe!MmSectionObjectType
+ntoskrnl.exe!MmUnlockPages
+ntoskrnl.exe!MmUnmapLockedPages
+ntoskrnl.exe!MmUnmapViewInSystemSpace
+ntoskrnl.exe!ObGetObjectSecurity
+ntoskrnl.exe!ObReferenceObjectByHandle
+ntoskrnl.exe!ObReleaseObjectSecurity
+ntoskrnl.exe!PsSetCreateProcessNotifyRoutineEx
+ntoskrnl.exe!ZwCreateEvent
+ntoskrnl.exe!ZwCreateSection
+ntoskrnl.exe!ZwMakeTemporaryObject
+ntoskrnl.exe!ZwMapViewOfSection
+ntoskrnl.exe!ZwOpenEvent
+ntoskrnl.exe!ZwOpenSection
+ntoskrnl.exe!ZwQuerySection
+ntoskrnl.exe!ZwUnmapViewOfSection
+ntoskrnl.exe!__C_specific_handler
+ntoskrnl.exe!__chkstk
+
+# Slice C4.2. ntoskrnl.exe!KeExpandKernelStackAndCallout - ntddk.h:9822, gated
+#   at NTDDI_WS03SP1, i.e. Windows Server 2003 SP1 and later, which predates
+#   Windows 7 SP1. As with every entry in this file, that gate is a reading of
+#   the installed kit's header, not a measurement against a Windows 7 SP1
+#   kernel; no such binary is available on this machine.
+ntoskrnl.exe!KeExpandKernelStackAndCallout
+
+# C4 recovery Task 8. Four DDIs the checked-locator access path executes for the
+# first time. Each gate below is a reading of the installed WDK 10.0.26100
+# headers, not a measurement against a shipped kernel.
+#
+# ntoskrnl.exe!KeAcquireSpinLockRaiseToDpc - wdm.h:23805, gated at NTDDI_WIN2K.
+#   The per-ring slot lock the access guard takes before it projects ENTER
+#   role state.
+ntoskrnl.exe!KeAcquireSpinLockRaiseToDpc
+# ntoskrnl.exe!KeReleaseSpinLock - wdm.h:23816, gated at NTDDI_WIN2K. The
+#   registry and per-ring release, always at the exact IRQL the acquire
+#   returned.
+ntoskrnl.exe!KeReleaseSpinLock
+# ntoskrnl.exe!KeClearEvent - wdm.h:23194, ungated in the header, like
+#   KeInitializeEvent beside it. CREATE resets the two per-file SETUP events
+#   before a SETUP can arm them.
+ntoskrnl.exe!KeClearEvent
+# ntoskrnl.exe!ExRundownCompleted - wdm.h:27918, gated at NTDDI_WINXP. Permanently
+#   closes the never-published access rundown of a cell retired at generation
+#   u64::MAX; that cell is never reused, so the rundown is never reinitialized.
+ntoskrnl.exe!ExRundownCompleted

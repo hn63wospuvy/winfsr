@@ -1,0 +1,17 @@
+[package]
+name = "mirrorfs"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.82"
+description = "Windows NTFS-backed filesystem provider for fsring-user."
+
+[features]
+default = []
+fuzzing = []
+
+[dependencies]
+fsring-user = { path = "../fsring-user" }
+fsring-abi = { path = "../fsring-abi" }
+
+[dev-dependencies]
+fsring-user = { path = "../fsring-user", features = ["testkit"] }

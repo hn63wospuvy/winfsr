@@ -1,0 +1,2 @@
+E0423
+cannot initialize a tuple struct which contains private fields

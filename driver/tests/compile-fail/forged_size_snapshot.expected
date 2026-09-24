@@ -1,0 +1,4 @@
+E0451
+field `owner` of struct `fsring_core::pagingledger::SizeSnapshot` is private
+field `trio` of struct `fsring_core::pagingledger::SizeSnapshot` is private
+field `size_epoch` of struct `fsring_core::pagingledger::SizeSnapshot` is private

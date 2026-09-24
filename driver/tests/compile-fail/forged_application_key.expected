@@ -1,0 +1,5 @@
+E0451
+field `table_id` of struct `ApplicationKey` is private
+field `slot_index` of struct `ApplicationKey` is private
+field `birth_session_epoch` of struct `ApplicationKey` is private
+field `birth_generation` of struct `ApplicationKey` is private
