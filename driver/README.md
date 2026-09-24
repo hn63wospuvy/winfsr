@@ -16,21 +16,8 @@ MOUNT/VERIFY/dismount against a separate filesystem registration device. C4 is
 2026-08-07 (see the C4 status section below). Request round trips over the
 established rings, the filesystem object model, cache/MM, PT, and data-path
 lifecycle call sites remain unwired.
-Designs:
-`../docs/superpowers/specs/2026-07-24-fsring-driver-toolchain-bringup-design.md`
-(slice 1),
-`../docs/superpowers/specs/2026-07-25-fsring-driver-abi-wiring-platform-profile-design.md`
-(slice A1) and
-`../docs/superpowers/specs/2026-07-25-fsring-driver-core-crate-proof-harness-design.md`
-(slice A2), and
-`../docs/superpowers/specs/2026-07-28-fsring-driver-c1-held-context-effect-seam-design.md`
-(slice C1, the first of Phase C), and
-`../docs/superpowers/specs/2026-07-28-fsring-driver-c2-control-device-decidable-half-design.md`
-(slice C2), and
-`../docs/superpowers/specs/2026-07-29-fsring-driver-c3-native-control-smoke-design.md`
-(slice C3), and
-`../docs/superpowers/specs/2026-08-04-fsring-driver-c4-native-session-transport-foundation-design.md`
-(slice C4).
+The normative design is `../docs/design/`; `11-rust-implementation.md` covers
+the driver's crate boundaries, WDK integration, build and packaging.
 
 ## Slice C4 status — source-complete claim withdrawn 2026-08-07, not natively verified
 
@@ -47,8 +34,6 @@ PowerShell self-tests. **None of them loads a driver.**
 > frozen bound. Slice C4.2 has since closed that specific gap (see the
 > `audit_c4_*` section below); re-establishing `C4_SOURCE_COMPLETE` itself
 > remains a judgement for that slice's gate review and is not asserted here.
-> Numbers and causes:
-> `../docs/superpowers/reviews/evidence/2026-08-07-c4-1a-frame-measurement.md`.
 
 `C4_NATIVE_VERIFIED` requires one public `fsring-control-smoke/v2` PASS from a
 real live run on a separately provisioned elevated x64 host with test signing
@@ -435,17 +420,12 @@ direction it is counted against a frozen census and reported only in excess.
 **Neither auditor's own checks were visible to anything before slice C4.1a.**
 The production path ran neither self-test and the self-test path ran no real
 audit, so a check replaced by `pass` stayed green in both. Both scripts are now
-targets of `mutation_sweep.py --suite c4`; which of their decisions a fixture
-drives, which are proven by a named mutant, and which are measured-uncovered is
-recorded in
-`../docs/superpowers/reviews/evidence/2026-08-07-c4-1a-decision-signal.md`.
+targets of `mutation_sweep.py --suite c4`.
 
 **Current result: the stack audit PASSES on all three profiles.** Correcting
 the frame measurement (slice C4.1a) had raised three roots on x64 and Win7 and
 one on ARM64 above a frozen bound — a `fsring_dispatch_setup` frame of about
-6 KB and a dispatch chain of about 23 KB against the 2048/8192 global pair;
-numbers and causes are in
-`../docs/superpowers/reviews/evidence/2026-08-07-c4-1a-frame-measurement.md`.
+6 KB and a dispatch chain of about 23 KB against the 2048/8192 global pair.
 Slice C4.2 closed that gap by declaring `fsring_setup_callout` — the function
 that does SETUP's own ~23 KB of validation — an **expansion root**: it runs on
 a stack `fsring_dispatch_setup` requests through `KeExpandKernelStackAndCallout`
@@ -459,10 +439,7 @@ the new root is judged by its own declared pair. The auditor's `--imports`
 argument (a profile's frozen imports manifest, now threaded through
 `build_matrix.cmd`'s three invocations) additionally lets it check: an
 expansion root whose declared DDI is not a present import, or whose declared
-caller has no call edge to it, is refused. The after-measurement, the ten
-enforced decisions and the three measured-uncovered boundaries are in
-`../docs/superpowers/reviews/evidence/2026-08-08-c4-2-frame-measurement.md` and
-`../docs/superpowers/reviews/evidence/2026-08-07-c4-1a-decision-signal.md` §7.
+caller has no call edge to it, is refused.
 
 ## The core crate and the host proof harness
 

@@ -46,10 +46,10 @@ The checked-in `include/fsring_abi.h` is generated output. Install and invoke
 the pinned generator from the repository root:
 
 ```powershell
-cargo install cbindgen --version 0.29.4 --locked --root .superpowers/sdd/tools/cbindgen-0.29.4
+cargo install cbindgen --version 0.29.4 --locked --root target/tools/cbindgen-0.29.4
 Push-Location fsring-abi
-../.superpowers/sdd/tools/cbindgen-0.29.4/bin/cbindgen.exe --config cbindgen.toml --output include/fsring_abi.h .
-../.superpowers/sdd/tools/cbindgen-0.29.4/bin/cbindgen.exe --quiet --verify --config cbindgen.toml --output include/fsring_abi.h .
+../target/tools/cbindgen-0.29.4/bin/cbindgen.exe --config cbindgen.toml --output include/fsring_abi.h .
+../target/tools/cbindgen-0.29.4/bin/cbindgen.exe --quiet --verify --config cbindgen.toml --output include/fsring_abi.h .
 Pop-Location
 ```
 
